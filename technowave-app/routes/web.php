@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +23,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::view('/test', 'template0/homepage');
+Route::view('/homepage', 'template0/homepage');
+
+//Route to Store Page
+Route::get('/store', [ProductController::class, 'index']);
+

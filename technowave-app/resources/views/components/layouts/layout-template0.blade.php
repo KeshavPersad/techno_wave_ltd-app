@@ -29,13 +29,13 @@
         <div class="mercado-panels"></div>
     </div>
 
-    <x-template0.mainheader/>
+    <x-template0.header/>
 
     <x-core.alert/>
 
     {{$slot}}
 
-    <x-template0.mainfooter/>
+    <x-template0.footer/>
 
 
 	
