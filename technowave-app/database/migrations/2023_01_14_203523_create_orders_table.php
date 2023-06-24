@@ -8,30 +8,31 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table){
-
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->decimal('subtotal', $precision = 7, $scale = 2);
             $table->decimal('total', $precision = 7, $scale = 2);
             $table->string('payment')->default('none');
             $table->string('payment_id')->default('none');
-
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
-
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void{
-
+    public function down()
+    {
         Schema::dropIfExists('orders');
     }
 };
