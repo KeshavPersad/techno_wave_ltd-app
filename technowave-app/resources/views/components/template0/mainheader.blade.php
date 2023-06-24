@@ -15,12 +15,12 @@
 							<ul>
 								
 								<li class="menu-item lang-menu menu-item-has-children parent">
-									<a title="English" href="#"><span class="img label-before"><img src="{{ asset ('assets/images/lang-en.png') }}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+									<a title="English" href="#"><span class="img label-before"><img src="{{ asset ('template0/images/lang-en.png') }}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<ul class="submenu lang" >
-										<li class="menu-item" ><a title="hungary" href="#"><span class="img label-before"><img src="{{ asset ('assets/images/lang-hun.png') }}" alt="lang-hun"></span>Hungary</a></li>
-										<li class="menu-item" ><a title="german" href="#"><span class="img label-before"><img src="{{ asset ('assets/images/lang-ger.png') }}" alt="lang-ger" ></span>German</a></li>
-										<li class="menu-item" ><a title="french" href="#"><span class="img label-before"><img src="{{ asset ('assets/images/lang-fra.png') }}" alt="lang-fre"></span>French</a></li>
-										<li class="menu-item" ><a title="canada" href="#"><span class="img label-before"><img src="{{ asset ('assets/images/lang-can.png') }}" alt="lang-can"></span>Canada</a></li>
+										<li class="menu-item" ><a title="hungary" href="#"><span class="img label-before"><img src="{{ asset ('template0/images/lang-hun.png') }}" alt="lang-hun"></span>Hungary</a></li>
+										<li class="menu-item" ><a title="german" href="#"><span class="img label-before"><img src="{{ asset ('template0/images/lang-ger.png') }}" alt="lang-ger" ></span>German</a></li>
+										<li class="menu-item" ><a title="french" href="#"><span class="img label-before"><img src="{{ asset ('template0/images/lang-fra.png') }}" alt="lang-fre"></span>French</a></li>
+										<li class="menu-item" ><a title="canada" href="#"><span class="img label-before"><img src="{{ asset ('template0/images/lang-can.png') }}" alt="lang-can"></span>Canada</a></li>
 									</ul>
 								</li>
 								<li class="menu-item menu-item-has-children parent" >
@@ -93,7 +93,7 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-							<a href="/" class="link-to-home"><img src="{{ asset ('assets/images/logo-top-1.png') }}" alt="mercado"></a>
+							<a href="/homepage" class="link-to-home"><img src="{{ asset ('template0/images/logo-top-1.png') }}" alt="mercado"></a>
 						</div>
 
 						<div class="wrap-search center-section">
@@ -176,10 +176,10 @@
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
 								<li class="menu-item home-icon">
-									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+									<a href="/homepage" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
-									<a href="/shop" class="link-term mercado-item-title">Shop</a>
+									<a href="/store" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
 									<a href="/cart" class="link-term mercado-item-title">Cart</a>
@@ -188,10 +188,10 @@
 									<a href="/checkout" class="link-term mercado-item-title">Checkout</a>
 								</li>
 								<li class="menu-item">
-									<a href="about-us.html" class="link-term mercado-item-title">About Us</a>
+									<a href="/about-us" class="link-term mercado-item-title">About Us</a>
 								</li>
 								<li class="menu-item">
-									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
+									<a href="/contact-us" class="link-term mercado-item-title">Contact Us</a>
 								</li>																	
 							</ul>
 						</div>

@@ -140,7 +140,7 @@
 								<h3 class="item-header">We Using Safe Payments:</h3>
 								<div class="item-content">
 									<div class="wrap-list-item wrap-gallery">
-										<img src="{{ asset ('assets/images/payment.png') }}" style="max-width: 260px;">
+										<img src="{{ asset ('template0/images/payment.png') }}" style="max-width: 260px;">
 									</div>
 								</div>
 							</div>
@@ -169,8 +169,8 @@
 								<div class="item-content">
 									<div class="wrap-list-item apps-list">
 										<ul>
-											<li><a href="https://www.apple.com/lae/app-store/" class="link-to-item" title="our application on apple store"><figure><img src="{{ asset ('assets/images/brands/apple-store.png') }}" alt="apple store" width="128" height="36"></figure></a></li>
-											<li><a href="https://play.google.com/store/games?pli=1" class="link-to-item" title="our application on google play store"><figure><img src="{{ asset ('assets/images/brands/google-play-store.png') }}" alt="google play store" width="128" height="36"></figure></a></li>
+											<li><a href="https://www.apple.com/lae/app-store/" class="link-to-item" title="our application on apple store"><figure><img src="{{ asset ('template0/images/brands/apple-store.png') }}" alt="apple store" width="128" height="36"></figure></a></li>
+											<li><a href="https://play.google.com/store/games?pli=1" class="link-to-item" title="our application on google play store"><figure><img src="{{ asset ('template0/images/brands/google-play-store.png') }}" alt="google play store" width="128" height="36"></figure></a></li>
 										</ul>
 									</div>
 								</div>
