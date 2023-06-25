@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\UserDashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -17,23 +18,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
- });
 
 Auth::routes();
 
+//Route for Laravel Home Page
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Route for Home Page (Main Page)
+Route::view('/', 'template0_pages/homepage');
 
-Route::view('/homepage', 'template0/homepage');
+//Route for Store Page
+Route::get('/storepage', [ProductController::class, 'index']);
 
-//Route to Store Page
-Route::get('/store', [ProductController::class, 'index']);
+//Route for Details Page
+Route::get('/detailspage/{id}', [DetailsController::class, 'index'])->name('store.details');
 
-Route::view('/cart', 'template0/cart');
+//Route for Cart Page
+Route::view('/cartpage', 'template0_pages/cartpage');
 
-Route::view('/checkout', 'template0/checkout');
+//Route for Checkout Page
+Route::view('/checkoutpage', 'template0_pages/checkoutpage');
+
+
+
 
 
 // //For Customers/Users

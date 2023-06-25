@@ -48,7 +48,7 @@
 												<a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul class="submenu curency" >
 													<li class="menu-item" >
-														<a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
+														<a title="Dashboard" href="{{ route('admin.admindashboard') }}">Dashboard</a>
 													</li>
 													<form method="POST" action="{{ route('logout') }}">
 														@csrf
@@ -64,7 +64,7 @@
 													<a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 													<ul class="submenu curency" >
 														<li class="menu-item" >
-															<a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
+															<a title="Dashboard" href="{{ route('user.userdashboard') }}">Dashboard</a>
 														</li>
 														<form method="POST" action="{{ route('logout') }}">
 														@csrf
@@ -179,19 +179,19 @@
 									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
-									<a href="about-us.html" class="link-term mercado-item-title">About Us</a>
+									<a href="/shoppage" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
-									<a href="/shop" class="link-term mercado-item-title">Shop</a>
+									<a href="/cartpage" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
-									<a href="/cart" class="link-term mercado-item-title">Cart</a>
+									<a href="/checkoutpage" class="link-term mercado-item-title">Checkout</a>
 								</li>
 								<li class="menu-item">
-									<a href="/checkout" class="link-term mercado-item-title">Checkout</a>
+									<a href="/aboutuspage" class="link-term mercado-item-title">About Us</a>
 								</li>
 								<li class="menu-item">
-									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
+									<a href="/contactuspage" class="link-term mercado-item-title">Contact Us</a>
 								</li>																	
 							</ul>
 						</div>

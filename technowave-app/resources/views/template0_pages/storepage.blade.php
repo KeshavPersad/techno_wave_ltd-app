@@ -52,7 +52,7 @@
 
                     <div class="change-display-mode">
                         <a href="#" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
-                        <a href="list.html" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
+                        <a href="/listpage" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
                     </div>
 
                 </div>
@@ -69,12 +69,12 @@
                             <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                                 <div class="product product-style-3 equal-elem ">
                                     <div class="product-thumnail">
-                                        <a href="detail.html" title="{{ $data->product_title }}">
+                                        <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
                                             <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                         </a>
                                     </div>
                                     <div class="product-info">
-                                        <a href="#" class="product-name"><span>{{ $data->product_title }}</span></a>
+                                        <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
                                         <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
 
                              

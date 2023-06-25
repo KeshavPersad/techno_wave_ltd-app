@@ -12,15 +12,15 @@ class ProductController extends Controller{
         $product_details = Product::all();
         // dd($product_details);
 
-        return view('template0.store', [
+        return view('template0_pages.storepage', [
                         
             'product_details' => $product_details
 
         ]);
 
-        
-
     }
+
+
 
 
 }
