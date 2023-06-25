@@ -7,8 +7,8 @@
 
     <div class="wrap-breadcrumb">
         <ul>
-            <li class="item-link"><a href="#" class="link">home</a></li>
-            <li class="item-link"><span>login</span></li>
+            <li class="item-link"><a href="{{ route ('home')}}" class="link">Home</a></li>
+            <li class="item-link"><span>Login</span></li>
         </ul>
     </div>
     <div class=" main-content-area">
@@ -16,6 +16,8 @@
         <div class="wrap-iten-in-cart">
             <h3 class="box-title">Products Name</h3>
             <ul class="products-cart">
+
+
                 <li class="pr-cart-item">
                     <div class="product-image">
                         <figure><img src="{{ asset('template0/images/products/digital_18.jpg') }}" alt=""></figure>
@@ -39,7 +41,11 @@
                         </a>
                     </div>
                 </li>
-                <li class="pr-cart-item">
+
+
+
+
+                <!-- <li class="pr-cart-item">
                     <div class="product-image">
                         <figure><img src="{{ asset('template0/images/products/digital_20.jpg') }}" alt=""></figure>
                     </div>
@@ -61,7 +67,8 @@
                             <i class="fa fa-times-circle" aria-hidden="true"></i>
                         </a>
                     </div>
-                </li>												
+                </li>-->
+                
             </ul>
         </div>
 
@@ -76,8 +83,8 @@
                 <label class="checkbox-field">
                     <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
                 </label>
-                <a class="btn btn-checkout" href="checkout.html">Check out</a>
-                <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                <a class="btn btn-checkout" href="{{ route('checkout') }}">Check out</a>
+                <a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
             </div>
             <div class="update-clear">
                 <a class="btn btn-clear" href="#">Clear Shopping Cart</a>

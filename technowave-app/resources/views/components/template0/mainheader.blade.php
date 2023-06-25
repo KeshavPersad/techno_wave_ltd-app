@@ -93,7 +93,7 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-							<a href="/homepage" class="link-to-home"><img src="{{ asset ('template0/images/logo-top-1.png') }}" alt="mercado"></a>
+							<a href="{{ route('home') }}" class="link-to-home"><img src="{{ asset ('template0/images/logo-top-1.png') }}" alt="mercado"></a>
 						</div>
 
 						<div class="wrap-search center-section">
@@ -130,7 +130,7 @@
 
 						<div class="wrap-icon right-section">
 							<div class="wrap-icon-section wishlist">
-								<a href="#" class="link-direction">
+								<a href="{{ route('wishlist') }}" class="link-direction">
 									<i class="fa fa-heart" aria-hidden="true"></i>
 									<div class="left-info">
 										<span class="index">0 item</span>
@@ -139,7 +139,7 @@
 								</a>
 							</div>
 							<div class="wrap-icon-section minicart">
-								<a href="/cart" class="link-direction">
+								<a href="{{ route('cart') }}" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 									<div class="left-info">
 										<span class="index">4 items</span>
@@ -176,22 +176,22 @@
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
 								<li class="menu-item home-icon">
-									<a href="/homepage" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+									<a href="{{ route('home') }}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
-									<a href="/storepage" class="link-term mercado-item-title">Shop</a>
+									<a href="{{ route('store') }}" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
-									<a href="/cartpage" class="link-term mercado-item-title">Cart</a>
+									<a href="{{ route('cart') }}" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
-									<a href="/checkoutpage" class="link-term mercado-item-title">Checkout</a>
+									<a href="{{ route('checkout') }}" class="link-term mercado-item-title">Checkout</a>
 								</li>
 								<li class="menu-item">
-									<a href="/aboutuspage" class="link-term mercado-item-title">About Us</a>
+									<a href="{{ route('aboutus') }}" class="link-term mercado-item-title">About Us</a>
 								</li>
 								<li class="menu-item">
-									<a href="/contactuspage" class="link-term mercado-item-title">Contact Us</a>
+									<a href="{{ route('contactus') }}" class="link-term mercado-item-title">Contact Us</a>
 								</li>																	
 							</ul>
 						</div>

@@ -80,27 +80,25 @@
 						</div>
 						<div class="advance-info">
 							<div class="tab-control normal">
-								<a href="#description" class="tab-control-item active">description</a>
+								<a href="#description" class="tab-control-item active">Description</a>
 								<a href="#add_infomation" class="tab-control-item">Addtional Infomation</a>
 								<a href="#review" class="tab-control-item">Reviews</a>
 							</div>
 							<div class="tab-contents">
 								<div class="tab-content-item active" id="description">
-									<p>Lorem ipsum dolor sit amet, an munere tibique consequat mel, congue albucius no qui, a t everti meliore erroribus sea. ro cum. Sea ne accusata voluptatibus. Ne cum falli dolor voluptua, duo ei sonet choro facilisis, labores officiis torquatos cum ei.</p>
-									<p>Cum altera mandamus in, mea verear disputationi et. Vel regione discere ut, legere expetenda ut eos. In nam nibh invenire similique. Atqui mollis ea his, ius graecis accommodare te. No eam tota nostrum eque. Est cu nibh clita. Sed an nominavi, et stituto, duo id rebum lucilius. Te eam iisque deseruisse, ipsum euismod his at. Eu putent habemus voluptua sit, sit cu rationibus scripserit, modus taria . </p>
-									<p>experian soleat maluisset per. Has eu idque similique, et blandit scriptorem tatibus mea. Vis quaeque ocurreret ea.cu bus  scripserit, modus voluptaria ex per.</p>
+									<p>{{$data->product_description}}</p>
 								</div>
 								<div class="tab-content-item " id="add_infomation">
 									<table class="shop_attributes">
 										<tbody>
 											<tr>
-												<th>Weight</th><td class="product_weight">1 kg</td>
+												<th>Weight</th><td class="product_weight">{{$data->product_weight}}</td>
 											</tr>
 											<tr>
-												<th>Dimensions</th><td class="product_dimensions">12 x 15 x 23 cm</td>
+												<th>Dimensions</th><td class="product_dimensions">{{$data->product_dimensions}}</td>
 											</tr>
 											<tr>
-												<th>Color</th><td><p>Black, Blue, Grey</p></td>
+												<th>Color</th><td><p>{{$data->product_color}}</p></td>
 											</tr>
 										</tbody>
 									</table>
@@ -110,11 +108,11 @@
 									<div class="wrap-review-form">
 										
 										<div id="comments">
-											<h2 class="woocommerce-Reviews-title">01 review for <span>Radiant-360 R6 Chainsaw Omnidirectional [Orage]</span></h2>
+											<h2 class="woocommerce-Reviews-title">01 review for <span>{{ $data->product_title}}</span></h2>
 											<ol class="commentlist">
 												<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
 													<div id="comment-20" class="comment_container"> 
-														<img alt="" src="assets/images/author-avata.jpg" height="80" width="80">
+														<img alt="" src="{{ asset('storage/' . $data->product_image1) }}" height="80" width="80">
 														<div class="comment-text">
 															<div class="star-rating">
 																<span class="width-80-percent">Rated <strong class="rating">5</strong> out of 5</span>
