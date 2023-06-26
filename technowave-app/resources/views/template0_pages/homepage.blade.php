@@ -197,7 +197,7 @@
                                 </div>
                                 <div class="wrap-btn">
                                     <a href="#" class="function-link">quick view</a>
-                                </div>
+                                </div> 
                             </div>
                             <div class="product-info">
                                 <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker [White]</span></a>

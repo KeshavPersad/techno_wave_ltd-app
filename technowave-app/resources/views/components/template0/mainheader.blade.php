@@ -45,10 +45,10 @@
 									@auth
 										@if(Auth::user()->utype === 'ADM')
 											<li class="menu-item menu-item-has-children parent" >
-												<a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+												<a title="My Account" href="#">Admin, {{Auth::user()->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 												<ul class="submenu curency" >
 													<li class="menu-item" >
-														<a title="Dashboard" href="{{ route('admin.dashboard') }}">Dashboard</a>
+														<a title="Dashboard" href="{{ route('admindashboard') }}">Dashboard</a>
 													</li>
 													<form method="POST" action="{{ route('logout') }}">
 														@csrf
@@ -61,10 +61,10 @@
 											</li>
 											@else
 												<li class="menu-item menu-item-has-children parent" >
-													<a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+													<a title="My Account" href="#">Hello, {{Auth::user()->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 													<ul class="submenu curency" >
 														<li class="menu-item" >
-															<a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
+															<a title="Dashboard" href="{{ route('userdashboard') }}">Dashboard</a>
 														</li>
 														<form method="POST" action="{{ route('logout') }}">
 														@csrf
@@ -130,11 +130,11 @@
 
 						<div class="wrap-icon right-section">
 							<div class="wrap-icon-section wishlist">
-								<a href="{{ route('wishlist') }}" class="link-direction">
+								<a href="{{ route('favorites') }}" class="link-direction">
 									<i class="fa fa-heart" aria-hidden="true"></i>
 									<div class="left-info">
 										<span class="index">0 item</span>
-										<span class="title">Wishlist</span>
+										<span class="title">Favorites</span>
 									</div>
 								</a>
 							</div>
@@ -181,18 +181,20 @@
 								<li class="menu-item">
 									<a href="{{ route('store') }}" class="link-term mercado-item-title">Shop</a>
 								</li>
-								<li class="menu-item">
+								<!-- <li class="menu-item">
 									<a href="{{ route('cart') }}" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
 									<a href="{{ route('checkout') }}" class="link-term mercado-item-title">Checkout</a>
-								</li>
+								</li> -->
 								<li class="menu-item">
 									<a href="{{ route('aboutus') }}" class="link-term mercado-item-title">About Us</a>
 								</li>
 								<li class="menu-item">
 									<a href="{{ route('contactus') }}" class="link-term mercado-item-title">Contact Us</a>
-								</li>																	
+								</li>	
+								<li>
+
 							</ul>
 						</div>
 					</div>
