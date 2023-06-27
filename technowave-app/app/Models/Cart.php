@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model{
-    
+class Cart extends Model
+    {
     use HasFactory;
+
     protected $table = 'cart';
 
     protected $primaryKey = 'id';
@@ -17,4 +18,6 @@ class Cart extends Model{
         'product_id',
         'cart_quantity'
     ];
-}
+
+
+    }

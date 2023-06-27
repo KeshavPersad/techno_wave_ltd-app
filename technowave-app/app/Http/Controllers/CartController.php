@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CheckoutHelper;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,14 +13,15 @@ class CartController extends Controller
     public function index(){
 
         $cart_details = Auth::user()->products;
+        // dd($cart_details);
         
-        //$checkout = new CheckoutHelper($cart_details);
-        //$checkout->calculateTotal();
+        $checkout = new CheckoutHelper($cart_details);
+        $checkout->calculateTotal();
 
         return view('template0_pages.cartpage', [
             
             'cart_details' => $cart_details,
-            //'checkout' => $checkout,
+            'checkout' => $checkout,
 
         ]);
 
@@ -34,7 +36,7 @@ class CartController extends Controller
 
         );
 
-        return redirect('/cart')->with('message', 'Product Updated');
+        return redirect('/cartpage')->with('message', 'Product Updated');
         
     }
 
@@ -46,17 +48,17 @@ class CartController extends Controller
  
         $product->save();
 
-        return redirect('/cart')->with('message', 'Product');
+        return redirect('/cartpage')->with('message', 'Product');
         
     }
 
     public function destroy(Request $request){
 
-        $product = Cart::where('id', $request->id)
-        ->where('user_id', Auth::id())
-        ->delete();      
+        $product = Cart::where('id', $request->id)->where('user_id', Auth::id())->delete();      
 
-        return redirect('/cart')->with('message', 'Product Deleted');
+        return redirect('/cartpage')->with('message', 'Product Deleted');
         
     }
+
+
 }

@@ -34,6 +34,14 @@ class UserSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ],
+            [
+                'name' => 'Keshav Persad',
+                'email' => 'kipersad262@gmail.com',
+                'password' => Hash::make('51248388'),
+                'email_verified_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
         ]);
     }
 }

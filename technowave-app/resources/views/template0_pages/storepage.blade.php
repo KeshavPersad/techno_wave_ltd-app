@@ -66,23 +66,34 @@
 
                         @foreach($product_details as $data)
 
-                            <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
-                                <div class="product product-style-3 equal-elem ">
-                                    <div class="product-thumnail">
-                                        <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                            <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
-                                        <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
+                            <form action="{{ route('cart') }}" method="POST" >
+								@csrf
+								@method('PUT')
 
-                             
-                                         
-                                        <a href="#" class="btn add-to-cart">Add To Cart</a>
+                                <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
+                                    <div class="product product-style-3 equal-elem ">
+                                        <div class="product-thumnail">
+                                            <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
+                                                <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                            </a>
+                                        </div>
+                                        <div class="product-info">
+                                            <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
+                                            <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
+
+                                
+                                        <div class="wrap-butons">
+                                            <input type="hidden" name="cart_quantity" value="1">
+                                            <!-- <a href="#" class="btn add-to-cart">Add To Cart</a> -->
+                                            <button class="btn add-to-cart_Shop" type="submit" >Add to Cart</button>
+
+                                            <input type="hidden" name="product_id" value="{{ $data->id }}">
+                                        </div>
+
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
+                            </form>
 
                         @endforeach
 
