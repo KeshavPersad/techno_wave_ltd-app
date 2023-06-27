@@ -8,10 +8,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CheckoutStripeController extends Controller
-{
-    public function __invoke(Request $request)
-    {
+class CheckoutStripeController extends Controller{
+
+    public function __invoke(Request $request){
+        
         // Get user info
         $user = User::find(Auth::id());
 
@@ -43,12 +43,13 @@ class CheckoutStripeController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN.'/checkout/success/stripe/{CHECKOUT_SESSION_ID}',
-            'cancel_url' => $YOUR_DOMAIN.'/checkout',
+            'success_url' => $YOUR_DOMAIN.'/checkoutpage/success/stripe/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => $YOUR_DOMAIN.'/checkoutpage',
         ]);
 
         header('HTTP/1.1 303 See Other');
 
         return redirect($checkout_session->url);
     }
+
 }

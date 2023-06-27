@@ -107,14 +107,9 @@
                             <p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
                             <p class="summary-info total-info "><span class="title">Total:</span><b class="index">$512.00</b></p>
                         </div>
-                        <div class="checkout-info">
-                            <label class="checkbox-field">
-                                <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
-                            </label>
-                            
-                        </div>
+                        
                         <div class="update-clear">
-                            <a class="btn btn-clear" href="{{ route('checkout') }}">Check out</a>
+                            <a class="btn btn-clear" href="{{ route('checkout') }}">Proceed to Checkout</a>
                             <a class="btn btn-clear" href="#">Clear Shopping Cart</a>           
                             <a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                         </div>

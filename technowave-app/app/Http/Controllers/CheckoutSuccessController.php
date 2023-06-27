@@ -9,7 +9,8 @@ use App\Models\Order_product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CheckoutSuccessController extends Controller{
+class CheckoutSuccessController extends Controller
+{
 
     public function __invoke(Request $request, $payment, $id){
 
@@ -48,18 +49,18 @@ class CheckoutSuccessController extends Controller{
             break;
 
 
-            // case 'stripe':
+            case 'stripe':
 
-            //     $payment_object = new StripeHelper;
-            //     $checkout_order = $payment_object->getCheckoutOrder($id);
+                $payment_object = new StripeHelper;
+                $checkout_order = $payment_object->getCheckoutOrder($id);
 
-            //     //dd($checkout_order);
+                // dd($checkout_order);
 
-            //     $completed = $payment_object->isCheckoutCompleted($checkout_order);
-            //     $data = $payment_object->getPaymentDetails($checkout_order);
-            //     $completed = true;
+                $completed = $payment_object->isCheckoutCompleted($checkout_order);
+                $data = $payment_object->getPaymentDetails($checkout_order);
+                $completed = true;
 
-            // break;
+            break;
             
             default:
                 
@@ -88,15 +89,15 @@ class CheckoutSuccessController extends Controller{
 
         ]);
 
-         // Create array containing order_product models
+        // Create array containing order_product models
         $order_id = $order->order_id;
         $records = [];
-        $user_products->each(function($data) use (&$records){
+        $user_products->each(function($data) use (&$records, $order_id){
 
             array_push(
 
                 $records,
-                new Order_product([
+                new order_product([
 
                     'product_id' => $data->id,
                     'order_product_price' => $data->product_price,

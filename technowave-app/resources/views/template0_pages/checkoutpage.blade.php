@@ -73,7 +73,11 @@
 							</label>
 						</div>
 						<p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">$100.00</span></p>
-						<a href="thankyou.html" class="btn btn-medium">Place order now</a>
+
+						<!-- <a href="thankyou.html" class="btn btn-medium">Place Order Now</a> -->
+
+						<x-core.stripe-ui />
+
 					</div>
 					<div class="summary-item shipping-method">
 						<h4 class="title-box f-title">Shipping method</h4>
