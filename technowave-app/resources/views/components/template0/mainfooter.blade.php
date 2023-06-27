@@ -8,7 +8,7 @@
 						<li class="fc-info-item">
 							<i class="fa fa-truck" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Free Shipping</h4>
+								<h4 class="fc-name">Free Delivery</h4>
 								<p class="fc-desc">Free On Oder Over $99 USD</p>
 							</div>
 

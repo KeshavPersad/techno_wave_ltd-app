@@ -1,12 +1,13 @@
 <x-layouts.layout-template0-home>
-
+<title>Techno Wave Ltd. || {{''}}Details Page</title>	
 	<main id="main" class="main-site">
 
 		<div class="container">
 
 			<div class="wrap-breadcrumb">
 				<ul>
-					<li class="item-link"><a href="/homepage" class="link">Home</a></li>
+					<li class="item-link"><a href="{{ route('home') }}" class="link">Home</a></li>
+					<li class="item-link"><a href="{{ route('store') }}" class="link">Store Page</a></li>
 					<li class="item-link"><span>Details</span></li>
 				</ul>
 			</div>
@@ -84,11 +85,19 @@
                                             <input type="hidden" name="product_id" value="{{ $data->id }}">
    
 
-									<div class="wrap-btn">
-										<a href="#" class="btn btn-compare">Add Compare</a>
-										<a href="#" class="btn btn-wishlist">Add Wishlist</a>
-									</div>
+
 								</div>
+							</form>
+							
+							<form action="{{ route('favorites') }}" method="POST" >
+									@csrf
+									@method('PUT')
+
+									<div class="wrap-btn wrap-butons">
+										<button  type="submit" class="btn btn-wishlist">Add to Favorites</button>
+
+										<input type="hidden" name="product_id" value="{{ $data->id }}">
+									</div>
 							</form>
 
 						</div>
@@ -210,7 +219,7 @@
 									<a class="link-to-service" href="#">
 										<i class="fa fa-truck" aria-hidden="true"></i>
 										<div class="right-content">
-											<b class="title">Free Shipping</b>
+											<b class="title">Free Delivery</b>
 											<span class="subtitle">On Oder Over $99</span>
 											<p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
 										</div>

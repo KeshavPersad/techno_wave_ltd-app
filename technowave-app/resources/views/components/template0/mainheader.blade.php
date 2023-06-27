@@ -64,7 +64,7 @@
 													<a title="My Account" href="#">Hello, {{Auth::user()->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 													<ul class="submenu curency" >
 														<li class="menu-item" >
-															<a title="Dashboard" href="{{ route('userdashboard') }}">Dashboard</a>
+															<a title="Dashboard" href="{{ route('userdashboard') }}">My Account</a>
 														</li>
 														<form method="POST" action="{{ route('logout') }}">
 														@csrf

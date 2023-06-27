@@ -2987,8 +2987,8 @@ vertical-align: top;
     content: "\f079";
 }
 .product-list-style .advance-info .wrap-btn .btn.btn-wishlist{
-    text-align: right;
-    float: right;
+    text-align: left;
+    float: left;
 }
 .product-list-style .advance-info .wrap-btn .btn-wishlist::before{
     content: "\f004";
@@ -4466,7 +4466,7 @@ article.single-post blockquote p:last-child::after{
     margin-right: 6px;
 }
 .wrap-product-detail .detail-info .wrap-btn .btn.btn-wishlist{
-    float: right;
+    float: left;
 }
 .wrap-product-detail .detail-info .wrap-btn .btn.btn-wishlist::before{
     content: "\f004";
@@ -7211,6 +7211,14 @@ background-color: #888888;
     transition: all 0.3s ease 0s;
     margin-top: 14px;
 }
+
 .add-to-cart_Shop:hover{
     color: #004D80;
 }
+
+.invis_btn {
+
+    background: transparent;
+    border: none !important;
+}
+

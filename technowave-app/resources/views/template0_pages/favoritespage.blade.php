@@ -1,6 +1,6 @@
 <x-layouts.layout-template0-home>
 
-<title>Techno Wave Ltd. || {{''}}Cart Page</title>	
+<title>Techno Wave Ltd. || {{''}}Favorites Page</title>	
     	<!--main area-->
     <main id="main" class="main-site">
 
@@ -9,17 +9,17 @@
         <div class="wrap-breadcrumb">
             <ul>
                 <li class="item-link"><a href="{{ route ('home')}}" class="link">Home</a></li>
-                <li class="item-link"><span>Cart</span></li>
+                <li class="item-link"><span>Favorites</span></li>
             </ul>
         </div>
         <div class=" main-content-area">
 
             <div class="adjust">
 
-                @if ($checkout->isEmpty())
+                @if ($favorites->isEmpty())
                     <div class="lefter">
                         <div class="wrap-iten-in-cart">
-                            <h1 class="box-title_isEmpty">Your Cart is Empty</h1>
+                            <h1 class="box-title_isEmpty">Favorites is Empty</h1>
                             <ul class="products-cart">
 
                                 <li class="pr-cart-item">
@@ -40,7 +40,7 @@
                             <h3 class="box-title">Products Name</h3>
                             <ul class="products-cart">
 
-                                @foreach($cart_details as $data)
+                                @foreach($favorites_details as $data)
 
                                     <li class="pr-cart-item">
                                         <div class="product-image">
@@ -59,33 +59,12 @@
                                             <a class="price-field produtc-price"><p class="price">Status: {{$data->product_status}}</p></a>
                                             <a class="price-field produtc-price"><p class="price">Unit Price: ${{$data->product_price}}</p></a>
 
-                                            <div class="quantity">
-                                                    <div class="quantity-input">
-                                                    
-                                                        <input type="text" name="product-quatity" value="{{$data->pivot->cart_quantity}}" data-max="120" pattern="[0-9]*">									
-                                                        <a class="btn btn-increase" href="#"></a>
-                                                        <a class="btn btn-reduce" href="#"></a>
-                                                    </div>
-                                            </div>
-
-                                            <div class="price-field sub-total"><p class="price">Subtotal: ${{ $data->cartQuantityPrice() }}.00</p></div>
-
 
                                             <div class="delete">
-                                                
-                                                <form action="{{ route('cart.destroy', ['id' => $data->pivot->id]) }}" method="POST">
-                                                    @method('Delete')
-                                                    @csrf
-                                                
-                                                    <button class="fa fa-times-circle"><a href="#" class="btn btn-delete" title="">
-                                                    </a></button>
-                                                    
-                                                    <input type="hidden" name="product_id" value="{{ $data->id }}">
-                                                    <input type="hidden" name="cart_id" value="{{ $data->pivot->id }}">
-
-                                                </form>
-                                                
-
+                                                <a href="#" class="btn btn-delete" title="">
+                                                    <span>Remove from your Favorites</span>
+                                                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                                </a>
                                             </div>
 
                                         </div>

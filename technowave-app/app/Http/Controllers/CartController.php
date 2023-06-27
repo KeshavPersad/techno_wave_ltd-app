@@ -14,7 +14,6 @@ class CartController extends Controller
 
         $cart_details = Auth::user()->products;
         // dd($cart_details);
-        
         $checkout = new CheckoutHelper($cart_details);
         $checkout->calculateTotal();
 
@@ -48,7 +47,7 @@ class CartController extends Controller
  
         $product->save();
 
-        return redirect('/cartpage')->with('message', 'Product');
+        return redirect('/cartpage')->with('message', 'Product Updated');
         
     }
 
