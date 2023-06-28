@@ -13,7 +13,16 @@
             </ul>
         </div>
 
+ 
+
         <div class=" main-content-area">
+
+            <div class="wrap-iten-in-cart">
+                <h2 align="center" class="blue_text">Your Orders </h2>
+
+                    </br>
+                    </br>
+
                 <div class="card">
                         <table class="table">
                             <thead>
@@ -47,6 +56,7 @@
                             </tbody>
                         </table>
                 </div>
+            </div>
 
 
                 <div class="wrap-show-advance-info-box style-1 box-in-site">

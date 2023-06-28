@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone_number')->unique();
             $table->string('utype')->default('USR')->comment('ADM for Admin & USR for Customer');
-            $table->string('user_image', 200);
+            $table->string('user_image', 200)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CheckoutStripeController;
@@ -36,12 +36,10 @@ use Illuminate\Support\Facades\Route;
 
     });
 
-    //Auth For Admins
-    Route::middleware(['auth:sanctum', 'verified', 'isAdmin'])->group(function(){
+    //Route For Admin Dashboard
+    Route::get('/dasboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::view('/admin-myaccount', 'template0_pages/admin/admin-myaccount')->name('admin-myaccount');
 
-        Route::get('/dasboard', [AdminController::class, 'index'])->name('dashboard');
-
-    }); 
 
     //Route for Home Page (Main Page)
     Route::view('/', 'template0_pages/homepage')->name('home');

@@ -7164,6 +7164,10 @@ background-color: #888888;
     color:red;
 }
 
+.blue_text{
+    color:#004D80;
+}
+
 .adjust{
 
     display: flex;

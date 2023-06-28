@@ -1,7 +1,7 @@
 <x-layouts.layout-template0-home>
 <div>
 
-Admin Dashboard
+<h1 align="center">Admin Dashboard</h1>
 
 </div>
 </x-layouts.layout-template0-home>

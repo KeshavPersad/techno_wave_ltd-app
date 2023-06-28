@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456789'),
                 'phone_number' =>'(868) 350-5350',
                 'utype' => 'ADM',
-                'user_image' => 'images/products/product_10.jpeg',
+                'user_image' => '',
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

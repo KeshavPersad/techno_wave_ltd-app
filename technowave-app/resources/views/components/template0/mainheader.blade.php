@@ -1,3 +1,4 @@
+
 <!--header-->
 <header id="header" class="header header-style-1">
 		<div class="container-fluid">
@@ -45,10 +46,13 @@
 									@auth
 											@if(Auth::user()->utype === 'ADM')
 												<li class="menu-item menu-item-has-children parent" >
-													<a title="My Account" href="#">Admin, {{Auth::user()->first_name}} {{Auth::user()->last_name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+													<a title="My Account" href="#">Admin, {{Auth::user()->first_name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 													<ul class="submenu curency" >
 														<li class="menu-item" >
-															<a title="Dashboard" href="{{ route('dashboard') }}">Dashboard</a>
+															<a title="dashboard" href="{{ route('dashboard') }}">Dashboard</a>
+														</li>
+														<li class="menu-item" >
+															<a title="myaccount" href="{{ route('admin-myaccount') }}">My Account</a>
 														</li>
 														<form method="POST" action="{{ route('logout') }}">
 															@csrf
@@ -61,10 +65,10 @@
 												</li>
 											@else
 												<li class="menu-item menu-item-has-children parent" >
-													<a title="My Account" href="#">Hello, {{Auth::user()->first_name}} {{Auth::user()->last_name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+													<a title="My Account" href="#">Hello, {{Auth::user()->first_name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 													<ul class="submenu curency" >
 														<li class="menu-item" >
-															<a title="Dashboard" href="{{ route('myaccount') }}">My Account</a>
+															<a title="myaccount" href="{{ route('myaccount') }}">My Account</a>
 														</li>
 
 														<li class="menu-item" >
