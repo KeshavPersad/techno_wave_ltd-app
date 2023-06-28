@@ -1,5 +1,7 @@
 <x-layouts.layout-template0-home>
+
     <title>Techno Wave Ltd. || {{''}}Home Page</title>	
+    
     <main id="main">
             <div class="container">
 

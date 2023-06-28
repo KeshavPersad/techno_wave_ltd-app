@@ -7183,6 +7183,13 @@ background-color: #888888;
     width: 550px;
 
 } 
+
+.center_page{
+
+    float: center;
+
+} 
+
 .box-title_isEmpty{
     color: #004D80;
     font-weight: 700;
@@ -7221,4 +7228,15 @@ background-color: #888888;
     background: transparent;
     border: none !important;
 }
+.green_btn{
+    color: #24b324;
+    font-weight: 700;
+    text-align: left;
+    /* display: block; */
+    margin: 0;
+    /* text-transform: uppercase; */
+    margin-bottom: 18px;
+    margin-top: -2px;
 
+
+}

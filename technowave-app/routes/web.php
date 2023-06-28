@@ -9,6 +9,8 @@ use App\Http\Controllers\CheckoutSuccessController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,14 +21,27 @@ use Illuminate\Support\Facades\Route;
     // Example: "->name('register')"
     // So to call this route use {{route ('register')}}
 
-    //Route for Laravel Home Page
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 
     //Route for Register Page
     Route::view('/register', 'auth/register')->name('register');
 
     //Route for Login Page
     Route::view('/login', 'auth/login')->name('login');
+
+    // Auth For Customers/Users
+    Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+
+        Route::get('/myaccount', [UserController::class, 'index'])->name('myaccount');
+
+    });
+
+    //Auth For Admins
+    Route::middleware(['auth:sanctum', 'verified', 'isAdmin'])->group(function(){
+
+        Route::get('/dasboard', [AdminController::class, 'index'])->name('dashboard');
+
+    }); 
 
     //Route for Home Page (Main Page)
     Route::view('/', 'template0_pages/homepage')->name('home');
@@ -39,6 +54,8 @@ use Illuminate\Support\Facades\Route;
 
     //Route for Auth Middleware
     Route::middleware(['auth'])->group(function(){
+
+        
 
         //Route for View Cart
         Route::get('/cartpage', [CartController::class, 'index'])->name('cart');
@@ -62,7 +79,16 @@ use Illuminate\Support\Facades\Route;
         //Route for Checkout Stripe Page
         Route::post('/checkoutpage/stripe', CheckoutStripeController::class)->name('checkout.stripe');
 
+        //Route for Payment Successful Page
+        Route::view('/paymentsuccesspage', 'template0_pages/paymentsuccesspage')->name('payment.success');
 
+        //Route for Order Deatils Page
+        Route::get('/order-historypage', [OrderController::class, 'index'])->name('orders');
+
+        //Route for Order Deatils Page
+        Route::get('/order-historypage/{id}', [OrderController::class, 'show'])->name('orders.show');
+
+    
         //Route for View Favorites
         Route::get('/favoritespage', [FavoritesController::class, 'index'])->name('favorites');
        
@@ -75,29 +101,22 @@ use Illuminate\Support\Facades\Route;
     });
 
     //Route for Contact Us Page
-    Route::view('/contactuspage', 'template0_pages/contactuspage')->name('contactus');
+    Route::view('/contactuspage', 'template0_pages/add_on/contactuspage')->name('contactus');
 
     //Route for About Us Page
-    Route::view('/aboutuspage', 'template0_pages/aboutuspage')->name('aboutus');
+    Route::view('/aboutuspage', 'template0_pages/add_on/aboutuspage')->name('aboutus');
 
-    //Route for User Dashboard Page
-    Route::view('/userdashborad', 'template0_pages/user/userdashboard')->name('userdashboard');
+    //Route for Privacy Policy Page
+    Route::view('/privacy-policy', 'template0_pages/add_on/privacy-policy')->name('privacy-policy');
+
+    //Route for Terms & Conditions Page
+    Route::view('/terms-conditions', 'template0_pages/add_on/terms-conditions')->name('terms-conditions');
+
+    //Route for Return Policy Page
+    Route::view('/return-policy', 'template0_pages/add_on/return-policy')->name('return-policy');
 
 
 
-
-    // //For Customers/Users
-    // Route::middleware(['auth:sanctum', 'verified'])->group(function(){
-
-    //     Route::get('/user/userdasboard', [UserDashboardController::class, 'render']);
-
-    // });
-
-    // //For Admins
-    // Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
-
-    //     Route::get('/admin/admindasboard', [AdminDashboardController::class, 'render']);
-
-    // }); 
+ 
 
 

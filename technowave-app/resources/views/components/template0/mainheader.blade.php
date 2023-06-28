@@ -43,28 +43,32 @@
 
 								@if(Route::has('login'))
 									@auth
-										@if(Auth::user()->utype === 'ADM')
-											<li class="menu-item menu-item-has-children parent" >
-												<a title="My Account" href="#">Admin, {{Auth::user()->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-												<ul class="submenu curency" >
-													<li class="menu-item" >
-														<a title="Dashboard" href="{{ route('admindashboard') }}">Dashboard</a>
-													</li>
-													<form method="POST" action="{{ route('logout') }}">
-														@csrf
-
-														<li class="menu-item">
-															<a href="{{ route('logout') }}" onclick="event.preventDefault(); closest('form').submit();">Logout</a>
+											@if(Auth::user()->utype === 'ADM')
+												<li class="menu-item menu-item-has-children parent" >
+													<a title="My Account" href="#">Admin, {{Auth::user()->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+													<ul class="submenu curency" >
+														<li class="menu-item" >
+															<a title="Dashboard" href="{{ route('dashboard') }}">Dashboard</a>
 														</li>
-													</form>
-												</ul>
-											</li>
+														<form method="POST" action="{{ route('logout') }}">
+															@csrf
+
+															<li class="menu-item">
+																<a href="{{ route('logout') }}" onclick="event.preventDefault(); closest('form').submit();">Logout</a>
+															</li>
+														</form>
+													</ul>
+												</li>
 											@else
 												<li class="menu-item menu-item-has-children parent" >
 													<a title="My Account" href="#">Hello, {{Auth::user()->name}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 													<ul class="submenu curency" >
 														<li class="menu-item" >
-															<a title="Dashboard" href="{{ route('userdashboard') }}">My Account</a>
+															<a title="Dashboard" href="{{ route('myaccount') }}">My Account</a>
+														</li>
+
+														<li class="menu-item" >
+															<a title="Dashboard" href="{{ route('orders') }}">My Orders</a>
 														</li>
 														<form method="POST" action="{{ route('logout') }}">
 														@csrf
@@ -75,14 +79,14 @@
 													</form>
 													</ul>
 												</li>
-										@endif
+											@endif
 					
-									@else
+								@else
 										<li class="menu-item" ><a title="Register or Login" href="{{ route('login') }}">Login</a></li>
 										<li class="menu-item" ><a title="Register or Login" href="{{ route('register') }}">Register</a></li>
-									@endif
-
 								@endif
+							@endif
+
 
 							</ul>
 						</div>
@@ -106,22 +110,14 @@
 										<a href="#" class="link-control">All Category</a>
 										<ul class="list-cate">
 											<li class="level-0">All Category</li>
-											<li class="level-1">-Electronics</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Headphone & Headsets</li>
-											<li class="level-2">Mp3 Player & Acessories</li>
-											<li class="level-1">-Smartphone & Table</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Mp3 Player & Headphones</li>
-											<li class="level-2">Table & Accessories</li>
-											<li class="level-1">-Electronics</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Headphone & Headsets</li>
-											<li class="level-2">Mp3 Player & Acessories</li>
-											<li class="level-1">-Smartphone & Table</li>
-											<li class="level-2">Batteries & Chargens</li>
-											<li class="level-2">Mp3 Player & Headphones</li>
-											<li class="level-2">Table & Accessories</li>
+												<li class="level-1">-Laptops</li>
+												<li class="level-1">-Desktops</li>
+												<li class="level-1">-Gaming PCs</li>
+												<li class="level-1">-Monitors</li>
+												<li class="level-1">-Speackers</li>
+												<li class="level-1">-Mouse and Keyboards</li>
+												<li class="level-1">-Tech Accessories</li>
+												<li class="level-1">-PC Parts</li>
 										</ul>
 									</div>
 								</form>

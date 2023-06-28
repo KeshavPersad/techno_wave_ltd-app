@@ -1,6 +1,6 @@
 <x-layouts.layout-template0-home>
 
-<title>Techno Wave Ltd. || {{''}}Cart Page</title>	
+<title>Techno Wave Ltd. || {{''}}Cart</title>	
     	<!--main area-->
     <main id="main" class="main-site">
 

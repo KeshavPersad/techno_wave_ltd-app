@@ -1,5 +1,5 @@
 <x-layouts.layout-template0-home>
-<title>Techno Wave Ltd. || {{''}}Checkout Page</title>	
+<title>Techno Wave Ltd. || {{''}}Checkout</title>	
 	<!--main area-->
 	<main id="main" class="main-site">
 

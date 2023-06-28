@@ -15,6 +15,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/chosen.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/style.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/color-01.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/order-history.css') }}">
+	
 
   
 

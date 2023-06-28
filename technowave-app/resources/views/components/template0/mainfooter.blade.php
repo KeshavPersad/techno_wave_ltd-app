@@ -9,7 +9,7 @@
 							<i class="fa fa-truck" aria-hidden="true"></i>
 							<div class="wrap-left-info">
 								<h4 class="fc-name">Free Delivery</h4>
-								<p class="fc-desc">Free On Oder Over $99 USD</p>
+								<p class="fc-desc">Free On Oder Over $1999</p>
 							</div>
 
 						</li>
@@ -192,10 +192,10 @@
 					<div class="coppy-right-item item-right">
 						<div class="wrap-nav horizontal-nav">
 							<ul>
-								<li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>								
-								<li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a></li>
-								<li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms & Conditions</a></li>
-								<li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>								
+								<li class="menu-item"><a href="{{ route('aboutus') }}" class="link-term">About us</a></li>								
+								<li class="menu-item"><a href="{{ route('privacy-policy') }}" class="link-term">Privacy Policy</a></li>
+								<li class="menu-item"><a href="{{ route('terms-conditions') }}" class="link-term">Terms & Conditions</a></li>
+								<li class="menu-item"><a href="{{ route('return-policy') }}" class="link-term">Return Policy</a></li>								
 							</ul>
 						</div>
 					</div>

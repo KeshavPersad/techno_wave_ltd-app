@@ -1,5 +1,5 @@
 <x-layouts.layout-template0-home>
-<title>Techno Wave Ltd. || {{''}}Store Page</title>	
+<title>Techno Wave Ltd. || {{''}}Store</title>	
     	<!--main area-->
 <main id="main" class="main-site left-sidebar">
 
@@ -23,7 +23,7 @@
 
             <div class="wrap-shop-control">
 
-                <h1 class="shop-title">Digital & Electronics</h1>
+                <h1 class="shop-title">All Categories</h1>
 
                 <div class="wrap-right">
 
@@ -128,44 +128,32 @@
             </br>
             
             <div class="widget mercado-widget categories-widget">
-                <h2 class="widget-title">All Categories</h2>
+                <a class="widget-title" href="{{ route('store') }}">All Categories</a>
                 <div class="widget-content">
                     <ul class="list-category">
                         <li class="category-item has-child-cate">
-                            <a href="#" class="cate-link">Fashion & Accessories</a>
-                            <span class="toggle-control">+</span>
-                            <ul class="sub-cate">
-                                <li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-                                <li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-                                <li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-                            </ul>
+                            <a href="" class="cate-link">- Laptops</a>
                         </li>
                         <li class="category-item has-child-cate">
-                            <a href="#" class="cate-link">Furnitures & Home Decors</a>
-                            <span class="toggle-control">+</span>
-                            <ul class="sub-cate">
-                                <li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-                                <li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-                                <li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-                            </ul>
+                            <a href="#" class="cate-link">- Desktops</a>
                         </li>
                         <li class="category-item has-child-cate">
-                            <a href="#" class="cate-link">Digital & Electronics</a>
-                            <span class="toggle-control">+</span>
-                            <ul class="sub-cate">
-                                <li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-                                <li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-                                <li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-                            </ul>
+                            <a href="#" class="cate-link">- Gaming PCs</a>
                         </li>
                         <li class="category-item">
-                            <a href="#" class="cate-link">Tools & Equipments</a>
+                            <a href="#" class="cate-link">- Monitors</a>
                         </li>
                         <li class="category-item">
-                            <a href="#" class="cate-link">Kid’s Toys</a>
+                            <a href="#" class="cate-link">- Speackers</a>
                         </li>
                         <li class="category-item">
-                            <a href="#" class="cate-link">Organics & Spa</a>
+                            <a href="#" class="cate-link">- Mouse and Keyboards</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="cate-link">- Tech Accessories</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="cate-link">- PC Parts</a>
                         </li>
                     </ul>
                 </div>
@@ -173,19 +161,18 @@
             </br>
 
             <div class="widget mercado-widget filter-widget brand-widget">
-                <h2 class="widget-title">Brand</h2>
+                <a class="widget-title">Brand</a>
                 <div class="widget-content">
                     <ul class="list-style vertical-list list-limited" data-show="6">
-                        <li class="list-item"><a class="filter-link active" href="#">Fashion Clothings</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">Laptop Batteries</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">Printer & Ink</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">CPUs & Prosecsors</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">Sound & Speaker</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">Shop Smartphone & Tablets</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">Printer & Ink</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">CPUs & Prosecsors</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">Sound & Speaker</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">Shop Smartphone & Tablets</a></li>
+                        <li class="list-item"><a class="filter-link active" href="#">Apple</a></li>
+                        <li class="list-item"><a class="filter-link " href="#">HP</a></li>
+                        <li class="list-item"><a class="filter-link " href="#">Dell</a></li>
+                        <li class="list-item"><a class="filter-link " href="#">Asus</a></li>
+                        <li class="list-item default-hiden"><a class="filter-link " href="#">Lenovo</a></li>
+                        <li class="list-item default-hiden"><a class="filter-link " href="#">Acer</a></li>
+                        <li class="list-item default-hiden"><a class="filter-link " href="#">Logitech</a></li>
+                        <li class="list-item default-hiden"><a class="filter-link " href="#">Razer</a></li>
+                        <li class="list-item default-hiden"><a class="filter-link " href="#">JBL</a></li>
                         <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
