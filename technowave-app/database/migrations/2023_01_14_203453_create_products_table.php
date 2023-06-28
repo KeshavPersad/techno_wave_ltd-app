@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('product_image4', 200);
             $table->string('product_status', 20);
             $table->string('product_category', 20);
+            $table->string('product_brand', 20);
             $table->timestamps();
         });
     }

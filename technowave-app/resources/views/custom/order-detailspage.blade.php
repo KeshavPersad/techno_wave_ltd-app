@@ -21,7 +21,7 @@
                             <div class="wrap-iten-in-cart">
                                 <h2> Order Details </h2>
  
-                                <h3 >Hello {{ $user->name}},</h3>
+                                <h3 >Hello {{ $user->first_name}},</h3>
                                 <p>Your order had been Confirmed. Delivery is expected within two days.</p>
 
                                 @foreach($order_products as $data)
@@ -44,7 +44,7 @@
                                                     </br>
                                                     <a class="price-field produtc-price"><p class="price">Qyt: {{$data->pivot->order_product_quantity}}</p></a>
                                                     <div class="price-field produtc-price"><p class="price">Unit Price: ${{$data->pivot->order_product_price}}</p></div>
-                                                    <div class="price-field sub-total"><p class="price">Subtotal: ${{ $data->total}}</p></div>
+                                                    <div class="price-field sub-total"><p class="price">Subtotal: ${{ $data->cartQuantityPrice()}}</p></div>
 
                                                     <input type="hidden" name="product_id" value="{{ $data->id }}">
                                                     <input type="hidden" name="cart_id" value="{{ $data->pivot->id }}">
@@ -63,9 +63,9 @@
                                     <p class="summary-info"><span class="title">Order ID:</span><b class="index">#{{$order->id}}</b></p>
                                     <p class="summary-info"><span class="title">Order Date:</span><b class="index">{{ $data->created_at }}</b></p>
                                     <p class="summary-info"><span class="title">Payment Method:</span><b class="index">{{$order->payment}}</b></p>
-                                    <p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $data->subtotal }}</b></p>
+                                    <p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $order->subtotal }}</b></p>
                                     <p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
-                                    <p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $data->total }}</b></p>
+                                    <p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $order->total }}</b></p>
                                 </div>
                                 <br/>
 

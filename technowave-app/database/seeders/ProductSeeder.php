@@ -27,6 +27,7 @@ class ProductSeeder extends Seeder
                 'product_image4' => 'images/products/product_4.jpeg',
                 'product_status' => 'available',
                 'product_category' => 'Graphite',
+                'product_brand' => 'Laptop',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -41,6 +42,7 @@ class ProductSeeder extends Seeder
                 'product_image4' => 'images/products/product_4.jpeg',
                 'product_status' => 'available',
                 'product_category' => 'Silver',
+                'product_brand' => 'Laptop',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -56,8 +58,9 @@ class ProductSeeder extends Seeder
                 'product_image4' => 'images/products/product_4.jpeg',
                 'product_status' => 'available',
                 'product_category' => 'Graphite',
+                'product_brand' => 'Laptop',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
             ],
             [
                 'product_title' => 'iPhone 13 Pro Gold - 256GB',
@@ -70,6 +73,7 @@ class ProductSeeder extends Seeder
                 'product_image4' => 'images/products/product_4.jpeg',
                 'product_status' => 'available',
                 'product_category' => 'Gold',
+                'product_brand' => 'Laptop',               
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -84,6 +88,7 @@ class ProductSeeder extends Seeder
                 'product_image4' => 'images/products/product_4.jpeg',
                 'product_status' => 'available',
                 'product_category' => 'Red',
+                'product_brand' => 'Laptop',              
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -98,6 +103,7 @@ class ProductSeeder extends Seeder
                 'product_image4' => 'images/products/product_4.jpeg',
                 'product_status' => 'available',
                 'product_category' => 'Purple',
+                'product_brand' => 'Laptop',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -112,6 +118,7 @@ class ProductSeeder extends Seeder
                 'product_image4' => 'images/products/product_4.jpeg',
                 'product_status' => 'available',
                 'product_category' => 'Purple',
+                'product_brand' => 'Laptop',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -126,6 +133,7 @@ class ProductSeeder extends Seeder
                 'product_image4' => 'images/products/product_4.jpeg',
                 'product_status' => 'available',
                 'product_category' => 'Purple',
+                'product_brand' => 'Laptop',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -140,6 +148,7 @@ class ProductSeeder extends Seeder
                 'product_image4' => 'images/products/product_4.jpeg',
                 'product_status' => 'available',
                 'product_category' => 'Purple',
+                'product_brand' => 'Laptop',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -154,6 +163,7 @@ class ProductSeeder extends Seeder
                 'product_image4' => 'images/products/product_21.jpeg',
                 'product_status' => 'available',
                 'product_category' => 'Purple',
+                'product_brand' => 'Laptop',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
