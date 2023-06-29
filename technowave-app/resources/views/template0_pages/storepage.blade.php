@@ -114,69 +114,79 @@
         </div><!--end main products area-->
 
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
-        <div class="widget mercado-widget filter-widget price-filter">
-                <h2 class="widget-title">Price</h2>
-                <div class="widget-content">
-                    <div id="slider-range"></div>
-                    <p>
-                        <label for="amount">Price:</label>
-                        <input type="text" id="amount" readonly>
-                        <button class="filter-submit">Filter</button>
-                    </p>
-                </div>
+
+            <!-- Price-->
+            <!-- <div class="widget mercado-widget filter-widget price-filter">
+                    <h2 class="widget-title">Price</h2>
+                    <div class="widget-content">
+                        <div id="slider-range"></div>
+                        <p>
+                            <label for="amount">Price:</label>
+                            <input type="text" id="amount" readonly>
+                            <button class="filter-submit">Filter</button>
+                        </p>
+                    </div>
+            </div>-->
+            <!--Price -->
+
+             <!-- Price-->
+             <div class="widget mercado-widget filter-widget price-filter">
+                    <h2 class="widget-title">Sort by Price</h2>
+                    <div class="widget-content">
+                        <ul class="list-category">
+                            <li class="category-item has-child-cate">
+                                        <a href="/storepage?sort=price" class="cate-link">- Price (Lowest-Highest)</a>
+                                    </li>
+
+                            <li class="category-item has-child-cate">
+                                        <a href="/storepage?sort=price-desc" class="cate-link">- Price (Highest-Lowest)</a>
+                                    </li>
+                        </ul>     
+                    </div>
             </div><!-- Price-->
+
             </br>
-            
-            <div class="widget mercado-widget categories-widget">
-                <a class="widget-title" href="{{ route('store') }}">All Categories</a>
+
+            <!-- Categories widget-->
+            <div class="widget mercado-widget filter-widget brand-widget">
+                <a class="widget-title">Filter By Categories</a>
                 <div class="widget-content">
-                    <ul class="list-category">
-                        <li class="category-item has-child-cate">
-                            <a href="" class="cate-link">- Laptops</a>
-                        </li>
-                        <li class="category-item has-child-cate">
-                            <a href="#" class="cate-link">- Desktops</a>
-                        </li>
-                        <li class="category-item has-child-cate">
-                            <a href="#" class="cate-link">- Gaming PCs</a>
-                        </li>
-                        <li class="category-item">
-                            <a href="#" class="cate-link">- Monitors</a>
-                        </li>
-                        <li class="category-item">
-                            <a href="#" class="cate-link">- Speackers</a>
-                        </li>
-                        <li class="category-item">
-                            <a href="#" class="cate-link">- Mouse and Keyboards</a>
-                        </li>
-                        <li class="category-item">
-                            <a href="#" class="cate-link">- Tech Accessories</a>
-                        </li>
-                        <li class="category-item">
-                            <a href="#" class="cate-link">- PC Parts</a>
-                        </li>
+
+                <ul class="list-style vertical-list list-limited" data-show="6">
+                        <li class="list-item"><a class="filter-link" href="{{ route('store') }}">All Category</a></li>
+
+                            @foreach ($category_details as $data)
+
+                                <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store', ['category' => $data->product_category]) }}">{{ $data->product_category }}</a></li>
+
+                            @endforeach
+
+                        <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div><!-- Categories widget-->
+
             </br>
 
+            <!-- brand widget-->
             <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title">Brand</a>
+                <a class="widget-title">Filter By Brand</a>
                 <div class="widget-content">
+
                     <ul class="list-style vertical-list list-limited" data-show="6">
-                        <li class="list-item"><a class="filter-link active" href="#">Apple</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">HP</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">Dell</a></li>
-                        <li class="list-item"><a class="filter-link " href="#">Asus</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">Lenovo</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">Acer</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">Logitech</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">Razer</a></li>
-                        <li class="list-item default-hiden"><a class="filter-link " href="#">JBL</a></li>
+                        <li class="list-item"><a class="filter-link" href="{{ route('store') }}">All Brands</a></li>
+
+                            @foreach ($brand_details as $data)
+
+                                <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store', ['brand' => $data->product_brand]) }}">{{ $data->product_brand }}</a></li>
+
+                            @endforeach
+
                         <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div><!-- brand widget-->
+
             </br>
 
             <div class="widget mercado-widget widget-product">
