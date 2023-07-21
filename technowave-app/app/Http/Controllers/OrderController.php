@@ -21,6 +21,18 @@ class OrderController extends Controller{
 
     }
 
+    public function thnakyou(){
+
+        $orders = Auth::user()->orders;
+
+        return view('template0_pages.add_on.thankyou', [
+            
+            'orders' => $orders,
+        
+        ]);  
+
+    }
+
     public function show($id){
 
         $user = Auth::user();
@@ -43,5 +55,7 @@ class OrderController extends Controller{
         ]);  
 
     }
+
+    
     
 }

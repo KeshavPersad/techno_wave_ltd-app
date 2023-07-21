@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Helpers\CheckoutHelper;
 use App\Helpers\StripeHelper;
+use App\Mail\OrderSuccessMail;
 use App\Models\Order;
 use App\Models\Order_product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutSuccessController extends Controller
 {
@@ -114,6 +116,13 @@ class CheckoutSuccessController extends Controller
 
         // Remove all user cart products
         $user->products()->detach();
+
+
+        $name = $user->name;
+        $messagebody = 'Thank You For Your Order!';
+        $greetings = 'Hello, ';
+
+        Mail::to(Auth::user())->send(new OrderSuccessMail($name, $messagebody, $greetings, $user_products));
 
     }
 

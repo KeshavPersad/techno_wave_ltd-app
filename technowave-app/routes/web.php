@@ -9,18 +9,22 @@ use App\Http\Controllers\CheckoutSuccessController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-    Auth::routes();
+    Auth::routes([
+        
+        'verify' =>true,
+
+    ]);
 
     // When using a route just call the name which is shown in name tab 
     // Example: "->name('register')"
     // So to call this route use {{route ('register')}}
-
 
 
     //Route for Register Page
@@ -42,18 +46,22 @@ use Illuminate\Support\Facades\Route;
 
 
     //Route for Home Page (Main Page)
-    Route::view('/', 'template0_pages/homepage')->name('home');
+    // Route::view('/', 'template0_pages/homepage')->name('home');
+
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/homepage', [HomeController::class, 'index'])->name('home');
+    Route::get('/techno-wave', [HomeController::class, 'index'])->name('home');
 
     //Route for Store Page
     Route::get('/storepage', [ProductController::class, 'index'])->name('store');
+    Route::get('/shop', [ProductController::class, 'index'])->name('store');
 
     //Route for Details Page
     Route::get('/detailspage/{id}', [DetailsController::class, 'index'])->name('store.details');
 
     //Route for Auth Middleware
-    Route::middleware(['auth'])->group(function(){
-
-        
+    Route::middleware(['auth', 'verified'])->group(function(){
 
         //Route for View Cart
         Route::get('/cartpage', [CartController::class, 'index'])->name('cart');
@@ -77,14 +85,21 @@ use Illuminate\Support\Facades\Route;
         //Route for Checkout Stripe Page
         Route::post('/checkoutpage/stripe', CheckoutStripeController::class)->name('checkout.stripe');
 
+
         //Route for Payment Successful Page
         Route::view('/paymentsuccesspage', 'template0_pages/paymentsuccesspage')->name('payment.success');
+
 
         //Route for Order Deatils Page
         Route::get('/order-historypage', [OrderController::class, 'index'])->name('orders');
 
         //Route for Order Deatils Page
         Route::get('/order-historypage/{id}', [OrderController::class, 'show'])->name('orders.show');
+
+
+        //Route for Thank You Page
+        Route::get('/thankyou', [OrderController::class, 'thnakyou'])->name('thankyou');
+
 
     
         //Route for View Favorites
@@ -95,6 +110,10 @@ use Illuminate\Support\Facades\Route;
         
         //Route for Remove Product from Favorites
         Route::delete('/favoritespage/{id}', [FavoritesController::class, 'destroy'])->name('favorites.destroy');
+
+
+        //Route for Mail
+        // Route::get('/mail-testing', [MailController::class, 'index'])->name('mail');
         
     });
 

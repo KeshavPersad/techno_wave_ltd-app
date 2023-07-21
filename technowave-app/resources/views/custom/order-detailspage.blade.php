@@ -22,7 +22,7 @@
                                 <h2> Order Details </h2>
  
                                 <h3 >Hello {{ $user->first_name}},</h3>
-                                <p>Your order had been Confirmed. Delivery is expected within two days.</p>
+                                <p>Your order had been Confirmed. Delivery is expected within few days.</p>
 
                                 @foreach($order_products as $data)
                                     <ul class="products-cart">
@@ -72,8 +72,6 @@
 
                                 
                                 <div class="update-clear">
-                                    <!-- <a class="btn btn-clear" href="{{ route('checkout') }}">Proceed to Checkout</a>
-                                    <a class="btn btn-clear" href="#">Clear Shopping Cart</a>            -->
                                     <a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                                 </div>
                             </div> 
