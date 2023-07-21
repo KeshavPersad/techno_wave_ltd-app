@@ -6,8 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ProductController extends Controller{
-
+class ListController extends Controller{
     public function index(Request $request){
 
         $product_details = Product::all();
@@ -19,7 +18,7 @@ class ProductController extends Controller{
         $category_details = Product::select('product_category')->distinct()->get();
         $brand_details = Product::select('product_brand')->distinct()->get();
 
-        return view('template0_pages.storepage', [
+        return view('template0_pages.listpage', [
                         
             'product_details' => $product_details,
             'category_details' => $category_details,
@@ -118,6 +117,4 @@ class ProductController extends Controller{
         ->get();
 
     }
-
-
 }

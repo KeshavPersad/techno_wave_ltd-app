@@ -16,30 +16,11 @@
 							<ul>
 								
 								<li class="menu-item lang-menu menu-item-has-children parent">
-									<a title="English" href="#"><span class="img label-before"><img src="{{ asset ('template0/images/lang-en.png') }}" alt="lang-en"></span>English<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-									<ul class="submenu lang" >
-										<li class="menu-item" ><a title="hungary" href="#"><span class="img label-before"><img src="{{ asset ('template0/images/lang-hun.png') }}" alt="lang-hun"></span>Hungary</a></li>
-										<li class="menu-item" ><a title="german" href="#"><span class="img label-before"><img src="{{ asset ('template0/images/lang-ger.png') }}" alt="lang-ger" ></span>German</a></li>
-										<li class="menu-item" ><a title="french" href="#"><span class="img label-before"><img src="{{ asset ('template0/images/lang-fra.png') }}" alt="lang-fre"></span>French</a></li>
-										<li class="menu-item" ><a title="canada" href="#"><span class="img label-before"><img src="{{ asset ('template0/images/lang-can.png') }}" alt="lang-can"></span>Canada</a></li>
-									</ul>
+									<a title="English" href="#"><span class="img label-before"><img src="{{ asset ('template0/images/lang-en.png') }}" alt="lang-en"></span>English<i aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item menu-item-has-children parent" >
-									<a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-									<ul class="submenu curency" >
-                                    <li class="menu-item" >
-											<a title="Dollar (USD)" href="#">Dollar (USD)</a>
-										</li>
-                                        <li class="menu-item" >
-											<a title="Dollar (TTD)" href="#">Dollar (TTD)</a>
-										</li>
-										<li class="menu-item" >
-											<a title="Pound (GBP)" href="#">Pound (GBP)</a>
-										</li>
-										<li class="menu-item" >
-											<a title="Euro (EUR)" href="#">Euro (EUR)</a>
-										</li>
-									</ul>
+									<a title="Dollar (USD)" href="#">Currency (TTD)<aria-hidden="true"></aria-hidden=></a>
+
 								</li>
 
 								@if(Route::has('login'))
@@ -176,11 +157,11 @@
 															<x-template0.search/>
 
 															<div class="wrap-icon right-section">
-																<div class="wrap-icon-section wishlist">
+																<div class="wrap-icon-section minicart">
 																	<a href="{{ route('favorites') }}" class="link-direction">
 																		<i class="fa fa-heart" aria-hidden="true"></i>
 																		<div class="left-info">
-																			<span class="index">0 item</span>
+																			<span class="index"></span>
 																			<span class="title">Favorites</span>
 																		</div>
 																	</a>
@@ -189,7 +170,7 @@
 																	<a href="{{ route('cart') }}" class="link-direction">
 																		<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 																		<div class="left-info">
-																			<span class="index">4 items</span>
+																			<span class="index"></span>
 																			<span class="title">CART</span>
 																		</div>
 																	</a>
@@ -207,17 +188,6 @@
 													</div>
 
 													<div class="nav-section header-sticky">
-														<div class="header-nav-section">
-															<div class="container">
-																<ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu" data-menuname="Sale Info" >
-																	<li class="menu-item"><a href="#" class="link-term">Weekly Featured</a><span class="nav-label hot-label">hot</span></li>
-																	<li class="menu-item"><a href="#" class="link-term">Hot Sale items</a><span class="nav-label hot-label">hot</span></li>
-																	<li class="menu-item"><a href="#" class="link-term">Top new items</a><span class="nav-label hot-label">hot</span></li>
-																	<li class="menu-item"><a href="#" class="link-term">Top Selling</a><span class="nav-label hot-label">hot</span></li>
-																	<li class="menu-item"><a href="#" class="link-term">Top rated items</a><span class="nav-label hot-label">hot</span></li>
-																</ul>
-															</div>
-														</div>
 
 														<div class="primary-nav-section">
 															<div class="container">
@@ -228,12 +198,12 @@
 																	<li class="menu-item">
 																		<a href="{{ route('store') }}" class="link-term mercado-item-title">Shop</a>
 																	</li>
-																	<!-- <li class="menu-item">
+																	<li class="menu-item">
 																		<a href="{{ route('cart') }}" class="link-term mercado-item-title">Cart</a>
 																	</li>
 																	<li class="menu-item">
 																		<a href="{{ route('checkout') }}" class="link-term mercado-item-title">Checkout</a>
-																	</li> -->
+																	</li>
 																	<li class="menu-item">
 																		<a href="{{ route('aboutus') }}" class="link-term mercado-item-title">About Us</a>
 																	</li>
@@ -300,17 +270,6 @@
 										</div>
 
 										<div class="nav-section header-sticky">
-											<div class="header-nav-section">
-												<div class="container">
-													<ul class="nav menu-nav clone-main-menu" id="mercado_haead_menu" data-menuname="Sale Info" >
-														<li class="menu-item"><a href="#" class="link-term">Weekly Featured</a><span class="nav-label hot-label">hot</span></li>
-														<li class="menu-item"><a href="#" class="link-term">Hot Sale items</a><span class="nav-label hot-label">hot</span></li>
-														<li class="menu-item"><a href="#" class="link-term">Top new items</a><span class="nav-label hot-label">hot</span></li>
-														<li class="menu-item"><a href="#" class="link-term">Top Selling</a><span class="nav-label hot-label">hot</span></li>
-														<li class="menu-item"><a href="#" class="link-term">Top rated items</a><span class="nav-label hot-label">hot</span></li>
-													</ul>
-												</div>
-											</div>
 
 											<div class="primary-nav-section">
 												<div class="container">
@@ -321,12 +280,12 @@
 														<li class="menu-item">
 															<a href="{{ route('store') }}" class="link-term mercado-item-title">Shop</a>
 														</li>
-														<!-- <li class="menu-item">
+														<li class="menu-item">
 															<a href="{{ route('cart') }}" class="link-term mercado-item-title">Cart</a>
 														</li>
 														<li class="menu-item">
 															<a href="{{ route('checkout') }}" class="link-term mercado-item-title">Checkout</a>
-														</li> -->
+														</li>
 														<li class="menu-item">
 															<a href="{{ route('aboutus') }}" class="link-term mercado-item-title">About Us</a>
 														</li>

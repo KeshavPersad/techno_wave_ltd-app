@@ -38,11 +38,24 @@
                         </select>
                     </div> -->
 
-                    <div class="change-display-mode">
-                        <a href="{{ route('store') }}" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
-                        <a href="{{ route('store_list') }}" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
-                    </div>
+                    <!-- <div class="sort-item product-per-page">
+                        <select name="post-per-page" class="use-chosen" >
+                            <option value="12" selected="selected">12 per page</option>
+                            <option value="16">16 per page</option>
+                            <option value="18">18 per page</option>
+                            <option value="21">21 per page</option>
+                            <option value="24">24 per page</option>
+                            <option value="30">30 per page</option>
+                            <option value="32">32 per page</option>
+                        </select>
+                    </div> -->
 
+                    <div class="change-display-mode">
+                        <a href="{{ route('store') }}" class="grid-mode display-mode"><i class="fa fa-th"></i>Grid</a>
+                        <a href="{{ route('store_list') }}" class="list-mode display-mode active"><i class="fa fa-th-list"></i>List</a>
+                        
+                    </div>
+                    
                 </div>
 
             </div><!--end wrap shop control-->
@@ -67,12 +80,19 @@
                                         </div>
                                         <div class="product-info">
                                             <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
+                                             </br>
+                                            </br>
+                                        
+                                            <p>{{$data->product_description}}</p>
+
+                                            </br>
+                                            </br>
                                             <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
 
                                 
                                         <div class="wrap-butons">
                                             <input type="hidden" name="cart_quantity" value="1">
-                                            <!-- <a href="#" class="btn add-to-cart">Add To Cart</a> -->
+                                           
                                             <button class="btn add-to-cart_Shop" type="submit" >Add to Cart</button>
 
                                             <input type="hidden" name="product_id" value="{{ $data->id }}">
@@ -84,7 +104,6 @@
                             </form>
 
                         @endforeach
-
 
                 </ul>
 

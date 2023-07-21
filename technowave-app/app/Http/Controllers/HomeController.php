@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -26,12 +27,18 @@ class HomeController extends Controller
     public function index(Request $request){
 
         $product_details = Product::all();
-        // dd($product_details);
+        $random = $this->randomProducts();
+        $recent = $this->recentProducts();
+        $bestSellingProducts = $this->bestSellingProducts();
+        //dd($best_selling_products);
 
 
         return view('template0_pages.homepage', [
                         
             'product_details' => $product_details, 
+            'random' => $random,
+            'recent' => $recent,
+            'bestSellingProducts' => $bestSellingProducts,
         
         ]);
 
@@ -39,19 +46,25 @@ class HomeController extends Controller
 
     public function randomProducts(){
 
-        return true;
+        return DB::table('products')->inRandomOrder()->limit(10)->get();
 
     }
 
     public function recentProducts(){
 
-        return true;
+        return DB::table('products')->orderBy('created_at', 'desc')->limit(10)->get();
 
     }
 
     public function bestSellingProducts(){
 
-        return true;
+        return DB::table('order_product')
+        ->select(DB::raw('*, SUM(order_product_quantity) as quantity_sold'))
+        ->join('products', 'order_product.product_id', '=', 'products.id')
+        ->groupBy('product_id')
+        ->orderByRaw('quantity_sold DESC')
+        ->limit(10)
+        ->get();
 
     }
 

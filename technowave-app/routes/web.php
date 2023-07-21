@@ -9,6 +9,7 @@ use App\Http\Controllers\CheckoutSuccessController;
 use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ListController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
@@ -51,11 +52,13 @@ use Illuminate\Support\Facades\Route;
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/homepage', [HomeController::class, 'index'])->name('home');
+    Route::get('/technowave', [HomeController::class, 'index'])->name('home');
     Route::get('/techno-wave', [HomeController::class, 'index'])->name('home');
 
     //Route for Store Page
     Route::get('/storepage', [ProductController::class, 'index'])->name('store');
     Route::get('/shop', [ProductController::class, 'index'])->name('store');
+    Route::get('/listpage', [ListController::class, 'index'])->name('store_list');
 
     //Route for Details Page
     Route::get('/detailspage/{id}', [DetailsController::class, 'index'])->name('store.details');
