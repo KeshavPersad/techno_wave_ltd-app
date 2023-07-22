@@ -27,29 +27,6 @@
 
                 <div class="wrap-right">
 
-                    <!-- <div class="sort-item orderby ">
-                        <select name="orderby" class="use-chosen" >
-                            <option value="menu_order" selected="selected">Default sorting</option>
-                            <option value="popularity">Sort by popularity</option>
-                            <option value="rating">Sort by average rating</option>
-                            <option value="date">Sort by newness</option>
-                            <option value="price">Sort by price: low to high</option>
-                            <option value="price-desc">Sort by price: high to low</option>
-                        </select>
-                    </div> -->
-
-                    <!-- <div class="sort-item product-per-page">
-                        <select name="post-per-page" class="use-chosen" >
-                            <option value="12" selected="selected">12 per page</option>
-                            <option value="16">16 per page</option>
-                            <option value="18">18 per page</option>
-                            <option value="21">21 per page</option>
-                            <option value="24">24 per page</option>
-                            <option value="30">30 per page</option>
-                            <option value="32">32 per page</option>
-                        </select>
-                    </div> -->
-
                     <div class="change-display-mode">
                         <a href="{{ route('store') }}" class="grid-mode display-mode"><i class="fa fa-th"></i>Grid</a>
                         <a href="{{ route('store_list') }}" class="list-mode display-mode active"><i class="fa fa-th-list"></i>List</a>
@@ -60,54 +37,56 @@
 
             </div><!--end wrap shop control-->
 
-            <div class="row">
+                <div class="adjust">    
+                    <div class="lefter">
+                        <div class="wrap-iten-in-cart">
+                            <ul class="products-cart">
 
-                <ul class="product-list grid-products equal-container">
+                                @foreach($product_details as $data)
+                                    <form action="{{ route('cart') }}" method="POST" >
+                                        @csrf
+                                        @method('PUT')
 
 
-                        @foreach($product_details as $data)
-
-                            <form action="{{ route('cart') }}" method="POST" >
-								@csrf
-								@method('PUT')
-
-                                <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
-                                    <div class="product product-style-3 equal-elem ">
-                                        <div class="product-thumnail">
-                                            <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
+                                        <li class="pr-cart-item">
+                                            <div class="product-image">
+                                                <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
                                                 <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                             </a>
-                                        </div>
-                                        <div class="product-info">
-                                            <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
-                                             </br>
-                                            </br>
-                                        
-                                            <p>{{$data->product_description}}</p>
+                                            </div>
+                                            <div class="product-name">
+                                                <a class="link-to-product" href="{{ route ('store.details', ['id' => $data->id]) }}">{{ $data->product_title }}</a>
 
-                                            </br>
-                                            </br>
-                                            <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
+                                                </br>
+                                                </br>
+                                            
+                                                <p>{{$data->product_description}}</p>
 
-                                
-                                        <div class="wrap-butons">
-                                            <input type="hidden" name="cart_quantity" value="1">
+                                                </br>
+                                                </br>
+                                                <a class="price-field produtc-price"><p class="price">Status: {{$data->product_status}}</p></a>
+                                                <a class="price-field produtc-price"><p class="price">Price: ${{$data->product_price}}</p></a>
+                                                <div class="wrap-butons">
+
+                                                    <input type="hidden" name="cart_quantity" value="1">
                                            
-                                            <button class="btn add-to-cart_Shop" type="submit" >Add to Cart</button>
+                                                    <button class="btn add-to-cart_Shop" type="submit" >Add to Cart</button>
 
-                                            <input type="hidden" name="product_id" value="{{ $data->id }}">
-                                        </div>
+                                                    <input type="hidden" name="product_id" value="{{ $data->id }}">
+                                                    </div>
 
-                                        </div>
-                                    </div>
-                                </li>
-                            </form>
+                                            </div>
+                
+                                        </li>
+                                    </form>
 
-                        @endforeach
+                                @endforeach
+        
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-                </ul>
-
-            </div>
 
             <div class="wrap-pagination-info">
                 <ul class="page-numbers">
@@ -120,23 +99,11 @@
             </div>
         </div><!--end main products area-->
 
+
+
+
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
 
-            <!-- Price-->
-            <!-- <div class="widget mercado-widget filter-widget price-filter">
-                    <h2 class="widget-title">Price</h2>
-                    <div class="widget-content">
-                        <div id="slider-range"></div>
-                        <p>
-                            <label for="amount">Price:</label>
-                            <input type="text" id="amount" readonly>
-                            <button class="filter-submit">Filter</button>
-                        </p>
-                    </div>
-            </div>-->
-            <!--Price -->
-
-             <!-- Price-->
              <div class="widget mercado-widget filter-widget price-filter">
                     <h2 class="widget-title">Sort by Price</h2>
                     <div class="widget-content">
@@ -147,7 +114,8 @@
 
                             <li class="category-item has-child-cate">
                                         <a href="/storepage?sort=price-desc" class="cate-link">- Price (Highest-Lowest)</a>
-                                    </li>
+                            </li>
+                            
                         </ul>     
                     </div>
             </div><!-- Price-->
@@ -222,6 +190,49 @@
                     </ul>
                 </div>
             </div><!-- brand widget-->
+
+            </br>
+            </br>
+
+                        <div class="widget widget-our-services ">
+                                <div class="widget-content">
+                                    <ul class="our-services">
+
+                                        <li class="service">
+                                            <a class="link-to-service" href="#">
+                                                <i class="fa fa-truck" aria-hidden="true"></i>
+                                                <div class="right-content">
+                                                    <b class="title">Free Delivery</b>
+                                                    <span class="subtitle">Nationwide</span>
+                                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="service">
+                                            <a class="link-to-service" href="#">
+                                                <i class="fa fa-gift" aria-hidden="true"></i>
+                                                <div class="right-content">
+                                                    <b class="title">Special Offer</b>
+                                                    <span class="subtitle">Get a gift!</span>
+                                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="service">
+                                            <a class="link-to-service" href="#">
+                                                <i class="fa fa-reply" aria-hidden="true"></i>
+                                                <div class="right-content">
+                                                    <b class="title">Order Return</b>
+                                                    <span class="subtitle">Return within 7 days</span>
+                                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 
         </div><!--end sitebar-->
 

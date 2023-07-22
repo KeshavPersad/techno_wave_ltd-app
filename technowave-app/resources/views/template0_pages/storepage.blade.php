@@ -27,17 +27,6 @@
 
                 <div class="wrap-right">
 
-                    <!-- <div class="sort-item orderby ">
-                        <select name="orderby" class="use-chosen" >
-                            <option value="menu_order" selected="selected">Default sorting</option>
-                            <option value="popularity">Sort by popularity</option>
-                            <option value="rating">Sort by average rating</option>
-                            <option value="date">Sort by newness</option>
-                            <option value="price">Sort by price: low to high</option>
-                            <option value="price-desc">Sort by price: high to low</option>
-                        </select>
-                    </div> -->
-
                     <div class="change-display-mode">
                         <a href="{{ route('store') }}" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
                         <a href="{{ route('store_list') }}" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
@@ -102,20 +91,6 @@
         </div><!--end main products area-->
 
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
-
-            <!-- Price-->
-            <!-- <div class="widget mercado-widget filter-widget price-filter">
-                    <h2 class="widget-title">Price</h2>
-                    <div class="widget-content">
-                        <div id="slider-range"></div>
-                        <p>
-                            <label for="amount">Price:</label>
-                            <input type="text" id="amount" readonly>
-                            <button class="filter-submit">Filter</button>
-                        </p>
-                    </div>
-            </div>-->
-            <!--Price -->
 
              <!-- Price-->
              <div class="widget mercado-widget filter-widget price-filter">
@@ -203,6 +178,49 @@
                     </ul>
                 </div>
             </div><!-- brand widget-->
+
+            </br>
+            </br>
+
+                        <div class="widget widget-our-services ">
+                                <div class="widget-content">
+                                    <ul class="our-services">
+
+                                        <li class="service">
+                                            <a class="link-to-service" href="#">
+                                                <i class="fa fa-truck" aria-hidden="true"></i>
+                                                <div class="right-content">
+                                                    <b class="title">Free Delivery</b>
+                                                    <span class="subtitle">Nationwide</span>
+                                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="service">
+                                            <a class="link-to-service" href="#">
+                                                <i class="fa fa-gift" aria-hidden="true"></i>
+                                                <div class="right-content">
+                                                    <b class="title">Special Offer</b>
+                                                    <span class="subtitle">Get a gift!</span>
+                                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="service">
+                                            <a class="link-to-service" href="#">
+                                                <i class="fa fa-reply" aria-hidden="true"></i>
+                                                <div class="right-content">
+                                                    <b class="title">Order Return</b>
+                                                    <span class="subtitle">Return within 7 days</span>
+                                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 
         </div><!--end sitebar-->
 
