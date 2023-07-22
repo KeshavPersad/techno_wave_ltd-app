@@ -19,10 +19,22 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
+                'first_name' => 'Admin',
+                'last_name' => 'First',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('123456789'),
+                'phone_number' =>'(868) 350-5350',
+                'utype' => 'ADM',
+                'user_image' => '',
+                'email_verified_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
                 'first_name' => 'Keshav',
                 'last_name' => 'Persad',
                 'email' => 'kipersad262@gmail.com',
-                'password' => Hash::make('51248388'),
+                'password' => Hash::make('123456789'),
                 'phone_number' =>'(868) 364-2362',
                 'utype' => 'USR',
                 'user_image' => 'images/products/product_10.jpeg',
@@ -31,13 +43,49 @@ class UserSeeder extends Seeder
                 'updated_at' => Carbon::now()
             ],
             [
-                'first_name' => 'Admin',
-                'last_name' => 'First',
-                'email' => 'admin@gmail.com',
+                'first_name' => 'Rianna',
+                'last_name' => 'Persad',
+                'email' => 'rianna@gmail.com',
                 'password' => Hash::make('123456789'),
-                'phone_number' =>'(868) 350-5350',
-                'utype' => 'ADM',
-                'user_image' => '',
+                'phone_number' =>'(868) 324-7846',
+                'utype' => 'USR',
+                'user_image' => 'images/products/product_10.jpeg',
+                'email_verified_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'first_name' => 'Nehru',
+                'last_name' => 'Persad',
+                'email' => 'nehru@gmail.com',
+                'password' => Hash::make('123456789'),
+                'phone_number' =>'(868) 364-7862',
+                'utype' => 'USR',
+                'user_image' => 'images/products/product_10.jpeg',
+                'email_verified_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'first_name' => 'Shiv',
+                'last_name' => 'Persad',
+                'email' => 'shiv@gmail.com',
+                'password' => Hash::make('123456789'),
+                'phone_number' =>'(868) 367-2342',
+                'utype' => 'USR',
+                'user_image' => 'images/products/product_10.jpeg',
+                'email_verified_at' => Carbon::now(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'first_name' => 'Sat',
+                'last_name' => 'Persad',
+                'email' => 'sat@gmail.com',
+                'password' => Hash::make('123456789'),
+                'phone_number' =>'(868) 347-2162',
+                'utype' => 'USR',
+                'user_image' => 'images/products/product_10.jpeg',
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()

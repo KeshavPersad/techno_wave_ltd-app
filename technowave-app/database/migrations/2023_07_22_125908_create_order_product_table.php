@@ -4,16 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration{
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('order_product', function (Blueprint $table) {
+    public function up(){
+
+        Schema::create('order_product', function (Blueprint $table){
             $table->id('order_product_id');
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
@@ -31,8 +31,8 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down(){
+
         Schema::dropIfExists('order_product');
     }
 };
