@@ -61,7 +61,7 @@
                                                 <i class="fa fa-truck" aria-hidden="true"></i>
                                                 <div class="right-content">
                                                     <b class="title">Free Delivery</b>
-                                                    <span class="subtitle">On Oder Over $99</span>
+                                                    <span class="subtitle">Nationwide</span>
                                                     <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
                                                 </div>
                                             </a>
@@ -99,7 +99,7 @@
                 @else
                     <div class="lefter">
                         <div class="wrap-iten-in-cart">
-                            <h3 class="box-title">Products Name</h3>
+                            <h3 class="box-title">Cart Products</h3>
                             <ul class="products-cart">
 
                                 @foreach($cart_details as $data)
@@ -132,21 +132,18 @@
 
                                             <div class="price-field sub-total"><p class="price">Subtotal: ${{ $data->cartQuantityPrice() }}.00</p></div>
 
+                                            <div class="detail-info">
+                                                <form action="{{ route('cart.destroy', ['id' => $data->pivot->id]) }}" method="POST" >
+                                                        @csrf
+                                                        @method('Delete')
 
-                                            <div class="delete">
-                                                
-                                                <form action="{{ route('cart.destroy', ['id' => $data->pivot->id]) }}" method="POST">
-                                                    @method('Delete')
-                                                    @csrf
-                                                
-                                                    <button class="fa fa-times-circle"><a href="#" class="btn btn-delete" title="">
-                                                    </a></button>
-                                                    
-                                                    <input type="hidden" name="product_id" value="{{ $data->id }}">
-                                                    <input type="hidden" name="cart_id" value="{{ $data->pivot->id }}">
+                                                        <div class="wrap-butons">
+                                                            <button  type="submit" class="btn add-to-cart_Shop">Remove from Cart</button>
 
+                                                            <input type="hidden" name="product_id" value="{{ $data->id }}">
+                                                            <input type="hidden" name="cart_id" value="{{ $data->pivot->id }}">
+                                                        </div>
                                                 </form>
-                                                
                                             </div>
 
                                         </div>
@@ -164,9 +161,9 @@
                         <div class="summary">
                             <div class="order-summary">
                                 <h4 class="title-box">Cart Summary</h4>
-                                <p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $data->total }}.00</b></p>
+                                <p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $data->cartQuantityPrice() }}.00</b></p>
                                 <p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
-                                <p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $data->total }}.00</b></p>
+                                <p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $data->cartQuantityPrice() }}.00</b></p>
                             </div>
                             
                             <div class="update-clear">
@@ -187,7 +184,7 @@
                                                     <i class="fa fa-truck" aria-hidden="true"></i>
                                                     <div class="right-content">
                                                         <b class="title">Free Delivery</b>
-                                                        <span class="subtitle">On Oder Over $99</span>
+                                                        <span class="subtitle">Nationwide</span>
                                                         <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
                                                     </div>
                                                 </a>

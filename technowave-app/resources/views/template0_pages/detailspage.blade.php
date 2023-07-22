@@ -93,8 +93,8 @@
 									@csrf
 									@method('PUT')
 
-									<div class="wrap-btn wrap-butons">
-										<button  type="submit" class="btn btn-wishlist">Add to Favorites</button>
+									<div class="wrap-butons">
+										<button  type="submit" class="btn add-to-cart_Shop">Add to Favorites</button>
 
 										<input type="hidden" name="product_id" value="{{ $data->id }}">
 									</div>

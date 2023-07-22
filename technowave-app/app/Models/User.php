@@ -65,6 +65,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Order::class);
         
     }
+
+    public function favoriteproducts(): BelongsToMany{
+
+        return $this->belongsToMany(Product::class, 'favorites')
+        ->withPivot('id', 'user_id', 'favorites_quantity');
+
+    }
+
     
     
 }

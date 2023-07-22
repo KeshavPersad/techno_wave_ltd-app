@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminProductDetailsController;
+use App\Http\Controllers\AllProductController;
+use App\Http\Controllers\AllProductListController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CheckoutStripeController;
@@ -41,14 +44,9 @@ use Illuminate\Support\Facades\Route;
 
     });
 
-    //Route For Admin Dashboard
-    Route::get('/dasboard', [AdminController::class, 'index'])->name('dashboard');
-    Route::view('/admin-myaccount', 'template0_pages/admin/admin-myaccount')->name('admin-myaccount');
 
 
     //Route for Home Page (Main Page)
-    // Route::view('/', 'template0_pages/homepage')->name('home');
-
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/homepage', [HomeController::class, 'index'])->name('home');
@@ -65,6 +63,24 @@ use Illuminate\Support\Facades\Route;
 
     //Route for Auth Middleware
     Route::middleware(['auth', 'verified'])->group(function(){
+
+        //Route For Admin Dashboard
+        Route::get('/dasboard', [AdminController::class, 'index'])->name('dashboard');
+        Route::view('/admin-myaccount', 'template0_pages/admin/admin-myaccount')->name('admin-myaccount');
+
+        Route::get('/allproducts', [AllProductController::class, 'index'])->name('allproducts');
+        Route::get('/allproductslist', [AllProductListController::class, 'index'])->name('allproductslist');
+
+        Route::get('/productdetails/{id}', [AdminProductDetailsController::class, 'index'])->name('adminproduct.details');
+
+         //Route for View Favorites
+         Route::get('/favoritespage', [FavoritesController::class, 'index'])->name('favorites');
+       
+         //Route for Add item to Favorites
+         Route::put('/favoritespage', [FavoritesController::class, 'store'])->name('favorites.store');
+         
+         //Route for Remove Product from Favorites
+         Route::delete('/favoritespage/{id}', [FavoritesController::class, 'destroy'])->name('favorites.destroy');
 
         //Route for View Cart
         Route::get('/cartpage', [CartController::class, 'index'])->name('cart');
@@ -102,7 +118,6 @@ use Illuminate\Support\Facades\Route;
 
         //Route for Thank You Page
         Route::get('/thankyou', [OrderController::class, 'thnakyou'])->name('thankyou');
-
 
     
         //Route for View Favorites

@@ -179,49 +179,61 @@
 							</p>
 						</form>
 					</div>
-					<div class="summary summary-checkout">
-						<div class="summary-item payment-method">
-							<h4 class="title-box">Payment Method</h4>
-							<p class="summary-info"><span class="title">Check / Money order</span></p>
-							<p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
-							<div class="choose-payment-methods">
-								<label class="payment-method">
-									<input name="payment-method" id="payment-method-bank" value="bank" type="radio">
-									<span>Direct Bank Transder</span>
-									<span class="payment-desc">But the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</span>
-								</label>
-								<label class="payment-method">
-									<input name="payment-method" id="payment-method-visa" value="visa" type="radio">
-									<span>visa</span>
-									<span class="payment-desc">There are many variations of passages of Lorem Ipsum available</span>
-								</label>
-								<label class="payment-method">
-									<input name="payment-method" id="payment-method-paypal" value="paypal" type="radio">
-									<span>Paypal</span>
-									<span class="payment-desc">You can pay with your credit</span>
-									<span class="payment-desc">card if you don't have a paypal account</span>
-								</label>
+
+					@foreach($cart_details as $data)
+
+						<div class="summary summary-checkout">
+							<div class="summary-item payment-method">
+								
+									<h4 class="title-box">Payment Method</h4>
+									<label class="payment-method">
+										<input name="payment-method" id="payment-method-bank" value="bank" type="radio">
+										<span>Direct Bank Transder</span>
+									</label>
+									<label class="payment-method">
+										<input name="payment-method" id="payment-method-visa" value="visa" type="radio">
+										<span>VISA</span>
+									</label>
+									<label class="payment-method">
+										<input name="payment-method" id="payment-method-paypal" value="paypal" type="radio">
+										<span>Paypal</span>
+									</label>
+
+									<br>
+									<br>
+									<br>
+
+									<div class="summary">
+										<div class="order-summary">
+											<h4 class="title-box">Checkout Summary</h4>
+											<p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $data->cartQuantityPrice() }}.00</b></p>
+											<p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
+											<p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $data->cartQuantityPrice() }}.00</b></p>
+										</div>
+										<div class="update-clear">
+											<x-core.stripe-ui/>
+                               				<a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                           				</div>
+									</div>	
+
+
+								
+
 							</div>
-							<p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">$100.00</span></p>
-
-							<!-- <a href="thankyou.html" class="btn btn-medium">Place Order Now</a> -->
-
-							<x-core.stripe-ui />
-
+							<div class="summary-item shipping-method">
+								<a></a><h4 class="title-box f-title">Shipping Method - Direct Delivery</h4> </a>
+								<h4>Discount Codes</h4>
+								<p class="row-in-form">
+									
+									<label for="coupon-code">Enter Your Code:</label>
+									<input id="coupon-code" type="text" name="coupon-code" value="" placeholder="">	
+								</p>
+								<div class="update-clear">
+          							<button class="btn btn-clear" type="submit" id="checkout-button" >Apply</button>          
+        						</div>
+							</div>
 						</div>
-						<div class="summary-item shipping-method">
-							<h4 class="title-box f-title">Shipping method</h4>
-							<p class="summary-info"><span class="title">Flat Rate</span></p>
-							<p class="summary-info"><span class="title">Fixed $50.00</span></p>
-							<h4 class="title-box">Discount Codes</h4>
-							<p class="row-in-form">
-								<label for="coupon-code">Enter Your Coupon code:</label>
-								<input id="coupon-code" type="text" name="coupon-code" value="" placeholder="">	
-							</p>
-							<a href="#" class="btn btn-small">Apply</a>
-						</div>
-					</div>
-
+					@endforeach
 						<div class="wrap-show-advance-info-box style-1 box-in-site">
 							<h3 class="title-box">Popular Products</h3>
 							<div class="wrap-products">

@@ -1,312 +1,194 @@
 <x-layouts.layout-template0-home>
 
-<title>Techno Wave Ltd. || {{''}}Favorit Products</title>	
-    	<!--main area-->
+<title>Techno Wave Ltd. || {{''}}Favorit Products</title>
+
+    <!--main area-->
     <main id="main" class="main-site">
-
-    <div class="container">
-
-        <div class="wrap-breadcrumb">
-            <ul>
-                <li class="item-link"><a href="{{ route ('home')}}" class="link">Home</a></li>
-                <li class="item-link"><span>Favorites</span></li>
-            </ul>
-        </div>
-        <div class=" main-content-area">
-
-            <div class="adjust">
-
-                @if ($favorites->isEmpty())
-                    <div class="lefter">
-                        <div class="wrap-iten-in-cart">
-                            <h1 class="box-title_isEmpty">Favorites is Empty</h1>
-                            <ul class="products-cart">
-
-                                <li class="pr-cart-item">
-                                    
-                                    <a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-        
-                                </li>
-        
-                            </ul>
-                        </div>
-                    </div>
-                  
-                        
-             
-                @else
-                    <div class="lefter">
-                        <div class="wrap-iten-in-cart">
-                            <h3 class="box-title">Products Name</h3>
-                            <ul class="products-cart">
-
-                                @foreach($favorites_details as $data)
-
+        <div class="container">
+            <div class="wrap-breadcrumb">
+                <ul>
+                    <li class="item-link"><a href="{{ route ('home')}}" class="link">Home</a></li>
+                    <li class="item-link"><span>Favorites</span></li>
+                </ul>
+            </div>
+            <div class=" main-content-area">
+                <div class="adjust">
+                    @if ($favorites->isEmpty())
+                        <div class="lefter">
+                            <div class="wrap-iten-in-cart">
+                                <h1 class="box-title_isEmpty">Favorites is Empty</h1>
+                                <ul class="products-cart">
                                     <li class="pr-cart-item">
-                                        <div class="product-image">
-                                            <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt=""></figure>
-                                        </div>
-                                        <div class="product-name">
-                                            <a class="link-to-product" href="{{ route ('store.details', ['id' => $data->id]) }}">{{ $data->product_title }}</a>
-
-                                            </br>
-                                            </br>
-                                        
-                                            <p>{{$data->product_description}}</p>
-
-                                            </br>
-                                            </br>
-                                            <a class="price-field produtc-price"><p class="price">Status: {{$data->product_status}}</p></a>
-                                            <a class="price-field produtc-price"><p class="price">Unit Price: ${{$data->product_price}}</p></a>
-
-
-                                            <div class="delete">
-                                                <a href="#" class="btn btn-delete" title="">
-                                                    <span>Remove from your Favorites</span>
-                                                    <i class="fa fa-times-circle" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-
-                                        </div>
-            
-                                    </li>
-
-                                @endforeach
-        
-                            </ul>
-                        </div>
-                    </div>
-                @endif
-
-                <div class="righter">
-                    <div class="summary">
-                        <div class="order-summary">
-                            <h4 class="title-box">Cart Summary</h4>
-                            <p class="summary-info"><span class="title">Subtotal:</span><b class="index">$512.00</b></p>
-                            <p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
-                            <p class="summary-info total-info "><span class="title">Total:</span><b class="index">$512.00</b></p>
-                        </div>
-                        <div class="checkout-info">
-                            <label class="checkbox-field">
-                                <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
-                            </label>
-                            
-                        </div>
-                        <div class="update-clear">
-                            <a class="btn btn-clear" href="{{ route('checkout') }}">Check out</a>
-                            <a class="btn btn-clear" href="#">Clear Shopping Cart</a>           
-                            <a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                        </div>
-                    </div> 
-
-                    </br>
-                    </br>
-                    </br>
-
-                        <div class="widget widget-our-services ">
-                            <div class="widget-content">
-                                <ul class="our-services">
-
-                                    <li class="service">
-                                        <a class="link-to-service" href="#">
-                                            <i class="fa fa-truck" aria-hidden="true"></i>
-                                            <div class="right-content">
-                                                <b class="title">Free Delivery</b>
-                                                <span class="subtitle">On Oder Over $99</span>
-                                                <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
-                                            </div>
-                                        </a>
-                                    </li>
-
-                                    <li class="service">
-                                        <a class="link-to-service" href="#">
-                                            <i class="fa fa-gift" aria-hidden="true"></i>
-                                            <div class="right-content">
-                                                <b class="title">Special Offer</b>
-                                                <span class="subtitle">Get a gift!</span>
-                                                <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
-                                            </div>
-                                        </a>
-                                    </li>
-
-                                    <li class="service">
-                                        <a class="link-to-service" href="#">
-                                            <i class="fa fa-reply" aria-hidden="true"></i>
-                                            <div class="right-content">
-                                                <b class="title">Order Return</b>
-                                                <span class="subtitle">Return within 7 days</span>
-                                                <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
-                                            </div>
-                                        </a>
+                                        <a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+                    @else
+                        <div class="lefter">
+                            <div class="wrap-iten-in-cart">
+                                <h3 class="box-title">Favorite Products</h3>
+                                <ul class="products-cart">
+                                    @foreach($favorites_details as $data)
+                                        <li class="pr-cart-item">
+                                            <div class="product-image">
+                                                <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt=""></figure>
+                                            </div>
+
+                                            <div class="product-name">
+                                                <a class="link-to-product" href="{{ route ('store.details', ['id' => $data->id]) }}">{{ $data->product_title }}</a>
+                                                </br>
+                                                </br>
+                                                <p>{{$data->product_description}}</p>
+                                                </br>
+                                                </br>
+                                                <a class="price-field produtc-price"><p class="price">Status: {{$data->product_status}}</p></a>
+                                                <a class="price-field produtc-price"><p class="price">Price: ${{$data->product_price}}</p></a>
+
+                                                <div class="detail-info">
+                                                    <form action="{{ route('favorites.destroy', ['id' => $data->pivot->id])  }}" method="POST" >
+                                                            @csrf
+                                                            @method('Delete')
+
+                                                            <div class="wrap-butons">
+                                                                <button  type="submit" class="btn add-to-cart_Shop">Remove from Favorites</button>
+
+                                                                <input type="hidden" name="product_id" value="{{ $data->id }}">
+                                                                <input type="hidden" name="cart_id" value="{{ $data->pivot->id }}">
+                                                            </div>
+                                                    </form>
+                                                </div>
+
+                                                <div class="detail-info">
+                                                    <form action="{{ route('cart') }}" method="POST" >
+                                                            @csrf
+                                                            @method('PUT')
+
+                                                            <div class="wrap-butons">
+                                                                <button  type="submit" class="btn add-to-cart_Shop">Move to Cart</button>
+
+                                                                <input type="hidden" name="product_id" value="{{ $data->id }}">
+                                                            </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
+
+                    <div class="righter">
+                            <div class="widget widget-our-services ">
+                                <div class="widget-content">
+                                    <ul class="our-services">
+
+                                        <li class="service">
+                                            <a class="link-to-service" href="#">
+                                                <i class="fa fa-truck" aria-hidden="true"></i>
+                                                <div class="right-content">
+                                                    <b class="title">Free Delivery</b>
+                                                    <span class="subtitle">On Oder Over $99</span>
+                                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="service">
+                                            <a class="link-to-service" href="#">
+                                                <i class="fa fa-gift" aria-hidden="true"></i>
+                                                <div class="right-content">
+                                                    <b class="title">Special Offer</b>
+                                                    <span class="subtitle">Get a gift!</span>
+                                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                                </div>
+                                            </a>
+                                        </li>
+
+                                        <li class="service">
+                                            <a class="link-to-service" href="#">
+                                                <i class="fa fa-reply" aria-hidden="true"></i>
+                                                <div class="right-content">
+                                                    <b class="title">Order Return</b>
+                                                    <span class="subtitle">Return within 7 days</span>
+                                                    <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            </br>
+                            </br>
+                            </br>
+
+                            <div class="widget mercado-widget widget-product">
+                                <h2 class="widget-title">Popular Products</h2>
+                                <div class="widget-content">
+                                    <ul class="products">
+
+                                        @foreach ($bestSellingProducts as $data)
+
+                                            <li class="product-item">
+                                                <div class="product product-widget-style">
+                                                    <div class="thumbnnail">
+                                                        <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
+                                                            <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt=""></figure>
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-info">
+                                                        <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
+                                                        <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                        @endforeach
+
+                                    </ul>
+                                </div>
+                            </div><!-- brand widget-->
+                    </div><!--end sitebar-->
+                </div>
+
+
+
             
-                </div><!--end sitebar-->
-            </div>
+                <div class="wrap-show-advance-info-box style-1 box-in-site">
+                    <h3 class="title-box">Popular Products</h3>
+                    <div class="wrap-products">
+                        <div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}' >
 
 
+                            @foreach ($bestSellingProducts as $data)
 
-            <div class="wrap-show-advance-info-box style-1 box-in-site">
-                <h3 class="title-box">Most Viewed Products</h3>
-                <div class="wrap-products">
-                    <div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}' >
+                                <div class="product product-style-2 equal-elem ">
+                                    <div class="product-thumnail">
+                                        <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
+                                            <figure><img src="{{ asset('storage/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                        </a>
 
-                        <div class="product product-style-2 equal-elem ">
-                            <div class="product-thumnail">
-                                <a href="#" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-                                    <figure><img src="{{ asset('template0/images/products/digital_04.jpg') }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-                                </a>
-                                <div class="group-flash">
-                                    <span class="flash-item new-label">new</span>
+                                        <div class="wrap-btn">
+                                            <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="function-link">Quick View</a>
+                                        </div>
+                                    </div>
+                                    <div class="product-info">
+                                    <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
+                                    <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
+                                    </div>
                                 </div>
-                                <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker [White]</span></a>
-                                <div class="wrap-price"><span class="product-price">$250.00</span></div>
-                            </div>
+
+                            @endforeach
+
+
                         </div>
-
-                        <div class="product product-style-2 equal-elem ">
-                            <div class="product-thumnail">
-                                <a href="#" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-                                    <figure><img src="{{ asset('template0/images/products/digital_17.jpg') }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-                                </a>
-                                <div class="group-flash">
-                                    <span class="flash-item sale-label">sale</span>
-                                </div>
-                                <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker [White]</span></a>
-                                <div class="wrap-price"><ins><p class="product-price">$168.00</p></ins> <del><p class="product-price">$250.00</p></del></div>
-                            </div>
-                        </div>
-
-                        <div class="product product-style-2 equal-elem ">
-                            <div class="product-thumnail">
-                                <a href="#" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-                                    <figure><img src="{{ asset('template0/images/products/digital_15.jpg') }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-                                </a>
-                                <div class="group-flash">
-                                    <span class="flash-item new-label">new</span>
-                                    <span class="flash-item sale-label">sale</span>
-                                </div>
-                                <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker [White]</span></a>
-                                <div class="wrap-price"><ins><p class="product-price">$168.00</p></ins> <del><p class="product-price">$250.00</p></del></div>
-                            </div>
-                        </div>
-
-                        <div class="product product-style-2 equal-elem ">
-                            <div class="product-thumnail">
-                                <a href="#" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-                                    <figure><img src="{{ asset('template0/images/products/digital_01.jpg') }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-                                </a>
-                                <div class="group-flash">
-                                    <span class="flash-item bestseller-label">Bestseller</span>
-                                </div>
-                                <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker [White]</span></a>
-                                <div class="wrap-price"><span class="product-price">$250.00</span></div>
-                            </div>
-                        </div>
-
-                        <div class="product product-style-2 equal-elem ">
-                            <div class="product-thumnail">
-                                <a href="#" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-                                    <figure><img src="{{ asset('template0/images/products/digital_21.jpg') }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-                                </a>
-                                <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker [White]</span></a>
-                                <div class="wrap-price"><span class="product-price">$250.00</span></div>
-                            </div>
-                        </div>
-
-                        <div class="product product-style-2 equal-elem ">
-                            <div class="product-thumnail">
-                                <a href="#" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-                                    <figure><img src="{{ asset('template0/images/products/digital_03.jpg') }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-                                </a>
-                                <div class="group-flash">
-                                    <span class="flash-item sale-label">sale</span>
-                                </div>
-                                <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker [White]</span></a>
-                                <div class="wrap-price"><ins><p class="product-price">$168.00</p></ins> <del><p class="product-price">$250.00</p></del></div>
-                            </div>
-                        </div>
-
-                        <div class="product product-style-2 equal-elem ">
-                            <div class="product-thumnail">
-                                <a href="#" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-                                    <figure><img src="{{ asset('template0/images/products/digital_04.jpg') }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-                                </a>
-                                <div class="group-flash">
-                                    <span class="flash-item new-label">new</span>
-                                </div>
-                                <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker [White]</span></a>
-                                <div class="wrap-price"><span class="product-price">$250.00</span></div>
-                            </div>
-                        </div>
-
-                        <div class="product product-style-2 equal-elem ">
-                            <div class="product-thumnail">
-                                <a href="#" title="T-Shirt Raw Hem Organic Boro Constrast Denim">
-                                    <figure><img src="{{ asset('template0/images/products/digital_05.jpg') }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-                                </a>
-                                <div class="group-flash">
-                                    <span class="flash-item bestseller-label">Bestseller</span>
-                                </div>
-                                <div class="wrap-btn">
-                                    <a href="#" class="function-link">quick view</a>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <a href="#" class="product-name"><span>Radiant-360 R6 Wireless Omnidirectional Speaker [White]</span></a>
-                                <div class="wrap-price"><span class="product-price">$250.00</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!--End wrap-products-->
-            </div>
-
-        </div><!--end main content area-->
-        
-    </div><!--end container-->
-
-
-
+                    </div><!--End wrap-products-->
+                </div>
+            </div><!--end main content area-->
+        </div><!--end container-->
     </main>
     <!--main area-->
-
-
 
 </x-layouts.layout-template0-home>
