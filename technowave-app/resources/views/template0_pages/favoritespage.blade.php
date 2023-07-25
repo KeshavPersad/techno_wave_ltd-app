@@ -51,7 +51,7 @@
                                                             @method('Delete')
 
                                                             <div class="wrap-butons">
-                                                                <button  type="submit" class="btn add-to-cart_Shop">Remove from Favorites</button>
+                                                                <button  type="submit" class="btn add-to-cart_Shop"><i class="fa-solid fa-trash-can"></i> Remove from Favorites</button>
 
                                                                 <input type="hidden" name="product_id" value="{{ $data->id }}">
                                                                 <input type="hidden" name="cart_id" value="{{ $data->pivot->id }}">
@@ -60,16 +60,23 @@
                                                 </div>
 
                                                 <div class="detail-info">
-                                                    <form action="{{ route('cart') }}" method="POST" >
-                                                            @csrf
-                                                            @method('PUT')
+                                                <form action="{{ route('cart') }}" method="POST" >
+                                                        @csrf
+                                                        @method('PUT')
 
-                                                            <div class="wrap-butons">
-                                                                <button  type="submit" class="btn add-to-cart_Shop">Move to Cart</button>
+                                                        <div class="hidden">
+                                                        <span>Quantity:</span>
+                                                        <div class="quantity-input">
+                                                            <input type="text" name="cart_quantity" value="1" data-max="1" pattern="[0-9]*" >
+                                                        </div>
+                                                        </div>
 
-                                                                <input type="hidden" name="product_id" value="{{ $data->id }}">
-                                                            </div>
-                                                    </form>
+                                                        <div class="wrap-butons">
+                                                            <button  type="submit" class="btn add-to-cart_Shop"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to Cart</button>
+
+                                                            <input type="hidden" name="product_id" value="{{ $data->id }}">
+                                                        </div>
+                                                </form>
                                                 </div>
                                             </div>
                                         </li>
@@ -89,7 +96,7 @@
                                                 <i class="fa fa-truck" aria-hidden="true"></i>
                                                 <div class="right-content">
                                                     <b class="title">Free Delivery</b>
-                                                    <span class="subtitle">On Oder Over $99</span>
+                                                    <span class="subtitle">Nationwide</span>
                                                     <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
                                                 </div>
                                             </a>

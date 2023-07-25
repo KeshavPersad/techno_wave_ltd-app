@@ -40,6 +40,7 @@ class FavoritesController extends Controller
         return redirect('/favoritespage')->with('message', 'Product Added Successfully');
         
     }
+
     public function update(Request $request){
 
         $product = Favorite::find($request->favorites_id);

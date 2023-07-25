@@ -78,14 +78,9 @@
 								</div>
 
 								<div class="wrap-butons">
-									<!-- <a href="#" class="btn add-to-cart">Add to Cart</a> -->
-
-                                            <button class="btn add-to-cart_Shop" type="submit" >Add to Cart</button>
+                                            <button class="btn add-to-cart_Shop" type="submit" ><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to Cart</button>
 
                                             <input type="hidden" name="product_id" value="{{ $data->id }}">
-   
-
-
 								</div>
 							</form>
 							
@@ -93,8 +88,15 @@
 									@csrf
 									@method('PUT')
 
+									<div class="hidden">
+									<span>Quantity:</span>
+									<div class="quantity-input">
+										<input type="text" name="favorites_quantity" value="1" data-max="1" pattern="[0-9]*" >
+									</div>
+									</div>
+
 									<div class="wrap-butons">
-										<button  type="submit" class="btn add-to-cart_Shop">Add to Favorites</button>
+										<button  type="submit" class="btn add-to-cart_Shop"><i class="fa fa-heart" aria-hidden="true"></i> Add to Favorites</button>
 
 										<input type="hidden" name="product_id" value="{{ $data->id }}">
 									</div>
@@ -112,6 +114,8 @@
 									<p>{{$data->product_description}}</p>
 								</div>
 								<div class="tab-content-item " id="add_infomation">
+									<p>{{$data->product_add_info}}</p>
+									</br>
 									<table class="shop_attributes">
 										<tbody>
 											<tr>
