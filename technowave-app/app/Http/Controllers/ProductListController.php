@@ -6,7 +6,8 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ListController extends Controller{
+class ProductListController extends Controller{
+    
     public function index(Request $request){
 
         $product_details = Product::all();
@@ -117,4 +118,6 @@ class ListController extends Controller{
         ->get();
 
     }
+
+
 }

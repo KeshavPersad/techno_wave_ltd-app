@@ -142,7 +142,7 @@
 					</ul>
 				</div>
 				<div class=" main-content-area">
-					<div class="wrap-address-billing">
+					<!-- <div class="wrap-address-billing">
 						<h3 class="box-title">Billing Address</h3>
 						<form action="#" method="get" name="frm-billing">
 							<p class="row-in-form">
@@ -178,9 +178,7 @@
 								</label>
 							</p>
 						</form>
-					</div>
-
-					@foreach($cart_details as $data)
+					</div> -->
 
 						<div class="summary summary-checkout">
 							<div class="summary-item payment-method">
@@ -206,18 +204,15 @@
 									<div class="summary">
 										<div class="order-summary">
 											<h4 class="title-box">Checkout Summary</h4>
-											<p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $data->cartQuantityPrice() }}.00</b></p>
+											<p class="summary-info"><span class="title">Subtotal:</span><b class="index">$100.00</b></p>
 											<p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
-											<p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $data->cartQuantityPrice() }}.00</b></p>
+											<p class="summary-info total-info "><span class="title">Total:</span><b class="index">$100.00</b></p>
 										</div>
 										<div class="update-clear">
 											<x-core.stripe-ui/>
                                				<a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                            				</div>
 									</div>	
-
-
-								
 
 							</div>
 							<div class="summary-item shipping-method">
@@ -233,7 +228,7 @@
         						</div>
 							</div>
 						</div>
-					@endforeach
+
 						<div class="wrap-show-advance-info-box style-1 box-in-site">
 							<h3 class="title-box">Popular Products</h3>
 							<div class="wrap-products">

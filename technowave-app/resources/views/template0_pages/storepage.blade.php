@@ -15,11 +15,11 @@
 
         <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 
-            <div class="banner-shop">
+            <!-- <div class="banner-shop">
                 <a href="#" class="banner-link">
                     <figure><img src="{{ asset('template0/images/shop-banner.jpg') }}" alt=""></figure>
                 </a>
-            </div>
+            </div> -->
 
             <div class="wrap-shop-control">
 
@@ -29,7 +29,7 @@
 
                     <div class="change-display-mode">
                         <a href="{{ route('store') }}" class="grid-mode display-mode active"><i class="fa fa-th"></i>Grid</a>
-                        <a href="{{ route('store_list') }}" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
+                        <a href="{{ route('store.list') }}" class="list-mode display-mode"><i class="fa fa-th-list"></i>List</a>
                     </div>
 
                 </div>
@@ -62,13 +62,13 @@
                                         <div class="wrap-butons">
                                             <input type="hidden" name="cart_quantity" value="1">
                                             <!-- <a href="#" class="btn add-to-cart">Add To Cart</a> -->
-                                            <button class="btn add-to-cart_Shop" type="submit" >Add to Cart</button>
+                                            <button class="btn add-to-cart_Shop" type="submit" ><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to Cart</button>
 
                                             <input type="hidden" name="product_id" value="{{ $data->id }}">
                                         </div>
 
                                         </div>
-                                    </div>
+                                    </div>   
                                 </li>
                             </form>
 
@@ -116,11 +116,11 @@
                 <div class="widget-content">
 
                 <ul class="list-style vertical-list list-limited" data-show="6">
-                        <li class="list-item"><a class="filter-link" href="{{ route('store') }}">All Category</a></li>
+                        <li class="list-item"><a class="filter-link" href="{{ route('store.list') }}">All Category</a></li>
 
                             @foreach ($category_details as $data)
 
-                                <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store', ['category' => $data->product_category]) }}">{{ $data->product_category }}</a></li>
+                                <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store.list', ['category' => $data->product_category]) }}">{{ $data->product_category }}</a></li>
 
                             @endforeach
 
@@ -137,11 +137,11 @@
                 <div class="widget-content">
 
                     <ul class="list-style vertical-list list-limited" data-show="6">
-                        <li class="list-item"><a class="filter-link" href="{{ route('store') }}">All Brands</a></li>
+                        <li class="list-item"><a class="filter-link" href="{{ route('store.list') }}">All Brands</a></li>
 
                             @foreach ($brand_details as $data)
 
-                                <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store', ['brand' => $data->product_brand]) }}">{{ $data->product_brand }}</a></li>
+                                <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store.list', ['brand' => $data->product_brand]) }}">{{ $data->product_brand }}</a></li>
 
                             @endforeach
 

@@ -2,6 +2,8 @@
 
       <form action="{{ route('checkout.stripe') }}" method="POST">
         @csrf
-        <button type="submit" id="checkout-button" class="btn btn-medium">Checkout</button>
+        <div class="update-clear">
+          <button class="btn btn-clear" type="submit" id="checkout-button" >Proceed to Checkout</button>          
+        </div>
       </form>
 

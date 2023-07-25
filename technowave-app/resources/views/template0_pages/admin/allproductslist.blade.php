@@ -15,10 +15,22 @@
 
         <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 
+                <form action="{{ route('edit.product') }}" method="POST" >
+                    @csrf
+                    @method('PUT')
+                    <div class="wrap-butons">
+
+                        <input type="hidden" name="add_new_product" value="1">                    
+                        <button class="btn add-to-cart_Shop" type="submit" >Add New Product</button>
+
+                    </div>
+
+                </form>  
+
             <div class="wrap-shop-control">
 
                 <h1 class="shop-title">All Products</h1>
-
+ 
                 <div class="wrap-right">
 
                     <div class="change-display-mode">
@@ -26,51 +38,60 @@
                         <a href="{{ route('allproductslist') }}" class="list-mode display-mode active"><i class="fa fa-th-list"></i>List</a>
                     </div>
 
-                </div>
+                </div> 
 
             </div><!--end wrap shop control-->
 
-            <div class="row">
+            <div class="adjust">    
+                    <div class="lefter">
+                        <div class="wrap-iten-in-cart">
+                            <ul class="products-cart">
 
-                <ul class="product-list grid-products equal-container">
+                                @foreach($product_details as $data)
+                                    <form action="{{ route('edit.product') }}" method="POST" >
+                                        @csrf
+                                        @method('PUT')
 
-                        @foreach($product_details as $data)
 
-                            <form action="{{ route('cart') }}" method="POST" >
-								@csrf
-								@method('PUT')
-
-                                <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
-                                    <div class="product product-style-3 equal-elem ">
-                                        <div class="product-thumnail">
-                                            <a href="{{ route ('adminproduct.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
+                                        <li class="pr-cart-item">
+                                            <div class="product-image">
+                                                <a href="{{ route ('adminproduct.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
                                                 <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                             </a>
-                                        </div>
-                                        <div class="product-info">
-                                            <a href="{{ route ('adminproduct.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
-                                            <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
+                                            </div>
+                                            <div class="product-name">
+                                                <a class="link-to-product" href="{{ route ('adminproduct.details', ['id' => $data->id]) }}">{{ $data->product_title }}</a>
 
-                                
-                                        <div class="wrap-butons">
-                                            <input type="hidden" name="cart_quantity" value="1">
-                                            <!-- <a href="#" class="btn add-to-cart">Add To Cart</a> -->
-                                            <button class="btn add-to-cart_Shop" type="submit" >Edit Product</button>
+                                                </br>
+                                                </br>
+                                            
+                                                <p>{{$data->product_description}}</p>
 
-                                            <input type="hidden" name="product_id" value="{{ $data->id }}">
-                                        </div>
+                                                </br>
+                                                </br>
+                                                <a class="price-field produtc-price"><p class="price">Status: {{$data->product_status}}</p></a>
+                                                <a class="price-field produtc-price"><p class="price">Price: ${{$data->product_price}}</p></a>
+                                                    <div class="wrap-butons">
 
-                                        </div>
-                                    </div>
-                                </li>
-                            </form>
+                                                        <input type="hidden" name="cart_quantity" value="1">
+                                            
+                                                        <button class="btn add-to-cart_Shop" type="submit" >Edit Product</button>
 
-                        @endforeach
+                                                        <input type="hidden" name="product_id" value="{{ $data->id }}">
+                                                    </div>
 
+                                            </div>
+                
+                                        </li>
+                                    </form>
 
-                </ul>
+                                @endforeach
+        
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            </div>
 
             <div class="wrap-pagination-info">
                 <ul class="page-numbers">

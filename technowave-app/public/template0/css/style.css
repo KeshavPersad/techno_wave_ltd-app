@@ -7244,3 +7244,13 @@ background-color: #888888;
 
 
 }
+
+.invalid-feedback{
+
+    color: red;
+}
+
+.red-star{
+
+    color: red;
+}

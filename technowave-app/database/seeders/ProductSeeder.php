@@ -19,6 +19,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'Laptop 13 Pro Max Graphite - 256GB',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '1199.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_1.jpeg',
@@ -34,6 +35,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'Desktop Pro Max - 256GB',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '1199.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_2.jpeg',
@@ -50,6 +52,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'Gaming PC - 256GB',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '1099.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_3.jpeg',
@@ -65,6 +68,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'Monitors 27" Pro Gold',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '1099.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_4.jpeg',
@@ -80,6 +84,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'iPhone 12 Tech Accessories',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '849.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_5.jpeg',
@@ -95,6 +100,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => '12" Speakers Mini Base',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '649.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_6.jpeg',
@@ -110,6 +116,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'Keyboard Test',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '20.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_7.jpeg',
@@ -125,6 +132,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'Mouse Test',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '2000.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_14.jpeg',
@@ -140,6 +148,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'PC Part Test',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '20.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_9.jpeg',
@@ -155,6 +164,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'Mouse and Keyboard Test',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '20.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_10.jpeg',
@@ -170,6 +180,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'AMD Ryzen',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '1200.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_16.jpeg',
@@ -185,6 +196,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'Sony 60" Monitor',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '425.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_16.jpeg',
@@ -200,6 +212,7 @@ class ProductSeeder extends Seeder
             [
                 'product_title' => 'Dual 6" Desk Speakers ',
                 'product_description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dicta reiciendis odio consequuntur sunt magnam eum facilis quaerat dolor aperiam labore facere amet officiis, unde quae distinctio earum culpa omnis soluta voluptate tempora placeat?.',
+                'product_add_info' => 'Something',
                 'product_price' => '339.00',
                 'product_quantity' => 100,
                 'product_image1' => 'images/products/product_16.jpeg',

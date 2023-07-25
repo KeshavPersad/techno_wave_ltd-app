@@ -138,7 +138,7 @@
                                                         @method('Delete')
 
                                                         <div class="wrap-butons">
-                                                            <button  type="submit" class="btn add-to-cart_Shop">Remove from Cart</button>
+                                                            <button  type="submit" class="btn add-to-cart_Shop"><i class="fa-solid fa-trash-can"></i> Remove from Cart</button>
 
                                                             <input type="hidden" name="product_id" value="{{ $data->id }}">
                                                             <input type="hidden" name="cart_id" value="{{ $data->pivot->id }}">

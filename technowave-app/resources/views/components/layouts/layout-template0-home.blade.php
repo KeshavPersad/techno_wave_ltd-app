@@ -14,6 +14,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/owl.carousel.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/chosen.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/style.css') }}">
+	<!-- <link rel="stylesheet" type="text/css" href="{{ asset('template0/css/style_admin.css') }}"> -->
+	<script src="https://kit.fontawesome.com/1ee61738a6.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/color-01.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/order-history.css') }}">
 	
@@ -50,7 +52,7 @@
 	<script src="{{ asset('template0/js/jquery.countdown.min.js') }}"></script>
 	<script src="{{ asset('template0/js/jquery.sticky.js') }}"></script>
 	<script src="{{ asset('template0/js/functions.js') }}"></script>
-
+	<script src="https://kit.fontawesome.com/1ee61738a6.js" crossorigin="anonymous"></script>
 
 
 </body>

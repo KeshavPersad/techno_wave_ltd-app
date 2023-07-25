@@ -28,7 +28,7 @@
 									</fieldset>		
 
 									<fieldset class="wrap-input">
-										<label for="frm-reg-lname">First Name*</label>
+										<label for="frm-reg-lname">First Name<a class="red-star">*</a></label>
 										<input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
                                             @error('first_name')
                                                 <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
                                     </fieldset>
 
                                     <fieldset class="wrap-input">
-										<label for="frm-reg-lname">Last Name*</label>
+										<label for="frm-reg-lname">Last Name<a class="red-star">*</a></label>
 										<input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
                                             @error('last_name')
                                                 <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
                                     </fieldset>
 
 									<fieldset class="wrap-input">
-										<label for="frm-reg-email">Email Address*</label>
+										<label for="frm-reg-email">Email Address<a class="red-star">*</a></label>
 										<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
 									</fieldset>
 
                                     <fieldset class="wrap-input">
-										<label for="frm-reg-email">Phone Number*</label>
+										<label for="frm-reg-email">Phone Number<a class="red-star">*</a></label>
                                         <input id="phone_number" type="phone_number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number">
                                             @error('phone_number')
                                                 <span class="invalid-feedback" role="alert">
@@ -72,8 +72,8 @@
 									</fieldset>
 
 									<fieldset class="wrap-input item-width-in-half left-item ">
-										<label for="frm-reg-pass">Password *</label>
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+										<label for="frm-reg-pass">Password<a class="red-star">*</a></label>
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  required autocomplete="new-password">
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -82,7 +82,7 @@
 									</fieldset>
 
 									<fieldset class="wrap-input item-width-in-half ">
-										<label for="frm-reg-cfpass">Confirm Password *</label>
+										<label for="frm-reg-cfpass">Confirm Password<a class="red-star">*</a></label>
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
 									</fieldset>
 

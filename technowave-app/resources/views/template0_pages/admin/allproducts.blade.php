@@ -15,6 +15,17 @@
 
         <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 
+                <form action="{{ route('edit.product') }}" method="POST" >
+                    @csrf
+                    @method('PUT')
+                    <div class="wrap-butons">
+
+                        <input type="hidden" name="add_new_product" value="1">                    
+                        <button class="btn add-to-cart_Shop" type="submit" >Add New Product</button>
+
+                    </div>
+
+                </form>  
             <div class="wrap-shop-control">
 
                 <h1 class="shop-title">All Prodcuts</h1>
@@ -127,7 +138,7 @@
                 </div>
             </div><!-- brand widget-->
 
-        </div><!--end sitebar-->
+        </div><!-- end sitebar -->
 
     </div><!--end row-->
 

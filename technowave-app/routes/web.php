@@ -10,11 +10,12 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CheckoutStripeController;
 use App\Http\Controllers\CheckoutSuccessController;
 use App\Http\Controllers\DetailsController;
+use App\Http\Controllers\EditProductController;
 use App\Http\Controllers\FavoritesController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ListController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDashboardController;
 use Illuminate\Support\Facades\Auth;
@@ -56,13 +57,15 @@ use Illuminate\Support\Facades\Route;
     //Route for Store Page
     Route::get('/storepage', [ProductController::class, 'index'])->name('store');
     Route::get('/shop', [ProductController::class, 'index'])->name('store');
-    Route::get('/listpage', [ListController::class, 'index'])->name('store_list');
+    Route::get('/listpage', [ProductListController::class, 'index'])->name('store.list');
 
     //Route for Details Page
     Route::get('/detailspage/{id}', [DetailsController::class, 'index'])->name('store.details');
 
     //Route for Auth Middleware
     Route::middleware(['auth', 'verified'])->group(function(){
+
+        // Admin Routes
 
         //Route For Admin Dashboard
         Route::get('/dasboard', [AdminController::class, 'index'])->name('dashboard');
@@ -72,15 +75,26 @@ use Illuminate\Support\Facades\Route;
         Route::get('/allproductslist', [AllProductListController::class, 'index'])->name('allproductslist');
 
         Route::get('/productdetails/{id}', [AdminProductDetailsController::class, 'index'])->name('adminproduct.details');
+        
+        //Route for Edit Product
+        Route::get('/editproduct', [EditProductController::class, 'index'])->name('edit.product');
 
-         //Route for View Favorites
-         Route::get('/favoritespage', [FavoritesController::class, 'index'])->name('favorites');
+
+
+        // User Routes
+
+        //Route for View Favorites
+        Route::get('/favoritespage', [FavoritesController::class, 'index'])->name('favorites');
        
-         //Route for Add item to Favorites
-         Route::put('/favoritespage', [FavoritesController::class, 'store'])->name('favorites.store');
+        //Route for Add item to Favorites
+        Route::put('/favoritespage', [FavoritesController::class, 'store'])->name('favorites.store');
+
+        //Route for Update Favorites
+        Route::put('/favoritespage/{id}', [FavoritesController::class, 'update'])->name('favorites.update');
          
-         //Route for Remove Product from Favorites
-         Route::delete('/favoritespage/{id}', [FavoritesController::class, 'destroy'])->name('favorites.destroy');
+        //Route for Remove Product from Favorites
+        Route::delete('/favoritespage/{id}', [FavoritesController::class, 'destroy'])->name('favorites.destroy');
+
 
         //Route for View Cart
         Route::get('/cartpage', [CartController::class, 'index'])->name('cart');
@@ -119,22 +133,12 @@ use Illuminate\Support\Facades\Route;
         //Route for Thank You Page
         Route::get('/thankyou', [OrderController::class, 'thnakyou'])->name('thankyou');
 
-    
-        //Route for View Favorites
-        Route::get('/favoritespage', [FavoritesController::class, 'index'])->name('favorites');
-       
-        //Route for Add item to Favorites
-        Route::put('/favoritespage', [FavoritesController::class, 'store'])->name('favorites.store');
-        
-        //Route for Remove Product from Favorites
-        Route::delete('/favoritespage/{id}', [FavoritesController::class, 'destroy'])->name('favorites.destroy');
-
-
         //Route for Mail
         // Route::get('/mail-testing', [MailController::class, 'index'])->name('mail');
         
     });
 
+    
     //Route for Contact Us Page
     Route::view('/contactuspage', 'template0_pages/add_on/contactuspage')->name('contactus');
 
