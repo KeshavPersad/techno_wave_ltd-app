@@ -39,6 +39,8 @@
                         <div class="wrap-iten-in-cart">
                             <ul class="products-cart">
 
+                            @foreach($product_details as $data)
+
                                         <li class="pr-cart-item">
                                             <div class="product-image">
                                                 <a href="{{ route ('adminproduct.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">

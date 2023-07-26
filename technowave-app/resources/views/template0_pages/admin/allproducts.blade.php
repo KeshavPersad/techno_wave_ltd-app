@@ -40,10 +40,6 @@
 
                         @foreach($product_details as $data)
 
-                            <form action="{{ route('edit.product') }}" method="POST" >
-								@csrf
-								@method('PUT')
-
                                 <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                                     <div class="product product-style-3 equal-elem ">
                                         <div class="product-thumnail">
@@ -53,16 +49,41 @@
                                         </div>
                                         <div class="product-info">
                                             <a href="{{ route ('adminproduct.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
+                                            <div class="wrap-price"><span class="product-price"><a class="status">{{ $data->product_status }}</a></span></div>
                                             <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
 
-                                
-                                        <div class="wrap-butons">
-                                            <input type="hidden" name="cart_quantity" value="1">
-                                            <!-- <a href="#" class="btn add-to-cart">Add To Cart</a> -->
-                                            <button class="btn add-to-cart_Shop" type="submit" ><i class="fa-solid fa-pen-to-square"></i> Edit Product</button>
+                                                <div class="wrap-butons">
+                                                    <form action="{{ route('delete.product', ['id' => $data->id])  }}" method="POST" >
+                                                            @csrf
+                                                            @method('Delete')
 
-                                            <input type="hidden" name="product_id" value="{{ $data->id }}">
-                                        </div>
+                                                            <div class="wrap-butons">
+                                                                <button  type="submit" class="btn add-to-cart_Shop"><i class="fa-solid fa-trash-can"></i> Delete Prodcut</button>
+
+                                                                <input type="hidden" name="product_id" value="{{ $data->id }}">
+                                                            </div>
+                                                    </form>
+                                                </div>
+
+                                                <div class="wrap-butons">
+                                                    <form action="{{ route('edit.product', ['id' => $data->id]) }}" method="POST" >
+                                                            @csrf
+                                                            @method('GET')
+
+                                                            <div class="hidden">
+                                                            <span>Quantity:</span>
+                                                            <div class="quantity-input">
+                                                                <input type="text" name="cart_quantity" value="1" data-max="1" pattern="[0-9]*" >
+                                                            </div>
+                                                            </div>
+
+                                                            <div class="wrap-butons">
+                                                                <button  type="submit" class="btn add-to-cart_Shop"><i class="fa-solid fa-pen-to-square"></i> Edit Product</button>
+
+                                                                <input type="hidden" name="product_id" value="{{ $data->id }}">
+                                                            </div>
+                                                    </form>
+                                                </div>
 
                                         </div>
                                     </div>

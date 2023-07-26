@@ -63,7 +63,7 @@
                                 <p class="availability">Availability: <b>{{$data->product_status}}</b></p>
                             </div>
 
-							<form action="{{ route('edit.product') }}" method="POST" >
+							<form action="{{ route('edit.product', ['id' => $data->id]) }}" method="POST" >
 								@csrf
 								@method('PUT')
 								

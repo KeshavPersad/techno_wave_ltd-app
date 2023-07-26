@@ -3,8 +3,6 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductDetailsController;
-use App\Http\Controllers\AllProductController;
-use App\Http\Controllers\AllProductListController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
@@ -61,13 +59,15 @@ use Illuminate\Support\Facades\Route;
     //Route for Store Page
     Route::get('/storepage', [ProductController::class, 'index'])->name('store');
     Route::get('/shop', [ProductController::class, 'index'])->name('store');
-    Route::get('/listpage', [ProductListController::class, 'index'])->name('store.list');
+    Route::get('/listpage', [ProductController::class, 'storeProductList'])->name('store.list');
 
 
  //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
     //Route for Details Page
     Route::get('/detailspage/{id}', [DetailsController::class, 'index'])->name('store.details');
 
+    
+    
     //Route for Auth Middleware
     Route::middleware(['auth', 'verified'])->group(function(){
 
@@ -80,17 +80,26 @@ use Illuminate\Support\Facades\Route;
 
  //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for View All Products
-        Route::get('/allproducts', [AllProductController::class, 'index'])->name('allproducts');
-        Route::get('/allproductslist', [AllProductListController::class, 'index'])->name('allproductslist');
+        Route::get('/allproducts', [ProductController::class, 'allProductAdmin'])->name('allproducts');
+        Route::get('/allproductslist', [ProductController::class, 'allProductListAdmin'])->name('allproductslist');
 
         // Route for View Product Details
-        Route::get('/productdetails/{id}', [AdminProductDetailsController::class, 'index'])->name('adminproduct.details');
+        Route::get('/productdetails/{id}', [ProductController::class, 'productDetailsAdmin'])->name('adminproduct.details');
         
-        //Route for Edit Product
-        Route::get('/editproduct', [EditProductController::class, 'index'])->name('edit.product');
+        //Route for View Add Product Page
+        Route::get('/addproduct', [ProductController::class, 'addProduct'])->name('add.product');
 
-        //Route for Add New Product
-        Route::get('/addproduct', [EditProductController::class, 'index'])->name('add.product');
+        //Route for Add Product
+        Route::post('/insertproduct', [ProductController::class, 'insertProduct'])->name('insert.product');
+
+        //Route for Delete Product
+        Route::delete('/products/{id}', [ProductController::class, 'deleteProduct'])->name('delete.product');
+    
+        //Route for View Edit Product Page
+        Route::get('/editProduct/{id}', [ProductController::class, 'editProduct'])->name('edit.product');
+        
+        //Route for Edit/Update Product
+        Route::get('/updateProduct/{id}', [ProductController::class, 'updateProduct'])->name('update.product');
 
 
  //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
@@ -101,7 +110,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('/addcategory', [CategoryController::class, 'addCategory'])->name('add.category');
 
         //Route for Add Category
-        Route::post('/insert', [CategoryController::class, 'insertCategory'])->name('insert.category');
+        Route::post('/insertcategory', [CategoryController::class, 'insertCategory'])->name('insert.category');
 
         //Route for Delete Category
         Route::delete('/categories/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
@@ -120,7 +129,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('/addbrand', [BrandController::class, 'addBrand'])->name('add.brand');
         
         //Route for Add Brand
-        Route::post('/insert', [BrandController::class, 'insertBrand'])->name('insert.brand');
+        Route::post('/insertbrand', [BrandController::class, 'insertBrand'])->name('insert.brand');
         
         //Route for Delete Brand
         Route::delete('/brands/{id}', [BrandController::class, 'deleteBrand'])->name('delete.brand');
