@@ -105,10 +105,13 @@
 																		<a href="{{ route('dashboard') }}" class="link-term mercado-item-title">Dashboard</a>
 																	</li>
 																	<li class="menu-item">
-																		<a href="{{ route('allproducts') }}" class="link-term mercado-item-title">View All Prodcuts</a>
+																		<a href="{{ route('allproducts') }}" class="link-term mercado-item-title">Prodcuts</a>
 																	</li>
 																	<li class="menu-item">
-																		<a href="{{ route('checkout') }}" class="link-term mercado-item-title">View All Categories</a>
+																		<a href="{{ route('categories') }}" class="link-term mercado-item-title">Categories</a>
+																	</li>
+																	<li class="menu-item">
+																		<a href="{{ route('brands') }}" class="link-term mercado-item-title">Brands</a>
 																	</li>
 																	<li class="menu-item">
 																		<a href="{{ route('cart') }}" class="link-term mercado-item-title">Add Admin</a>

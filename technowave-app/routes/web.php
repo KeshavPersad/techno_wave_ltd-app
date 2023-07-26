@@ -5,7 +5,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminProductDetailsController;
 use App\Http\Controllers\AllProductController;
 use App\Http\Controllers\AllProductListController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CheckoutStripeController;
 use App\Http\Controllers\CheckoutSuccessController;
@@ -46,7 +48,7 @@ use Illuminate\Support\Facades\Route;
     });
 
 
-
+ //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
     //Route for Home Page (Main Page)
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -54,11 +56,15 @@ use Illuminate\Support\Facades\Route;
     Route::get('/technowave', [HomeController::class, 'index'])->name('home');
     Route::get('/techno-wave', [HomeController::class, 'index'])->name('home');
 
+
+ //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
     //Route for Store Page
     Route::get('/storepage', [ProductController::class, 'index'])->name('store');
     Route::get('/shop', [ProductController::class, 'index'])->name('store');
     Route::get('/listpage', [ProductListController::class, 'index'])->name('store.list');
 
+
+ //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
     //Route for Details Page
     Route::get('/detailspage/{id}', [DetailsController::class, 'index'])->name('store.details');
 
@@ -71,16 +77,64 @@ use Illuminate\Support\Facades\Route;
         Route::get('/dasboard', [AdminController::class, 'index'])->name('dashboard');
         Route::view('/admin-myaccount', 'template0_pages/admin/admin-myaccount')->name('admin-myaccount');
 
+
+ //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+        //Route for View All Products
         Route::get('/allproducts', [AllProductController::class, 'index'])->name('allproducts');
         Route::get('/allproductslist', [AllProductListController::class, 'index'])->name('allproductslist');
 
+        // Route for View Product Details
         Route::get('/productdetails/{id}', [AdminProductDetailsController::class, 'index'])->name('adminproduct.details');
         
         //Route for Edit Product
         Route::get('/editproduct', [EditProductController::class, 'index'])->name('edit.product');
 
+        //Route for Add New Product
+        Route::get('/addproduct', [EditProductController::class, 'index'])->name('add.product');
 
 
+ //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+        //Route for View Categories
+        Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+
+        //Route for View Add Category Page
+        Route::get('/addcategory', [CategoryController::class, 'addCategory'])->name('add.category');
+
+        //Route for Add Category
+        Route::post('/insert', [CategoryController::class, 'insertCategory'])->name('insert.category');
+
+        //Route for Delete Category
+        Route::delete('/categories/{id}', [CategoryController::class, 'deleteCategory'])->name('delete.category');
+    
+        //Route for View Edit Category Page
+        Route::get('/editCategory/{id}', [CategoryController::class, 'editCategory'])->name('edit.category');
+        
+        //Route for Edit/Update Category
+        Route::get('/updateCategory/{id}', [CategoryController::class, 'updateCategory'])->name('update.category');
+
+ //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+        //Route for View Brands
+        Route::get('/brands', [BrandController::class, 'index'])->name('brands');
+
+        //Route for View Add Brand Page
+        Route::get('/addbrand', [BrandController::class, 'addBrand'])->name('add.brand');
+        
+        //Route for Add Brand
+        Route::post('/insert', [BrandController::class, 'insertBrand'])->name('insert.brand');
+        
+        //Route for Delete Brand
+        Route::delete('/brands/{id}', [BrandController::class, 'deleteBrand'])->name('delete.brand');
+            
+        //Route for View Edit Brand Page
+        Route::get('/editBrand/{id}', [BrandController::class, 'editBrand'])->name('edit.brand');
+                
+        //Route for Edit/Update Brand
+        Route::get('/updateBrand/{id}', [BrandController::class, 'updateBrand'])->name('update.brand');
+
+
+        // Admin Routes End
+//........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+        
         // User Routes
 
         //Route for View Favorites
@@ -96,6 +150,7 @@ use Illuminate\Support\Facades\Route;
         Route::delete('/favoritespage/{id}', [FavoritesController::class, 'destroy'])->name('favorites.destroy');
 
 
+ //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for View Cart
         Route::get('/cartpage', [CartController::class, 'index'])->name('cart');
 
@@ -109,6 +164,7 @@ use Illuminate\Support\Facades\Route;
         Route::delete('/cartpage/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
 
 
+//........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for Checkout Page
         Route::get('/checkoutpage', [CheckoutController::class, 'index'])->name('checkout');
 
@@ -123,6 +179,7 @@ use Illuminate\Support\Facades\Route;
         Route::view('/paymentsuccesspage', 'template0_pages/paymentsuccesspage')->name('payment.success');
 
 
+ //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for Order Deatils Page
         Route::get('/order-historypage', [OrderController::class, 'index'])->name('orders');
 
@@ -130,15 +187,17 @@ use Illuminate\Support\Facades\Route;
         Route::get('/order-historypage/{id}', [OrderController::class, 'show'])->name('orders.show');
 
 
+ //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for Thank You Page
         Route::get('/thankyou', [OrderController::class, 'thnakyou'])->name('thankyou');
 
         //Route for Mail
         // Route::get('/mail-testing', [MailController::class, 'index'])->name('mail');
+
         
     });
 
-    
+ //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
     //Route for Contact Us Page
     Route::view('/contactuspage', 'template0_pages/add_on/contactuspage')->name('contactus');
 

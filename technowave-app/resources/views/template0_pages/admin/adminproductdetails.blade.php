@@ -63,13 +63,12 @@
                                 <p class="availability">Availability: <b>{{$data->product_status}}</b></p>
                             </div>
 
-							<form action="{{ route('cart') }}" method="POST" >
+							<form action="{{ route('edit.product') }}" method="POST" >
 								@csrf
 								@method('PUT')
 								
 								<div class="wrap-butons">
-                                            <button class="btn add-to-cart_Shop" type="submit" >Edit Prodcut</button>
-
+                                            <button class="btn add-to-cart_Shop" type="submit" ><i class="fa-solid fa-pen-to-square"></i> Edit Prodcut</button>
                                             <input type="hidden" name="product_id" value="{{ $data->id }}">
 								</div>
                                 

@@ -15,17 +15,10 @@
 
         <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 
-                <form action="{{ route('edit.product') }}" method="POST" >
-                    @csrf
-                    @method('PUT')
-                    <div class="wrap-butons">
-
-                        <input type="hidden" name="add_new_product" value="1">                    
-                        <button class="btn add-to-cart_Shop" type="submit" >Add New Product</button>
-
-                    </div>
-
-                </form>  
+                    <div class="wrap-butons">                  
+                        <a class="btn add-to-cart_Shop" href="{{ route('add.product') }}" ><i class="fa-solid fa-folder-plus"></i> Add New Product</a>
+                    </div> 
+                    
             <div class="wrap-shop-control">
 
                 <h1 class="shop-title">All Prodcuts</h1>
@@ -47,7 +40,7 @@
 
                         @foreach($product_details as $data)
 
-                            <form action="{{ route('cart') }}" method="POST" >
+                            <form action="{{ route('edit.product') }}" method="POST" >
 								@csrf
 								@method('PUT')
 
@@ -66,7 +59,7 @@
                                         <div class="wrap-butons">
                                             <input type="hidden" name="cart_quantity" value="1">
                                             <!-- <a href="#" class="btn add-to-cart">Add To Cart</a> -->
-                                            <button class="btn add-to-cart_Shop" type="submit" >Edit Product</button>
+                                            <button class="btn add-to-cart_Shop" type="submit" ><i class="fa-solid fa-pen-to-square"></i> Edit Product</button>
 
                                             <input type="hidden" name="product_id" value="{{ $data->id }}">
                                         </div>

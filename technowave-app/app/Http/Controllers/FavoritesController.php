@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class FavoritesController extends Controller
-{
+class FavoritesController extends Controller{
+    
     public function index(){
 
         $favorites_details = Auth::user()->favoriteproducts;

@@ -1,5 +1,5 @@
 <x-layouts.layout-template0-home>
 
-Edit Product
+Add Product
 
 </x-layouts.layout-template0-home>

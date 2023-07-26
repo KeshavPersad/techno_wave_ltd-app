@@ -11,7 +11,7 @@ class AdminProductDetailsController extends Controller
 
         $product_details = Product::findorFail($id);
 
-        // dd($recommendedProducts);
+        // dd($product_details);
 
         return view('template0_pages.admin.adminproductdetails', [
             'data' => $product_details,

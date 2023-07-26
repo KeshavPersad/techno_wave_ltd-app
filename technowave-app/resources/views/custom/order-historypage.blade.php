@@ -47,7 +47,7 @@
                                         <td>{{ $data->id }}</td>
                                         <td>{{ $data->created_at }}</td>
                                         <td>${{ $data->total }}</td>
-                                        <td class="green_btn">Delivered</td>
+                                        <td class="green_btn"><i class="fa-solid fa-truck-ramp-box"> </i>  Delivered</td>
                                         <td>
                                             <a class="btn btn-primary" href="{{ route('orders.show', ['id' => $data->id]) }}">View Details</a>
                                         </td>

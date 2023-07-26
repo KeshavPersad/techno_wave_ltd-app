@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration{
-
+    
     /**
      * Run the migrations.
      *
@@ -17,18 +17,19 @@ return new class extends Migration{
             $table->id();
             $table->string('brand_title', 100);
             $table->text('brand_description');
+            $table->tinyInteger('brand_status');
             $table->string('brand_image1', 200);
             $table->timestamps();
         });
     }
 
-    /**
+     /**
      * Reverse the migrations.
      *
      * @return void
      */
     public function down(){
 
-        Schema::dropIfExists('brand');
+        Schema::dropIfExists('brands');
     }
 };
