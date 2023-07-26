@@ -37,7 +37,7 @@ class FavoritesController extends Controller{
 
         );
 
-        return redirect('/favoritespage')->with('message', 'Product Added Successfully');
+        return redirect('/favoritespage')->with('status', "Product Added to Favorites");
         
     }
 
@@ -49,7 +49,7 @@ class FavoritesController extends Controller{
  
         $product->save();
 
-        return redirect('/favoritespage')->with('message', 'Product Updated');
+        return redirect('/favoritespage')->with('status', "Product Updated");
         
     }
 
@@ -57,7 +57,7 @@ class FavoritesController extends Controller{
 
         $product = Favorite::where('id', $request->id)->where('user_id', Auth::id())->delete();      
 
-        return redirect('/favoritespage')->with('message', 'Product Removed Successfully');
+        return redirect('/favoritespage')->with('status', "Product Removed Successfully");
         
     }
 

@@ -55,7 +55,7 @@ class BrandController extends Controller{
 
         $brand = Brand::where('id', $request->id)->delete();      
 
-        return redirect('/brands')->with('message', 'Brand Deleted Successfully');
+        return redirect('/brands')->with('status', "Brand Deleted Successfully");
         
     }
 
@@ -99,7 +99,7 @@ class BrandController extends Controller{
         $brand->update();
 
 
-        return redirect('/brands')->with('status',"Brand Updated Successfully");
+        return redirect('/brands')->with('status', "Brand Updated Successfully");
 
     }
     

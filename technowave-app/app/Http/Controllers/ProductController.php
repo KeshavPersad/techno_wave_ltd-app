@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller{
 
@@ -25,6 +26,81 @@ class ProductController extends Controller{
             'category_details' => $category_details,
             'brand_details' => $brand_details,
             'bestSellingProducts' => $bestSellingProducts,
+
+        ]);
+
+    }
+
+    public function storeProductList(Request $request){
+
+        $product_details = Product::all();
+        $bestSellingProducts = $this->bestSellingProducts();
+        // dd($product_details);
+
+        $product_details = $this->filterProducts($request);
+
+        $category_details = Product::select('product_category')->distinct()->get();
+        $brand_details = Product::select('product_brand')->distinct()->get();
+
+        return view('template0_pages.listpage', [
+                        
+            'product_details' => $product_details,
+            'category_details' => $category_details,
+            'brand_details' => $brand_details,
+            'bestSellingProducts' => $bestSellingProducts,
+
+        ]);
+
+    }
+
+    public function allProductAdmin(Request $request){
+
+        $product_details = Product::all();
+        // dd($product_details);
+
+        $product_details = $this->filterProducts($request);
+
+        $category_details = Product::select('product_category')->distinct()->get();
+        $brand_details = Product::select('product_brand')->distinct()->get();
+
+        return view('template0_pages.admin.allproducts', [
+                        
+            'product_details' => $product_details,
+            'category_details' => $category_details,
+            'brand_details' => $brand_details,
+
+        ]);
+
+    }
+
+    public function allProductListAdmin(Request $request){
+
+        $product_details = Product::all();
+        // dd($product_details);
+
+        $product_details = $this->filterProducts($request);
+
+        $category_details = Product::select('product_category')->distinct()->get();
+        $brand_details = Product::select('product_brand')->distinct()->get();
+
+        return view('template0_pages.admin.allproductslist', [
+                        
+            'product_details' => $product_details,
+            'category_details' => $category_details,
+            'brand_details' => $brand_details,
+
+        ]);
+
+    }
+
+    public function productDetailsAdmin($id){
+
+        $product_details = Product::findorFail($id);
+
+        // dd($product_details);
+
+        return view('template0_pages.admin.adminproductdetails', [
+            'data' => $product_details,
 
         ]);
 
@@ -107,6 +183,7 @@ class ProductController extends Controller{
 
     }
 
+    
     public function bestSellingProducts(){
 
         return DB::table('order_product')
@@ -116,6 +193,105 @@ class ProductController extends Controller{
         ->orderByRaw('quantity_sold DESC')
         ->limit(5)
         ->get();
+
+    }
+
+    public function addProduct(){
+
+        return view('template0_pages.admin.addproduct');
+
+    }
+ 
+    public function insertProduct(Request $request){
+
+        $product = new Product();
+
+        if ($request->hasFile('product_image1')){
+
+            $file = $request->file('product_image1');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('images/products/',$filename);
+            $product->product_image1 = $filename;
+
+        }
+        $product->product_title = $request->input('product_title');
+        $product->product_description = $request->input('product_description');
+        $product->product_add_info = $request->input('product_add_info');
+        $product->product_price = $request->input('product_price');
+        $product->product_quantity = $request->input('product_quantity');
+        $product->product_image1 = $request->input('product_image1');
+        $product->product_image2 = $request->input('product_image2');
+        $product->product_image3 = $request->input('product_image3');
+        $product->product_image4 = $request->input('product_image4');
+        $product->product_status = $request->input('product_status');
+        $product->product_category = $request->input('product_category');
+        $product->product_brand = $request->input('product_brand');
+        $product->save();
+
+        // dd($product);
+
+        return redirect('/allproducts')->with('status', "Product Added Successfully");
+
+    }
+
+    public function deleteProduct(Request $request){
+
+        $product = Product::where('id', $request->id)->delete();      
+
+        return redirect('/allproducts')->with('status', 'Product Deleted Successfully');
+        
+    }
+
+    public function editProduct($id){
+
+        $product_details = Product::findorFail($id);
+        // dd($product_details);
+
+        return view('template0_pages.admin.editproduct', [
+
+            'data' => $product_details,
+
+        ]);
+
+    }
+
+    public function updateProduct(Request $request, $id){
+
+        $product = Product::findorFail($id);
+        // dd($product_details);
+
+        // if ($request->hasFile('product_image1')){
+
+        //     $path = 'storage/images/product' . $product->product_image1;
+
+        //     if(File::exists($path)){
+
+        //         File::delete($path);
+
+        //     }
+        //     $file = $request->file('product_image1');
+        //     $ext = $file->getClientOriginalExtension();
+        //     $filename = time().'.'.$ext;
+        //     $file->move('storage/images/product',$filename);
+        //     $product->product_image1 = $filename;
+        // }
+        $product->product_title = $request->input('product_title');
+        $product->product_description = $request->input('product_description');
+        $product->product_add_info = $request->input('product_add_info');
+        $product->product_price = $request->input('product_price');
+        $product->product_quantity = $request->input('product_quantity');
+        $product->product_image1 = $request->input('product_image1');
+        $product->product_image2 = $request->input('product_image2');
+        $product->product_image3 = $request->input('product_image3');
+        $product->product_image4 = $request->input('product_image4');
+        $product->product_status = $request->input('product_status');
+        $product->product_category = $request->input('product_category');
+        $product->product_brand = $request->input('product_brand');
+        $product->update();
+
+
+        return redirect('/allproducts')->with('status',"Product Updated Successfully");
 
     }
 

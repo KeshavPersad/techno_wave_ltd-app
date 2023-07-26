@@ -53,6 +53,14 @@
 	<script src="{{ asset('template0/js/jquery.sticky.js') }}"></script>
 	<script src="{{ asset('template0/js/functions.js') }}"></script>
 	<script src="https://kit.fontawesome.com/1ee61738a6.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script></script>
+	
+	@if(session('status'))
+	<script>
+		swal("{{ session('status') }}");
+	</script>
+
+	@endif
 
 
 </body>

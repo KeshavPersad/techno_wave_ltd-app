@@ -56,7 +56,7 @@ class CategoryController extends Controller{
 
         $category = Category::where('id', $request->id)->delete();      
 
-        return redirect('/categories')->with('message', 'Category Deleted Successfully');
+        return redirect('/categories')->with('status', "Category Deleted Successfully");
         
     }
 
@@ -100,7 +100,7 @@ class CategoryController extends Controller{
         $category->update();
 
 
-        return redirect('/categories')->with('status',"Category Updated Successfully");
+        return redirect('/categories')->with('status', "Category Updated Successfully");
 
     }
 }
