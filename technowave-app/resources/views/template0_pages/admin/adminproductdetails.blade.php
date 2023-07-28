@@ -1,5 +1,6 @@
 <x-layouts.layout-template0-home>
-<title>Techno Wave Ltd. || {{''}}Product Details</title>	
+<title>Techno Wave Ltd. || {{''}}Product Details</title>
+
 	<main id="main" class="main-site">
 
 		<div class="container">
@@ -60,7 +61,7 @@
                             </div>
                             <div class="wrap-price"><span class="product-price">${{$data->product_price}}</span></div>
                             <div class="stock-info in-stock">
-                                <p class="availability">Availability: <b>{{$data->product_status}}</b></p>
+                                <p class="availability"><a class="status">{{ $data->product_status }}</a></p>
                             </div>
 
 							<form action="{{ route('edit.product', ['id' => $data->id]) }}" method="POST" >
@@ -233,7 +234,5 @@
 
 	</main>
 	<!--main area-->
-
-	
 
 </x-layouts.layout-template0-home>

@@ -11,4 +11,10 @@ class UserController extends Controller{
         return view('template0_pages.user.myaccount');
 
     }
+
+    public function adminAccount(){
+
+        return view('template0_pages.admin.admin-myaccount');
+
+    }
 }

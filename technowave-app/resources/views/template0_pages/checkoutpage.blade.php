@@ -204,9 +204,9 @@
 									<div class="summary">
 										<div class="order-summary">
 											<h4 class="title-box">Checkout Summary</h4>
-											<p class="summary-info"><span class="title">Subtotal:</span><b class="index">$100.00</b></p>
+											<p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $checkout->formatPrice($checkout->getTotal()) }}</b></p>
 											<p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
-											<p class="summary-info total-info "><span class="title">Total:</span><b class="index">$100.00</b></p>
+											<p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $checkout->formatPrice($checkout->getTotal()) }}</b></p>
 										</div>
 										<div class="update-clear">
 											<x-core.stripe-ui/>

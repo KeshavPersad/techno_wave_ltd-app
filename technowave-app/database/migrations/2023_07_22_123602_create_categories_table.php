@@ -17,7 +17,7 @@ return new class extends Migration{
             $table->id();
             $table->string('category_title', 100);
             $table->text('category_description');
-            $table->tinyInteger('category_status');
+            $table->integer('category_status')->default(1)->comment('1 for In Stock & 0 for Out of Stock');;
             $table->string('category_image1', 200);
             $table->timestamps();
         });

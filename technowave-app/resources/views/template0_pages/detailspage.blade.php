@@ -60,7 +60,13 @@
                             </div>
                             <div class="wrap-price"><span class="product-price">${{$data->product_price}}</span></div>
                             <div class="stock-info in-stock">
-                                <p class="availability">Availability: <b>{{$data->product_status}}</b></p>
+
+								@if ($data->product_status == 1)
+									<p class="availability"><a class="status">In Stock</a></p>
+								@else
+									<p class="availability"><a class="status-out">Out of Stock</a></p>
+								@endif
+
                             </div>
 
 							<form action="{{ route('cart') }}" method="POST" >
@@ -70,10 +76,9 @@
 								<div class="quantity">
 									<span>Quantity:</span>
 									<div class="quantity-input">
-										<input type="text" name="cart_quantity" value="1" data-max="120" pattern="[0-9]*" >
 										
-										<a class="btn btn-reduce" href="#"></a>
-										<a class="btn btn-increase" href="#"></a>
+										<input type="number" name="cart_quantity" class=" " value="1" min="1" max="10">
+
 									</div>
 								</div>
 
@@ -362,9 +367,34 @@
 
 		</div><!--end container-->
 
+@section('scripts')
+<script>
+	$(document).ready(function (){
+
+		$('.increase').click(function (e) {
+			e.preventDefault();
+
+			var inc_value = $('.qty-input').val();
+			var value = parseInt(inc_value, 10);
+			value = isNaN(value) ? 0 : value;
+
+			if(value < 10 ){
+
+				value++; 
+				$('.qty-input').val(value);
+
+			}
+
+		}); 
+
+	});
+</script>
+@endsection
+
 	</main>
 	<!--main area-->
-
 	
-
+<a class="btn btn-reduce reduce" href="#"></a>
+<input type="text" name="cart_quantity" class="qty-input" value="1" data-max="120" pattern="[0-9]*" >
+<a class="btn btn-increase increase" href="#"></a>
 </x-layouts.layout-template0-home>

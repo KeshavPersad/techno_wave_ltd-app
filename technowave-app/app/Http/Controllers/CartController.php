@@ -14,7 +14,9 @@ class CartController extends Controller{
 
         $cart_details = Auth::user()->products;
         // dd($cart_details);
+
         $checkout = new CheckoutHelper($cart_details);
+        
         $checkout->calculateTotal();
         $bestSellingProducts = $this->bestSellingProducts();
 

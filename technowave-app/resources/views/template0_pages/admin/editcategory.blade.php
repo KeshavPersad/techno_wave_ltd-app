@@ -47,9 +47,24 @@
                                             @enderror
                                     </fieldset>
 
-									<fieldset class="wrap-input">
-										<label for="category_status">Change Status</label>
-										<input type="number"  min="0" max="1" class="form-control" name="category_status" value="{{ $data->category_status}}" required autocomplete="category_status" placeholder="1 is Active, 0 Inactive">
+                                    <fieldset class="wrap-input">
+										<label for="category_status">Change Status<a class="red-star">*</a></label>
+                                        
+										<div class="wrap-search-form">
+                                        <div class="wrap-list-cate">
+										<select class="outline_select" style="width:200px;" type="hidden" name="category_status" id="category_status">
+													@if($data->category_status == 1)							
+                                                        <option value="1" selected>- Active</option>
+                                                        <option value="0">- Inactive</option>
+                                                    @elseif($data->category_status == 0)
+                                                        <option value="1">- Active</option>
+                                                        <option value="0"selected>- Inactive</option>
+                                                    @endif
+																			
+                                        </select>
+                                        </div>
+                                        </div>
+                                        
                                             @error('category_status')
                                                 <span class="invalid-feedback" role="alert"></span>
                                                     <strong>{{ $message }}</strong>
@@ -62,7 +77,7 @@
                                         <img src="{{ asset('storage/' . $data->category_image1) }}" width="150" alt="category_image1">
                                         </fieldset>
 
-                                    @endif
+                                    @else
                                         <fieldset class="wrap-input">
                                             <label for="category_image1">Change Image</label>
                                             <input type="file" class="form-control" name="category_image1" >
@@ -72,7 +87,8 @@
                                                     </span>
                                                 @enderror
                                         </fieldset>
-
+                                    @endif
+                                    
                                             <button type="submit" name="submit" class="btn btn-sign">{{ __('Edit Category') }}</button>
 								</form>
 

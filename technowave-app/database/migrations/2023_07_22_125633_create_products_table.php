@@ -15,6 +15,8 @@ return new class extends Migration{
 
         Schema::create('products', function (Blueprint $table){
             $table->id();
+            $table->bigInteger('category_id');
+            $table->bigInteger('brand_id');
             $table->string('product_title', 100);
             $table->text('product_description');
             $table->text('product_add_info');
@@ -24,9 +26,7 @@ return new class extends Migration{
             $table->string('product_image2', 200);
             $table->string('product_image3', 200);
             $table->string('product_image4', 200);
-            $table->string('product_status', 20);
-            $table->string('product_category', 100);
-            $table->string('product_brand', 100);
+            $table->integer('product_status')->default(1)->comment('1 for In Stock & 0 for Out of Stock');
             $table->timestamps();
 
         });

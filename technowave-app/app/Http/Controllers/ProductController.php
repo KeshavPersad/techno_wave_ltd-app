@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\CheckoutHelper;
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,19 +15,23 @@ class ProductController extends Controller{
     public function index(Request $request){
 
         $product_details = Product::all();
-        $bestSellingProducts = $this->bestSellingProducts();
         // dd($product_details);
-
+        $category = Product::select('category_id')->distinct()->get();
+        $brand = Product::select('brand_id')->distinct()->get();
+        $category_details = Category::all();
+        $brand_details = Brand::all();
+        $bestSellingProducts = $this->bestSellingProducts();
+      
         $product_details = $this->filterProducts($request);
-
-        $category_details = Product::select('product_category')->distinct()->get();
-        $brand_details = Product::select('product_brand')->distinct()->get();
 
         return view('template0_pages.storepage', [
                         
             'product_details' => $product_details,
             'category_details' => $category_details,
             'brand_details' => $brand_details,
+            'category' => $category,
+            'brand' => $brand,
+            
             'bestSellingProducts' => $bestSellingProducts,
 
         ]);
@@ -36,17 +43,20 @@ class ProductController extends Controller{
         $product_details = Product::all();
         $bestSellingProducts = $this->bestSellingProducts();
         // dd($product_details);
-
         $product_details = $this->filterProducts($request);
-
-        $category_details = Product::select('product_category')->distinct()->get();
-        $brand_details = Product::select('product_brand')->distinct()->get();
+        $category = Product::select('category_id')->distinct()->get();
+        $brand = Product::select('brand_id')->distinct()->get();
+        $category_details = Category::all();
+        $brand_details = Brand::all();
 
         return view('template0_pages.listpage', [
                         
             'product_details' => $product_details,
             'category_details' => $category_details,
             'brand_details' => $brand_details,
+            'category' => $category,
+            'brand' => $brand,
+            
             'bestSellingProducts' => $bestSellingProducts,
 
         ]);
@@ -57,17 +67,23 @@ class ProductController extends Controller{
 
         $product_details = Product::all();
         // dd($product_details);
+        $category_details = Category::all();
+        $brand_details = Brand::all();
+        $category = Product::select('category_id')->distinct()->get();
+        $brand = Product::select('brand_id')->distinct()->get();
 
         $product_details = $this->filterProducts($request);
 
-        $category_details = Product::select('product_category')->distinct()->get();
-        $brand_details = Product::select('product_brand')->distinct()->get();
+       
 
         return view('template0_pages.admin.allproducts', [
                         
             'product_details' => $product_details,
             'category_details' => $category_details,
             'brand_details' => $brand_details,
+            'category' => $category,
+            
+            'brand' => $brand,
 
         ]);
 
@@ -77,17 +93,21 @@ class ProductController extends Controller{
 
         $product_details = Product::all();
         // dd($product_details);
+        $category_details = Category::all();
+        $brand_details = Brand::all();
+        $category = Product::select('category_id')->distinct()->get();
+        $brand = Product::select('brand_id')->distinct()->get();
 
         $product_details = $this->filterProducts($request);
-
-        $category_details = Product::select('product_category')->distinct()->get();
-        $brand_details = Product::select('product_brand')->distinct()->get();
 
         return view('template0_pages.admin.allproductslist', [
                         
             'product_details' => $product_details,
             'category_details' => $category_details,
             'brand_details' => $brand_details,
+            'category' => $category,
+            
+            'brand' => $brand,
 
         ]);
 
@@ -109,9 +129,8 @@ class ProductController extends Controller{
     public function filterProducts(Request $request){
 
         $params = $request->query();
-
         $product_details = Product::where('id', '>' , 0);
-
+    
         foreach($params as $key => $value){
 
             if(empty($value)){
@@ -121,11 +140,11 @@ class ProductController extends Controller{
             switch($key){
 
                 case 'category':
-                    $product_details->where('product_category', $value);
+                    $product_details->where('category_id', $value);
                     break;
                 
                 case 'brand':
-                    $product_details->where('product_brand', $value);
+                    $product_details->where('brand_id', $value);
                     break;
 
                 case 'search':
@@ -198,7 +217,15 @@ class ProductController extends Controller{
 
     public function addProduct(){
 
-        return view('template0_pages.admin.addproduct');
+        $category_details = Category::all();
+        $brand_details = Brand::all();
+
+        return view('template0_pages.admin.addproduct', [
+            
+            'category_details' => $category_details,
+            'brand_details' => $brand_details,
+
+        ]);
 
     }
  
@@ -211,10 +238,12 @@ class ProductController extends Controller{
             $file = $request->file('product_image1');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('images/products/',$filename);
+            $file->move('storage/images/products/',$filename);
             $product->product_image1 = $filename;
 
         }
+        $product->category_id = $request->input('category_id');
+        $product->brand_id = $request->input('brand_id');
         $product->product_title = $request->input('product_title');
         $product->product_description = $request->input('product_description');
         $product->product_add_info = $request->input('product_add_info');
@@ -225,8 +254,6 @@ class ProductController extends Controller{
         $product->product_image3 = $request->input('product_image3');
         $product->product_image4 = $request->input('product_image4');
         $product->product_status = $request->input('product_status');
-        $product->product_category = $request->input('product_category');
-        $product->product_brand = $request->input('product_brand');
         $product->save();
 
         // dd($product);
@@ -248,9 +275,14 @@ class ProductController extends Controller{
         $product_details = Product::findorFail($id);
         // dd($product_details);
 
+        $category_details = Category::all();
+        $brand_details = Brand::all();
+
         return view('template0_pages.admin.editproduct', [
 
             'data' => $product_details,
+            'category_details' => $category_details,
+            'brand_details' => $brand_details,
 
         ]);
 
@@ -259,41 +291,36 @@ class ProductController extends Controller{
     public function updateProduct(Request $request, $id){
 
         $product = Product::findorFail($id);
-        // dd($product_details);
+        // dd($product);
 
-        // if ($request->hasFile('product_image1')){
+        if ($request->hasFile('product_image1')){
 
-        //     $path = 'storage/images/product' . $product->product_image1;
+            $path = 'storage/images/products/' . $product->product_image1;
 
-        //     if(File::exists($path)){
+            if(File::exists($path)){
 
-        //         File::delete($path);
+                File::delete($path);
 
-        //     }
-        //     $file = $request->file('product_image1');
-        //     $ext = $file->getClientOriginalExtension();
-        //     $filename = time().'.'.$ext;
-        //     $file->move('storage/images/product',$filename);
-        //     $product->product_image1 = $filename;
-        // }
+            }
+            $file = $request->file('product_image1');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('storage/images/products/',$filename);
+            $product->product_image1 = $filename;
+        }
         $product->product_title = $request->input('product_title');
         $product->product_description = $request->input('product_description');
         $product->product_add_info = $request->input('product_add_info');
         $product->product_price = $request->input('product_price');
         $product->product_quantity = $request->input('product_quantity');
-        $product->product_image1 = $request->input('product_image1');
-        $product->product_image2 = $request->input('product_image2');
-        $product->product_image3 = $request->input('product_image3');
-        $product->product_image4 = $request->input('product_image4');
         $product->product_status = $request->input('product_status');
-        $product->product_category = $request->input('product_category');
-        $product->product_brand = $request->input('product_brand');
         $product->update();
 
 
-        return redirect('/allproducts')->with('status',"Product Updated Successfully");
+        return redirect('/allproducts')->with('status' ,"Product Updated Successfully");
 
     }
+
 
 
 }

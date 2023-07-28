@@ -48,7 +48,7 @@
                                             </a>
                                             </div>
                                             <div class="product-name">
-                                                <a class="link-to-product" href="{{ route ('adminproduct.details', ['id' => $data->id]) }}">{{ $data->product_title }}</a>
+                                                <a class="link-to-product" href="{{ route ('adminproduct.details', ['id' => $data->id]) }}">{{ $data->id }} - {{ $data->product_title }}</a>
 
                                                 </br>
                                                 </br>
@@ -57,16 +57,27 @@
 
                                                 </br>
                                                 </br>
-                                                <a class="price-field produtc-price"><p class="price">Status: {{$data->product_status}}</p></a>
+
+                                                @if ($data->product_status == 1)
+                                                <div class="wrap-price"><span class="product-price"><a class="status">In Stock</a></span></div>
+                                                @else
+                                                    <div class="wrap-price"><span class="product-price"><a class="status-out">Out of Stock</a></span></div>
+                                                @endif
+
                                                 <a class="price-field produtc-price"><p class="price">Price: ${{$data->product_price}}</p></a>
+
+                                                <a class="price-field produtc-price"><p class="price">Category: {{$data->category->category_title}}</p></a>
+
+                                                <a class="price-field produtc-price"><p class="price">Brand: {{$data->brand->brand_title}}</p></a>
                                                 
+
                                                 <div class="detail-info">
                                                     <form action="{{ route('delete.product', ['id' => $data->id])  }}" method="POST" >
                                                             @csrf
                                                             @method('Delete')
 
                                                             <div class="wrap-butons">
-                                                                <button  type="submit" class="btn add-to-cart_Shop"><i class="fa-solid fa-trash-can"></i> Delete Prodcut</button>
+                                                                <button  type="submit" class="btn add-to-cart_Shop"><i class="fa-solid fa-trash-can"></i> Delete Product</button>
 
                                                                 <input type="hidden" name="product_id" value="{{ $data->id }}">
                                                             </div>

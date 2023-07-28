@@ -35,7 +35,7 @@ class BrandController extends Controller{
             $file = $request->file('brand_image1');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('storage/images/brand',$filename);
+            $file->move('images/brand/',$filename);
             $brand->brand_image1 = $filename;
 
         }
@@ -79,7 +79,7 @@ class BrandController extends Controller{
 
         if ($request->hasFile('brand_image1')){
 
-            $path = 'storage/images/brand' . $brand->brand_image1;
+            $path = 'images/brand/' . $brand->brand_image1;
 
             if(File::exists($path)){
 
@@ -89,7 +89,7 @@ class BrandController extends Controller{
             $file = $request->file('brand_image1');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('storage/images/brand',$filename);
+            $file->move('images/brand/',$filename);
             $brand->brand_image1 = $filename;
         }
         $brand->brand_title = $request->input('brand_title');

@@ -17,7 +17,7 @@ return new class extends Migration{
             $table->id();
             $table->string('brand_title', 100);
             $table->text('brand_description');
-            $table->tinyInteger('brand_status');
+            $table->integer('brand_status')->default(1)->comment('1 for In Stock & 0 for Out of Stock');;
             $table->string('brand_image1', 200);
             $table->timestamps();
         });

@@ -48,7 +48,18 @@
 
 									<fieldset class="wrap-input">
 										<label for="brand_status">Status<a class="red-star">*</a></label>
-										<input type="number"  min="0" max="1" class="form-control" name="brand_status" required autocomplete="brand_status" placeholder="1 is Active, 0 Inactive">
+                                        
+										<div class="wrap-search-form">
+                                        <div class="wrap-list-cate">
+										<select class="outline_select" style="width:200px;" type="hidden" name="brand_status" id="brand_status">
+																				
+                                                    <option value="1">- Active</option>
+													<option value="0">- Inactive</option>
+																			
+                                        </select>
+                                        </div>
+                                        </div>
+                                        
                                             @error('brand_status')
                                                 <span class="invalid-feedback" role="alert"></span>
                                                     <strong>{{ $message }}</strong>

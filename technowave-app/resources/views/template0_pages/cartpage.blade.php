@@ -118,19 +118,21 @@
 
                                             </br>
                                             </br>
-                                            <a class="price-field produtc-price"><p class="price">Status: {{$data->product_status}}</p></a>
-                                            <a class="price-field produtc-price"><p class="price">Unit Price: ${{$data->product_price}}</p></a>
+                                            @if ($data->product_status == 1)
+                                            <a class="status produtc-price"><p class="status">In Stock</p></a>
+                                            @else
+                                            <a class="status-out produtc-price"><p class="status-out">Out of Stock</p></a>
+                                            @endif
+								
+                                            <a class="price-field produtc-price"><p class="price">Unit Price: ${{ $checkout->formatPrice($data->product_price) }}</p></a>
 
                                             <div class="quantity">
                                                     <div class="quantity-input">
-                                                    
-                                                        <input type="text" name="product-quatity" value="{{$data->pivot->cart_quantity}}" data-max="120" pattern="[0-9]*">									
-                                                        <a class="btn btn-increase" href="#"></a>
-                                                        <a class="btn btn-reduce" href="#"></a>
+                                                        <input type="number" name="product-quatity" value="{{$data->pivot->cart_quantity}}" min="1" max="10">									
                                                     </div>
                                             </div>
 
-                                            <div class="price-field sub-total"><p class="price">Subtotal: ${{ $data->cartQuantityPrice() }}.00</p></div>
+                                            <div class="price-field sub-total"><p class="price">Subtotal: ${{ $checkout->formatPrice($data->cartQuantityPrice()) }}</p></div>
 
                                             <div class="detail-info">
                                                 <form action="{{ route('cart.destroy', ['id' => $data->pivot->id]) }}" method="POST" >
@@ -161,9 +163,9 @@
                         <div class="summary">
                             <div class="order-summary">
                                 <h4 class="title-box">Cart Summary</h4>
-                                <p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $data->cartQuantityPrice() }}.00</b></p>
+                                <p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $checkout->formatPrice($checkout->getSubtotal()) }}</b></p>
                                 <p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
-                                <p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $data->cartQuantityPrice() }}.00</b></p>
+                                <p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $checkout->formatPrice($checkout->getTotal()) }}</b></p>
                             </div>
                             
                             <div class="update-clear">

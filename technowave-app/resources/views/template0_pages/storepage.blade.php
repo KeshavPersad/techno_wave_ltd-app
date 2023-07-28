@@ -23,7 +23,7 @@
 
             <div class="wrap-shop-control">
 
-                <h1 class="shop-title">All Categories</h1>
+                <h1 class="shop-title">All Products</h1>
 
                 <div class="wrap-right">
 
@@ -43,34 +43,44 @@
 
                         @foreach($product_details as $data)
 
-                            <form action="{{ route('cart') }}" method="POST" >
-								@csrf
-								@method('PUT')
+                            @if($data->product_status == "1" )
 
-                                <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
-                                    <div class="product product-style-3 equal-elem ">
-                                        <div class="product-thumnail">
-                                            <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                                <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-                                            </a>
-                                        </div>
-                                        <div class="product-info">
-                                            <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
-                                            <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
+                                <form action="{{ route('cart') }}" method="POST" >
+                                    @csrf
+                                    @method('PUT')
 
-                                
-                                        <div class="wrap-butons">
-                                            <input type="hidden" name="cart_quantity" value="1">
-                                            <!-- <a href="#" class="btn add-to-cart">Add To Cart</a> -->
-                                            <button class="btn add-to-cart_Shop" type="submit" ><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to Cart</button>
+                                    <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
+                                        <div class="product product-style-3 equal-elem ">
+                                            <div class="product-thumnail">
+                                                <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
+                                                    <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                                </a>
+                                            </div>
+                                            <div class="product-info">
+                                                <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
 
-                                            <input type="hidden" name="product_id" value="{{ $data->id }}">
-                                        </div>
+                                                @if ($data->product_status == 1)
+                                                    <div class="wrap-price"><span class="product-price"><a class="status">In Stock</a></span></div>
+                                                @else
+                                                    <div class="wrap-price"><span class="product-price"><a class="status-out">Out of Stock</a></span></div>
+                                                @endif
 
-                                        </div>
-                                    </div>   
-                                </li>
-                            </form>
+                                                <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
+
+                                    
+                                            <div class="wrap-butons">
+                                                <input type="hidden" name="cart_quantity" value="1">
+                                                <!-- <a href="#" class="btn add-to-cart">Add To Cart</a> -->
+                                                <button class="btn add-to-cart_Shop" type="submit" ><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to Cart</button>
+
+                                                <input type="hidden" name="product_id" value="{{ $data->id }}">
+                                            </div>
+
+                                            </div>
+                                        </div>   
+                                    </li>
+                                </form>
+                            @endif
 
                         @endforeach
 
@@ -107,48 +117,60 @@
                         </ul>     
                     </div>
             </div><!-- Price-->
+            <div class="widget mercado-widget filter-widget price-filter">
+						<h2 class="widget-title">Min-Price & Max-Price</h2>
+						<div class="widget-content">
+							<div id="slider-range"></div>
+							<p>
+								<label for="amount">Price:</label>
+								<input type="text" id="amount" readonly>
+								<button class="filter-submit">Filter</button>
+							</p>
+						</div>
+			</div>
+            <!-- Price -->
 
             </br>
 
             <!-- Categories widget-->
             <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title">Filter By Categories</a>
-                <div class="widget-content">
-
-                <ul class="list-style vertical-list list-limited" data-show="6">
-                        <li class="list-item"><a class="filter-link" href="{{ route('store.list') }}">All Category</a></li>
-
-                            @foreach ($category_details as $data)
-
-                                <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store.list', ['category' => $data->product_category]) }}">{{ $data->product_category }}</a></li>
-
-                            @endforeach
-
-                        <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div><!-- Categories widget-->
-
-            </br>
-
-            <!-- brand widget-->
-            <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title">Filter By Brand</a>
-                <div class="widget-content">
+                    <a class="widget-title">Filter By Categories</a>
+                    <div class="widget-content">
 
                     <ul class="list-style vertical-list list-limited" data-show="6">
-                        <li class="list-item"><a class="filter-link" href="{{ route('store.list') }}">All Brands</a></li>
+                            <li class="list-item"><a class="filter-link" href="{{ route('store.list') }}">All Category</a></li>
+                           
+                                @foreach ($category as $data)
+                                   
+                                        <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store.list', ['category' => $data->category_id]) }}">{{ $data->category->category_title }}</a></li>
+                                    
+                                @endforeach
 
-                            @foreach ($brand_details as $data)
+                            <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div><!-- Categories widget-->
 
-                                <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store.list', ['brand' => $data->product_brand]) }}">{{ $data->product_brand }}</a></li>
+                </br>
 
-                            @endforeach
+                <!-- brand widget-->
+                <div class="widget mercado-widget filter-widget brand-widget">
+                    <a class="widget-title">Filter By Brand</a>
+                    <div class="widget-content">
 
-                        <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div><!-- brand widget-->
+                        <ul class="list-style vertical-list list-limited" data-show="6">
+                            <li class="list-item"><a class="filter-link" href="{{ route('store.list') }}">All Brands</a></li>
+
+                                @foreach ($brand as $data)
+
+                                    <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store.list', ['brand' => $data->brand_id]) }}">{{ $data->brand->brand_title }}</a></li>
+
+                                @endforeach
+
+                            <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div><!-- brand widget-->
 
             </br>
 

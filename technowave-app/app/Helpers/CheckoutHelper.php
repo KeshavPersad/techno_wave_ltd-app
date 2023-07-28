@@ -4,12 +4,15 @@ namespace App\Helpers;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use PHPUnit\Event\TestData\MoreThanOneDataSetFromDataProviderException;
 
 class CheckoutHelper{
 
     private $products = null;
     private $subtotal = 0;
     private $total = 0;
+
+    private $deliveryFee = 0.05;
 
     public function __construct(Collection $products){
 
@@ -57,6 +60,12 @@ class CheckoutHelper{
         
     }
 
+    public function calculateDeliveryFee(){
+
+        $this->deliveryFee * $this->subtotal;
+
+    }
+
     public function calculateTotal(){
 
         return $this->total = $this->subtotal;
@@ -66,6 +75,12 @@ class CheckoutHelper{
     public function getSubtotal(){
 
         return $this->subtotal;
+
+    }
+
+    public function getdeliveryFee(){
+
+        return $this->deliveryFee;
 
     }
 

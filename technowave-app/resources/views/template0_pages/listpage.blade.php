@@ -24,7 +24,7 @@
 
                 <div class="wrap-shop-control">
 
-                    <h1 class="shop-title">All Categories</h1>
+                    <h1 class="shop-title">All Products</h1>
 
                     <div class="wrap-right">
 
@@ -65,7 +65,12 @@
 
                                                     </br>
                                                     </br>
-                                                    <a class="price-field produtc-price"><p class="price">Status: {{$data->product_status}}</p></a>
+                                                    @if ($data->product_status == 1)
+                                                    <a class="status produtc-price"><p class="status">In Stock</p></a>
+                                                    @else
+                                                    <a class="status-out produtc-price"><p class="status-out">Out of Stock</p></a>
+                                                    @endif
+
                                                     <a class="price-field produtc-price"><p class="price">Price: ${{$data->product_price}}</p></a>
 
                                                     <div class="wrap-butons">
@@ -121,6 +126,18 @@
                             </ul>     
                         </div>
                 </div><!-- Price-->
+                <div class="widget mercado-widget filter-widget price-filter">
+						<h2 class="widget-title">Min-Price & Max-Price</h2>
+						<div class="widget-content">
+							<div id="slider-range"></div>
+							<p>
+								<label for="amount">Price:</label>
+								<input type="text" id="amount" readonly>
+								<button class="filter-submit">Filter</button>
+							</p>
+						</div>
+			    </div>
+                <!-- Price -->
 
                 </br>
 
@@ -132,10 +149,10 @@
                     <ul class="list-style vertical-list list-limited" data-show="6">
                             <li class="list-item"><a class="filter-link" href="{{ route('store.list') }}">All Category</a></li>
 
-                                @foreach ($category_details as $data)
-
-                                    <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store.list', ['category' => $data->product_category]) }}">{{ $data->product_category }}</a></li>
-
+                                @foreach ($category as $data)
+                                   
+                                   <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store.list', ['category' => $data->category_id]) }}">{{ $data->category->category_title }}</a></li>
+                               
                                 @endforeach
 
                             <li class="list-item"><a data-label='Show less<i class="fa fa-angle-up" aria-hidden="true"></i>' class="btn-control control-show-more" href="#">Show more<i class="fa fa-angle-down" aria-hidden="true"></i></a></li>
@@ -153,9 +170,9 @@
                         <ul class="list-style vertical-list list-limited" data-show="6">
                             <li class="list-item"><a class="filter-link" href="{{ route('store.list') }}">All Brands</a></li>
 
-                                @foreach ($brand_details as $data)
+                                @foreach ($brand as $data)
 
-                                    <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store.list', ['brand' => $data->product_brand]) }}">{{ $data->product_brand }}</a></li>
+                                    <li class="list-item default-hiden"><a class="filter-link" href="{{ route('store.list', ['brand' => $data->brand_id]) }}">{{ $data->brand->brand_title }}</a></li>
 
                                 @endforeach
 

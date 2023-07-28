@@ -18,12 +18,12 @@
 						<div class="wrap-login-item ">
 							<div class="register-form form-item ">
 
-								<form class="form-stl" method="POST" action="{{ route('insert.category') }}">
+								<form class="form-stl" method="POST" action="{{ route('insert.category') }}" enctype="multipart/form-data">
                                     @csrf
+									
 
 									<fieldset class="wrap-title">
 										<h3 class="form-title">Add New Category</h3>
-										
 									</fieldset>		
 
 									<fieldset class="wrap-input">
@@ -48,7 +48,18 @@
 
 									<fieldset class="wrap-input">
 										<label for="category_status">Status<a class="red-star">*</a></label>
-										<input type="number"  min="0" max="1" class="form-control" name="category_status" required autocomplete="category_status" placeholder="1 is Active, 0 Inactive">
+                                        
+										<div class="wrap-search-form">
+                                        <div class="wrap-list-cate">
+										<select class="outline_select" style="width:200px;" type="hidden" name="category_status" id="category_status">
+																				
+                                                    <option value="1">- Active</option>
+													<option value="0">- Inactive</option>
+																			
+                                        </select>
+                                        </div>
+                                        </div>
+                                        
                                             @error('category_status')
                                                 <span class="invalid-feedback" role="alert"></span>
                                                     <strong>{{ $message }}</strong>

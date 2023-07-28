@@ -48,7 +48,7 @@
                                     </fieldset>
 
                                     <fieldset class="wrap-input">
-										<label for="product_add_info">Additional Information</label>
+										<label for="product_add_info">Changeitional Information</label>
 										<input type="text" class="form-control " name="product_add_info" value="{{ $data->product_add_info}}" required autocomplete="product_add_info" autofocus>
                                             @error('product_add_info')
                                                 <span class="invalid-feedback" role="alert">
@@ -67,21 +67,11 @@
                                             @enderror
                                     </fieldset>
 
-                                    <fieldset class="wrap-input">
-										<label for="product_quantity">Quantity</label>
-										<input type="number" min="1" max="1000" class="form-control " name="product_quantity" value="{{ $data->product_quantity}}" required autocomplete="product_quantity" autofocus>
-                                            @error('product_quantity')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                    </fieldset>
-
                                     @if($data->product_image1)
                                         <fieldset class="wrap-input">
                                         <img src="{{ asset('storage/' . $data->product_image1) }}" width="150" alt="product_image1">
                                         </fieldset>
-                                    @endif
+                                    @else
                                     <fieldset class="wrap-input">
 										<label for="product_image1">Change Image 1</label>
                                         <input type="file" class="form-control" name="product_image1">
@@ -91,12 +81,14 @@
                                                 </span>
                                             @enderror
 									</fieldset>
+                                    @endif
+                                    
 
                                     @if($data->product_image2)
                                         <fieldset class="wrap-input">
                                         <img src="{{ asset('storage/' . $data->product_image2) }}" width="150" alt="product_image1">
                                         </fieldset>
-                                    @endif
+                                    @else
                                     <fieldset class="wrap-input">
 										<label for="product_image2">Change Image 2</label>
                                         <input type="file" class="form-control" name="product_image2">
@@ -106,14 +98,15 @@
                                                 </span>
                                             @enderror
 									</fieldset>
+                                    @endif
 
                                     @if($data->product_image3)
                                         <fieldset class="wrap-input">
                                         <img src="{{ asset('storage/' . $data->product_image3) }}" width="150" alt="product_image1">
                                         </fieldset>
-                                    @endif
+                                    @else
                                     <fieldset class="wrap-input">
-										<label for="product_image3">Change Image 3</label>
+										<label for="product_image3">Add Image 3</label>
                                         <input type="file" class="form-control" name="product_image3">
                                             @error('product_image3')
                                                 <span class="invalid-feedback" role="alert">
@@ -121,12 +114,13 @@
                                                 </span>
                                             @enderror
 									</fieldset>
+                                    @endif
 
                                     @if($data->product_image4)
                                         <fieldset class="wrap-input">
                                         <img src="{{ asset('storage/' . $data->product_image4) }}" width="150" alt="product_image1">
                                         </fieldset>
-                                    @endif
+                                    @else
                                     <fieldset class="wrap-input">
 										<label for="product_image4">Change Image 4</label>
                                         <input type="file" class="form-control" name="product_image4">
@@ -136,19 +130,33 @@
                                                 </span>
                                             @enderror
 									</fieldset>
+                                    @endif
+
+                                    <fieldset class="wrap-input">
+										<label for="product_quantity">Update Quantity</label>
+										<input type="number" min="0" max="1000" class="form-control " name="product_quantity" value="{{ $data->product_quantity}}" required autocomplete="product_quantity" autofocus>
+                                            @error('product_quantity')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                    </fieldset>
                                     
-									<fieldset class="wrap-input">
-										<label for="product_status">Status</label>
-                                        <div class="wrap-search center-section">
+                                    <fieldset class="wrap-input">
+										<label for="product_status">Change Status<a class="red-star">*</a></label>
+                                        
 										<div class="wrap-search-form">
                                         <div class="wrap-list-cate">
-										<input type="hidden" name="product_status" value="0" id="product_status">
-																			<a class="link-control"> - - - - - - - - - </a>
-																			<ul class="list-cate">
-																					<li class="level-1">-In Stock</li>
-																					<li class="level-1">-Out of Stock</li>
-																			</ul>
-                                        </div>
+										<select class="outline_select" style="width:200px;" type="hidden" name="product_status" id="product_status">
+													@if($data->product_status == 1)							
+                                                        <option value="1" selected>- In Stock</option>
+                                                        <option value="0">- Out of Stock</option>
+                                                    @elseif($data->product_status == 0)
+                                                        <option value="1">- In Stock</option>
+                                                        <option value="0"selected>- Out of Stock</option>
+                                                    @endif
+																			
+                                        </select>
                                         </div>
                                         </div>
                                             @error('product_status')
@@ -159,27 +167,17 @@
 									</fieldset>
 
                                     <fieldset class="wrap-input">
-										<label for="product_category">Product Category</label>
-                                        <div class="wrap-search center-section">
+										<label for="category_id">Product Category<a class="red-star">*</a></label>
 										<div class="wrap-search-form">
                                         <div class="wrap-list-cate">
-										<input type="hidden" name="product_category" value="0" id="product_category">
-																			<a class="link-control"> - - - - - - - - - </a>
-																			<ul class="list-cate">
-                                                                                    <li class="level-1">-Laptop</li>
-																					<li class="level-1">-Desktop</li>
-																					<li class="level-1">-Gaming PC</li>
-                                                                                    <li class="level-1">-Tablet</li>
-																					<li class="level-1">-Monitor</li>
-																					<li class="level-1">-Speacker</li>
-																					<li class="level-1">-Mouse and Keyboard</li>
-																					<li class="level-1">-Tech Accessory</li>
-																					<li class="level-1">-PC Part</li>
-																			</ul>
+										<select class="outline_select" style="width:200px;" type="hidden" name="category_id" id="category_id">
+                                                    
+                                                <option class="level-1" value="{{ $data->category->id}}">- {{$data->category->category_title}}</option>
+                                                    
+                                        </select>
                                         </div>
                                         </div>
-                                        </div>
-                                            @error('product_category')
+                                            @error('category_id')
                                                 <span class="invalid-feedback" role="alert"></span>
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -187,40 +185,26 @@
 									</fieldset>
 
                                     <fieldset class="wrap-input">
-										<label for="product_brand">Product Brand</label>
-                                        <div class="wrap-search center-section">
+										<label for="brand_id">Product Brand<a class="red-star">*</a></label>
 										<div class="wrap-search-form">
                                         <div class="wrap-list-cate">
-										<input type="hidden" name="product_brand" value="0" id="product_brand">
-																			<a class="link-control"> - - - - - - - - - </a>
-																			<ul class="list-cate">
-                                                                            <li class="level-1">-</li>
-																					<li class="level-1">-APPLE</li>
-                                                                                    <li class="level-1">-HP</li>
-																					<li class="level-1">-DELL</li>
-                                                                                    <li class="level-1">-ASUS</li>
-																					<li class="level-1">-LENOVO</li>
-                                                                                    <li class="level-1">-ACER</li>
-																					<li class="level-1">-LOGITECH</li>
-                                                                                    <li class="level-1">-RAZER</li>
-                                                                                    <li class="level-1">-JBL</li>
-                                                                                    <li class="level-1">-INTEL</li>
-																			</ul>
+                                        <select class="outline_select" style="width:200px;" value="{{$data->brand_title}}" type="hidden" name="brand_id" id="brand_id">
+
+                                                <option class="level-1" value="{{ $data->brand->id}}">- {{$data->brand->brand_title}}</option>
+                                                
+                                        </select>
                                         </div>
                                         </div>
-                                        </div>
-                                            @error('product_brand')
+                                            @error('brand_id')
                                                 <span class="invalid-feedback" role="alert"></span>
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
 									</fieldset>
-
                                    
-                                    
-
-                                            <button type="submit" name="submit" class="btn btn-sign">{{ __('Edit Product') }}</button>
-								</form>
+                                        <button type="submit" name="submit" class="btn btn-sign">{{ __('Edit Product') }}</button>
+								
+                                </form>
 
 							</div>
                         </div>

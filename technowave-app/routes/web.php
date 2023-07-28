@@ -20,6 +20,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
     Auth::routes([
         
@@ -38,12 +39,12 @@ use Illuminate\Support\Facades\Route;
     //Route for Login Page
     Route::view('/login', 'auth/login')->name('login');
 
-    // Auth For Customers/Users
-    Route::middleware(['auth:sanctum', 'verified'])->group(function(){
+//     // Auth For Customers/Users
+//     Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
-        Route::get('/myaccount', [UserController::class, 'index'])->name('myaccount');
+//         Route::get('/myaccount', [UserController::class, 'index'])->name('myaccount');
 
-    });
+//     });
 
 
  //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
@@ -53,7 +54,6 @@ use Illuminate\Support\Facades\Route;
     Route::get('/homepage', [HomeController::class, 'index'])->name('home');
     Route::get('/technowave', [HomeController::class, 'index'])->name('home');
     Route::get('/techno-wave', [HomeController::class, 'index'])->name('home');
-
 
  //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
     //Route for Store Page
@@ -66,17 +66,21 @@ use Illuminate\Support\Facades\Route;
     //Route for Details Page
     Route::get('/detailspage/{id}', [DetailsController::class, 'index'])->name('store.details');
 
-    
-    
-    //Route for Auth Middleware
+       // //Route for Details Page
+       // Route::get('/category/{category_title}', [CategoryController::class, 'viewCategory'])->name('view.category');
+
+       
+    //Route for Admin Auth Middleware
     Route::middleware(['auth', 'verified'])->group(function(){
 
         // Admin Routes
 
         //Route For Admin Dashboard
-        Route::get('/dasboard', [AdminController::class, 'index'])->name('dashboard');
-        Route::view('/admin-myaccount', 'template0_pages/admin/admin-myaccount')->name('admin-myaccount');
+       Route::get('/dasboard', [AdminController::class, 'index'])->name('dashboard');
+       Route::view('/admin-myaccount', 'template0_pages/admin/admin-myaccount')->name('admin-myaccount');
 
+        //Route for Admin Account
+       Route::get('/adminAccount', [UserController::class, 'adminAccount'])->name('admin.account');
 
  //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for View All Products
@@ -143,9 +147,23 @@ use Illuminate\Support\Facades\Route;
 
         // Admin Routes End
 //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
-        
+    });
+
+
+
+
+
+
+
+    //Route for User Auth Middleware
+    Route::middleware(['auth', 'verified'])->group(function(){
+                   
         // User Routes
 
+        //Route for My Account
+        Route::get('/myaccount', [UserController::class, 'index'])->name('myaccount');
+
+//........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for View Favorites
         Route::get('/favoritespage', [FavoritesController::class, 'index'])->name('favorites');
        

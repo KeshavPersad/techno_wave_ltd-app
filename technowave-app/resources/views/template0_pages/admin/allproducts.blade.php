@@ -48,8 +48,15 @@
                                             </a>
                                         </div>
                                         <div class="product-info">
-                                            <a href="{{ route ('adminproduct.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
-                                            <div class="wrap-price"><span class="product-price"><a class="status">{{ $data->product_status }}</a></span></div>
+                                            <a href="{{ route ('adminproduct.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->id }} - {{ $data->product_title }}</span></a>
+
+
+                                            @if ($data->product_status == 1)
+                                                <div class="wrap-price"><span class="product-price"><a class="status">In Stock</a></span></div>
+                                            @else
+                                                <div class="wrap-price"><span class="product-price"><a class="status-out">Out of Stock</a></span></div>
+                                            @endif
+
                                             <div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
 
                                                 <div class="wrap-butons">
@@ -58,7 +65,7 @@
                                                             @method('Delete')
 
                                                             <div class="wrap-butons">
-                                                                <button  type="submit" class="btn add-to-cart_Shop"><i class="fa-solid fa-trash-can"></i> Delete Prodcut</button>
+                                                                <button  type="submit" class="btn add-to-cart_Shop"><i class="fa-solid fa-trash-can"></i> Delete Product</button>
 
                                                                 <input type="hidden" name="product_id" value="{{ $data->id }}">
                                                             </div>

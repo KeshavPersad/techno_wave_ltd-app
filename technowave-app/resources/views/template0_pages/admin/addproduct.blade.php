@@ -67,16 +67,6 @@
                                     </fieldset>
 
                                     <fieldset class="wrap-input">
-										<label for="product_quantity">Quantity<a class="red-star">*</a></label>
-										<input type="number" min="1" max="1000" class="form-control " name="product_quantity" required autocomplete="product_quantity" autofocus>
-                                            @error('product_quantity')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                    </fieldset>
-
-                                    <fieldset class="wrap-input">
 										<label for="product_image1">Image 1<a class="red-star">*</a></label>
                                         <input type="file" class="form-control" name="product_image1">
                                             @error('product_image1')
@@ -116,22 +106,30 @@
                                             @enderror
 									</fieldset>
 
+                                    <fieldset class="wrap-input">
+										<label for="product_quantity">Quantity<a class="red-star">*</a></label>
+										<input type="number" min="1" max="1000" class="form-control " name="product_quantity" required autocomplete="product_quantity" autofocus>
+                                            @error('product_quantity')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                    </fieldset>
+
 									<fieldset class="wrap-input">
 										<label for="product_status">Status<a class="red-star">*</a></label>
-                                        <div class="wrap-search center-section">
+                                        
 										<div class="wrap-search-form">
                                         <div class="wrap-list-cate">
-										<input type="hidden" name="product_status" value="0" id="product_status">
-																			<a class="link-control"> - - - - - - - - - </a>
-																			<ul class="list-cate">
-                                                                                <li class="level-0"></li>
-                                                                                <li class="level-0"></li>
-																					<li class="level-1">-In Stock</li>
-																					<li class="level-1">-Out of Stock</li>
-																			</ul>
+										<select class="outline_select" style="width:200px;" type="hidden" name="product_status" id="product_status">
+																				
+                                                    <option value="1">- In Stock</option>
+													<option value="0">- Out of Stock</option>
+																			
+                                        </select>
                                         </div>
                                         </div>
-                                        </div>
+                                        
                                             @error('product_status')
                                                 <span class="invalid-feedback" role="alert"></span>
                                                     <strong>{{ $message }}</strong>
@@ -140,29 +138,19 @@
 									</fieldset>
 
                                     <fieldset class="wrap-input">
-										<label for="product_category">Product Category<a class="red-star">*</a></label>
-                                        <div class="wrap-search center-section">
+										<label for="category_id">Product Category<a class="red-star">*</a></label>
 										<div class="wrap-search-form">
                                         <div class="wrap-list-cate">
-										<input type="hidden" name="product_category" value="0" id="product_category">
-																			<a class="link-control"> - - - - - - - - - </a>
-																			<ul class="list-cate">
-                                                                                <li class="level-0"></li>
-                                                                                <li class="level-0"></li>
-                                                                                    <li class="level-1">-Laptop</li>
-																					<li class="level-1">-Desktop</li>
-																					<li class="level-1">-Gaming PC</li>
-                                                                                    <li class="level-1">-Tablet</li>
-																					<li class="level-1">-Monitor</li>
-																					<li class="level-1">-Speacker</li>
-																					<li class="level-1">-Mouse and Keyboard</li>
-																					<li class="level-1">-Tech Accessory</li>
-																					<li class="level-1">-PC Part</li>
-																			</ul>
+										<select class="outline_select" style="width:200px;" type="hidden" name="category_id" id="category_id">
+
+                                                    @foreach ($category_details as $data)
+                                                        <option class="level-1" value="{{ $data->id}}">- {{$data->category_title}}</option>
+                                                    @endforeach  
+
+                                        </select>
                                         </div>
                                         </div>
-                                        </div>
-                                            @error('product_category')
+                                            @error('category_id')
                                                 <span class="invalid-feedback" role="alert"></span>
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -170,40 +158,27 @@
 									</fieldset>
 
                                     <fieldset class="wrap-input">
-										<label for="product_brand">Product Brand<a class="red-star">*</a></label>
-                                        <div class="wrap-search center-section">
+										<label for="brand_id">Product Brand<a class="red-star">*</a></label>
 										<div class="wrap-search-form">
                                         <div class="wrap-list-cate">
-                                            <input type="hidden" name="product_brand" value="0" id="product_brand">
-                                                                                <a class="link-control"> - - - - - - - - - </a>
-                                                                                <ul class="list-cate">
-                                                                                    <li class="level-0"></li>
-                                                                                    <li class="level-0"></li>
-                                                                                        <li class="level-1">-APPLE</li>
-                                                                                        <li class="level-1">-HP</li>
-                                                                                        <li class="level-1">-DELL</li>
-                                                                                        <li class="level-1">-ASUS</li>
-                                                                                        <li class="level-1">-LENOVO</li>
-                                                                                        <li class="level-1">-ACER</li>
-                                                                                        <li class="level-1">-LOGITECH</li>
-                                                                                        <li class="level-1">-RAZER</li>
-                                                                                        <li class="level-1">-JBL</li>
-                                                                                        <li class="level-1">-INTEL</li>
-                                                                                </ul>
+                                        <select class="outline_select" style="width:200px;" type="hidden" name="brand_id" id="brand_id">
+
+                                                    @foreach ($brand_details as $data)
+                                                    <option class="level-1" value="{{ $data->id}}">- {{$data->brand_title}}</option>
+                                                    @endforeach  
+
+                                        </select>
                                         </div>
                                         </div>
-                                        </div>
-                                            @error('product_brand')
+                                            @error('brand_id')
                                                 <span class="invalid-feedback" role="alert"></span>
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
 									</fieldset>
 
-                                   
-                                    
+                                    <button type="submit" name="submit" class="btn btn-sign">{{ __('Add Product') }}</button>
 
-                                            <button type="submit" name="submit" class="btn btn-sign">{{ __('Add Product') }}</button>
 								</form>
 
 							</div>

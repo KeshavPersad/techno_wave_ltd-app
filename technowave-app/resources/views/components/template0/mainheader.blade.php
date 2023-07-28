@@ -33,7 +33,7 @@
 															<a title="dashboard" href="{{ route('dashboard') }}"><i class="fa-solid fa-house"></i> Dashboard</a>
 														</li>
 														<li class="menu-item" >
-															<a title="myaccount" href="{{ route('admin-myaccount') }}"><i class="fa-solid fa-user"></i> My Account</a>
+															<a title="myaccount" href="{{ route('admin.account') }}"><i class="fa-solid fa-user"></i> My Account</a>
 														</li>
 														<form method="POST" action="{{ route('logout') }}">
 															@csrf

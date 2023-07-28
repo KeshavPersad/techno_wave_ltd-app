@@ -47,9 +47,24 @@
                                             @enderror
                                     </fieldset>
 
-									<fieldset class="wrap-input">
-										<label for="brand_status">Change Status</label>
-										<input type="number"  min="0" max="1" class="form-control" name="brand_status" value="{{ $data->brand_status}}" required autocomplete="brand_status" placeholder="1 is Active, 0 Inactive">
+									<<fieldset class="wrap-input">
+										<label for="brand_status">Change Status<a class="red-star">*</a></label>
+                                        
+										<div class="wrap-search-form">
+                                        <div class="wrap-list-cate">
+										<select class="outline_select" style="width:200px;" type="hidden" name="brand_status" id="brand_status">
+													@if($data->brand_status == 1)							
+                                                        <option value="1" selected>- Active</option>
+                                                        <option value="0">- Inactive</option>
+                                                    @elseif($data->brand_status == 0)
+                                                        <option value="1">- Active</option>
+                                                        <option value="0"selected>- Inactive</option>
+                                                    @endif
+																			
+                                        </select>
+                                        </div>
+                                        </div>
+                                        
                                             @error('brand_status')
                                                 <span class="invalid-feedback" role="alert"></span>
                                                     <strong>{{ $message }}</strong>
@@ -62,7 +77,7 @@
                                         <img src="{{ asset('storage/' . $data->brand_image1) }}" width="150" alt="brand_image1">
                                         </fieldset>
 
-                                    @endif
+                                    @else
                                         <fieldset class="wrap-input">
                                             <label for="brand_image1">Change Image</label>
                                             <input type="file" class="form-control" name="brand_image1" >
@@ -72,7 +87,8 @@
                                                     </span>
                                                 @enderror
                                         </fieldset>
-
+                                    @endif
+                                    
                                             <button type="submit" name="submit" class="btn btn-sign">{{ __('Edit Brand') }}</button>
 								</form>
 
