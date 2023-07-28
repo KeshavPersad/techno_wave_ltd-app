@@ -30,7 +30,7 @@ Primary use:    Ecommerce
 /*------------------------------------------------------------------
 [Color codes]
 
-    Option Color 1 : #ff2832;
+    Option Color 1 : #04446e;
 
     Option Color 2 : #365db5;
 
@@ -609,7 +609,7 @@ header.fill-color .main-info-area .right-section .wrap-icon-section .index{
     background: #414141;
 }
 header.fill-color .main-info-area .right-section .wrap-icon-section.minicart .index{
-    background-color: #ff0000;
+    background-color: #04446e;
 }
 .main-info-area .right-section .wrap-icon-section .index{
 	color: #fff;
@@ -697,11 +697,11 @@ li.menu-item .nav-label.new-label::before{
 }
 
 li.menu-item .nav-label.sale-label{
-	background: #ff2832;
+	background: #04446e;
 }
 li.menu-item .nav-label.sale-label::before{
-	border-top-color: #ff2832;
-	border-left-color: #ff2832;
+	border-top-color: #04446e;
+	border-left-color: #04446e;
 }
 
 .header-nav-section li:not(:last-child)::after{
@@ -1059,7 +1059,7 @@ li.menu-item .nav-label.sale-label::before{
 }
 .wrap-main-slide .slide-1 .sale-info .price{
     font-weight: 700;
-    color: #ff2832;
+    color: #04446e;
     font-size: 24px;
 }
 .wrap-main-slide .slide-3 .btn-link,
@@ -1081,7 +1081,7 @@ li.menu-item .nav-label.sale-label::before{
 .wrap-main-slide .slide-2 .f-title{
     font-size: 40px;
     line-height: 35px;
-    color: #ff2832;
+    color: #04446e;
     font-weight: 700;
     display: inline-block;
     text-transform: uppercase;
@@ -1156,7 +1156,7 @@ li.menu-item .nav-label.sale-label::before{
 .wrap-main-slide .slide-3 .sale-info .price{
     font-weight: 700;
     font-size: 25px;
-    color: #ff2832;
+    color: #04446e;
 }
 
 /* main slide's animate */
@@ -1590,7 +1590,7 @@ li.menu-item .nav-label.sale-label::before{
     width: 100%;
     /*float: left;*/
     text-align: left;
-    background-color: #ff2832;
+    background-color: #04446e;
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 700;
@@ -1772,12 +1772,12 @@ li.menu-item .nav-label.sale-label::before{
     border-left-color: #365db5;
 }
 .product .product-thumnail .group-flash .flash-item.sale-label{
-    background-color: #ff2832;
+    background-color: #04446e;
     margin-left: 8px;
 }
 .product .product-thumnail .group-flash .flash-item.sale-label::before{
-    border-top-color: #ff2832;
-    border-left-color: #ff2832;
+    border-top-color: #04446e;
+    border-left-color: #04446e;
 }
 .product .product-info .product-name span,
 .product-style-2 .product-info .product-name span{
@@ -1846,7 +1846,7 @@ li.menu-item .nav-label.sale-label::before{
 .product .product-info .wrap-price ins>p,
 .product-style-2 .product-info .wrap-price ins>p{
     font-weight: 600;
-    color: #ff2832;
+    color: #04446e;
     text-align: left;
     padding-right: 8px;
 }
@@ -2744,12 +2744,12 @@ li.menu-item .nav-label.sale-label::before{
 .ui-slider-horizontal .ui-slider-handle {
     top: -5px;
     margin-left: 0;
-    background-color: #ff2832;
+    background-color: #04446e;
 }
 .ui-slider-horizontal .ui-slider-range {
     top: 0;
     height: 100%;
-    background: #e5534c;
+    background: #0b73b8;
 }
 .ui-slider-horizontal .ui-slider-range-min {
     left: 0;
@@ -2867,7 +2867,7 @@ vertical-align: top;
     border-radius: 50%;
 }
 .product-list-style .product-attribute li .attr-red-color{
-    background-color: #ff2832;
+    background-color: #04446e;
 }
 .product-list-style .product-attribute li .attr-yellow-color{
     background-color: #ecbf33;
@@ -2926,7 +2926,7 @@ vertical-align: top;
 }
 .product-list-style .advance-info .wrap-price ins>p{
     font-weight: 600;
-    color: #ff2832;
+    color: #04446e;
     text-align: left;
     padding-right: 8px;
 }
@@ -3186,7 +3186,7 @@ vertical-align: top;
     font-weight: 400;
 }
 .wrap-contacts .contact-box label>span{
-    color: #ff2832;
+    color: #04446e;
     margin: 0;
     padding: 0;
 }
@@ -4002,25 +4002,45 @@ article.single-post blockquote p:last-child::after{
     color: #222222;
     font-weight: 600;
 }
+.wrap-iten-in-cart .products-cart .status p{
+    font-size: 14px;
+    line-height: 16px;
+    color: green;
+    font-weight: 600;
+}
+.wrap-iten-in-cart .products-cart .status-out p{
+    font-size: 14px;
+    line-height: 16px;
+    color: red;
+    font-weight: 600;
+}
+
 .wrap-iten-in-cart .products-cart .quantity .quantity-input{
-    display: inline-block;
+    /* display: inline-block;
     /* border: 1px solid #e6e6e6; */
-    width: 100%;
-    max-width: 157px;
+    /* width: 100%;
+    max-width: 157px;  */
+    display: inline-block;
+    width: 70px;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    margin-top: 4px;
+    font-size: 0;
+    text-align: left;
 }
 .wrap-iten-in-cart .products-cart .quantity .quantity-input input[type=number],
 .wrap-iten-in-cart .products-cart .quantity .quantity-input input[type=text]{
-    max-width: 51px;
+    max-width: 70px;
     float: right;
     border: none;
     outline: none;
     height: 30px;
-    font-size: 25px;
-    line-height: 25px;
-    color: #222222;
-    text-align: right;
+    font-size: 20px;
+    line-height: 20px;
+    color: #214b77;
+    text-align: center;
     padding-right: 15px;
-    padding-left: 10px; 
+    padding-left: 15px; 
 }
 .wrap-iten-in-cart .products-cart .quantity .quantity-input .btn{
     display: inline-block;
@@ -4090,7 +4110,7 @@ article.single-post blockquote p:last-child::after{
     outline: none;
 }
 .wrap-iten-in-cart .products-cart .delete a.btn:hover i{
-    color: #ff2832;
+    color: #04446e;
 }
 .shopping-cart .summary{
     display: inline-block;
@@ -4356,7 +4376,7 @@ article.single-post blockquote p:last-child::after{
 }
 .wrap-product-detail .detail-info .quantity-input{
     display: inline-block;
-    width: 142px;
+    width: 70px;
     border: 1px solid #e6e6e6;
     border-radius: 3px;
     margin-top: 4px;
@@ -4489,7 +4509,7 @@ article.single-post blockquote p:last-child::after{
 }
 .wrap-product-detail .detail-info .wrap-price ins>p{
     font-weight: 600;
-    color: #ff2832;
+    color: #04446e;
     text-align: left;
     padding-right: 8px;
 }
@@ -4507,7 +4527,7 @@ article.single-post blockquote p:last-child::after{
     text-align: left;
 }
 .wrap-product-detail .detail-info .stock-info.in-stock b{
-    color: #ff2832;
+    color: #04446e;
 }
 .wrap-product-detail .advance-info .tab-control,
 .wrap-product-detail .advance-info .tab-contents{
@@ -4844,7 +4864,7 @@ table.shop_attributes tbody{
     text-transform: uppercase;
 }
 .wrap-address-billing .row-in-form label span{
-    color: #ff2832;
+    color: #04446e;
 }
 .wrap-address-billing .row-in-form input[type=email],
 .wrap-address-billing .row-in-form input[type=text],
@@ -5595,7 +5615,7 @@ table.shop_attributes tbody{
 }
 .wrap-footer-item .wrap-hotline-footer .phone-number,
 .topbar-menu-area .topbar-menu .label-before.fa-mobile{
-    color: #ff2832 !important;
+    color: #04446e !important;
 }
 .fill-color .header-nav-section ul li a{
     color: #ffffff;
@@ -7135,7 +7155,7 @@ background-color: #888888;
 }
 
 .btn-submitx {
-	background: #ff2832;
+	background: #04446e;
 	font-size: 17px;
 	color: #ffffff;
 	line-height: 19px;
@@ -7257,6 +7277,17 @@ background-color: #888888;
 .status{
 
     color: green;
+
+}
+.status-out{
+
+    color: red;
+
+}
+
+.outline_select{
+
+    outline: black;
 
 }
 
