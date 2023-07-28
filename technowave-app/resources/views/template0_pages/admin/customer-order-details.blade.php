@@ -8,8 +8,8 @@
 
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="{{ route ('home') }}" class="link">Home</a></li>
-                <li class="item-link"><a href="{{ route ('orders') }}" class="link">Your Orders</a>
+                <li class="item-link"><a href="{{ route ('home') }}" class="link">Dashboard</a></li>
+                <li class="item-link"><a href="{{ route ('customer.orders') }}" class="link">Customer Orders</a>
                 <li class="item-link"><span>Order Details</span></li>
 
             </ul>
@@ -21,8 +21,8 @@
                             <div class="wrap-iten-in-cart">
                                 <h2> Order Details </h2>
  
-                                <h3 >Hello {{ $user->first_name}},</h3>
-                                <p>Your order had been Confirmed. Delivery is expected within few days.</p>
+                                <h3 >User ID: {{ $order->user_id}},</h3>
+                                <p></p>
 
                                 @foreach($order_products as $data)
                                     <ul class="products-cart">
@@ -33,7 +33,7 @@
                                                     <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt=""></figure>
                                                 </div>
                                                 <div class="product-name">
-                                                    <a class="link-to-product" href="{{ route ('store.details', ['id' => $data->id]) }}">{{ $data->product_title }}</a>
+                                                    <a class="link-to-product" href="{{ route ('adminproduct.details', ['id' => $data->id]) }}">{{ $data->product_title }}</a>
 
                                                     </br>
                                                     </br>

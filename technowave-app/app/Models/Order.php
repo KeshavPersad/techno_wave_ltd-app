@@ -11,6 +11,8 @@ class Order extends Model{
 
     use HasFactory;
     
+    protected $table = 'orders';
+
     protected $fillable = [
 
         'user_id',
@@ -18,6 +20,9 @@ class Order extends Model{
         'total',
         'payment',
         'payment_id',
+        'user_lot_number',
+        'user_street',
+        'user_city',
 
     ];
 

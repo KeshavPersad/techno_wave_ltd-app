@@ -61,7 +61,11 @@
                             </div>
                             <div class="wrap-price"><span class="product-price">${{$data->product_price}}</span></div>
                             <div class="stock-info in-stock">
-                                <p class="availability"><a class="status">{{ $data->product_status }}</a></p>
+								@if($data->product_status == 1)
+                                	<p class="availability"><a class="status">In Stock</a></p>
+								@else
+									<p class="availability"><a class="status">Out of Stock</a></p>
+								@endif
                             </div>
 
 							<form action="{{ route('edit.product', ['id' => $data->id]) }}" method="POST" >
