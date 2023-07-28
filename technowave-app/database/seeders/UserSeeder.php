@@ -28,7 +28,10 @@ class UserSeeder extends Seeder
                 'user_image' => '',
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'user_lot_number' => '28',
+                'user_street' => 'Karamath Street',
+                'user_city' => 'Princes Town',
             ],
             [
                 'first_name' => 'Keshav',
@@ -40,7 +43,11 @@ class UserSeeder extends Seeder
                 'user_image' => 'images/products/product_10.jpeg',
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'user_lot_number' => '28',
+                'user_street' => 'Karamath Street',
+                'user_city' => 'Princes Town',
+                
             ],
             [
                 'first_name' => 'Rianna',
@@ -52,7 +59,10 @@ class UserSeeder extends Seeder
                 'user_image' => 'images/products/product_10.jpeg',
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'user_lot_number' => '28',
+                'user_street' => 'Karamath Street',
+                'user_city' => 'Princes Town',
             ],
             [
                 'first_name' => 'Nehru',
@@ -64,7 +74,10 @@ class UserSeeder extends Seeder
                 'user_image' => 'images/products/product_10.jpeg',
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'user_lot_number' => '28',
+                'user_street' => 'Karamath Street',
+                'user_city' => 'Princes Town',
             ],
             [
                 'first_name' => 'Shiv',
@@ -76,7 +89,10 @@ class UserSeeder extends Seeder
                 'user_image' => 'images/products/product_10.jpeg',
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'user_lot_number' => '28',
+                'user_street' => 'Karamath Street',
+                'user_city' => 'Princes Town',
             ],
             [
                 'first_name' => 'Sat',
@@ -88,7 +104,10 @@ class UserSeeder extends Seeder
                 'user_image' => 'images/products/product_10.jpeg',
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'user_lot_number' => '28',
+                'user_street' => 'Karamath Street',
+                'user_city' => 'Princes Town',
             ],
             [
                 'first_name' => 'Sharda',
@@ -100,7 +119,10 @@ class UserSeeder extends Seeder
                 'user_image' => 'images/products/product_10.jpeg',
                 'email_verified_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'user_lot_number' => '28',
+                'user_street' => 'Karamath Street',
+                'user_city' => 'Princes Town',
             ],
         ]);
     }

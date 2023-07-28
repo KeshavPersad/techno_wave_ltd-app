@@ -82,7 +82,6 @@ class ProductController extends Controller{
             'category_details' => $category_details,
             'brand_details' => $brand_details,
             'category' => $category,
-            
             'brand' => $brand,
 
         ]);
@@ -148,7 +147,8 @@ class ProductController extends Controller{
                     break;
 
                 case 'search':
-                    $product_details->where('product_title', 'LIKE' , '%' .$value. '%');
+                    $product_details->where('product_title', 'LIKE' , '%' .$value. '%')
+                    ->orWhere('product_description', 'LIKE' , '%' .$value. '%');
                     break;
 
                 case 'min_price':

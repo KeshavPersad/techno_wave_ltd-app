@@ -20,6 +20,9 @@ return new class extends Migration{
             $table->decimal('total', $precision = 7, $scale = 2);
             $table->string('payment')->default('none');
             $table->string('payment_id')->default('none');
+            $table->bigInteger('user_lot_number')->nullable();
+            $table->string('user_street')->nullable();
+            $table->string('user_city')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

@@ -142,7 +142,7 @@
 					</ul>
 				</div>
 				<div class=" main-content-area">
-					<!-- <div class="wrap-address-billing">
+					<div class="wrap-address-billing">
 						<h3 class="box-title">Billing Address</h3>
 						<form action="#" method="get" name="frm-billing">
 							<p class="row-in-form">
@@ -170,7 +170,7 @@
 								<input id="city" type="text" name="city" value="" placeholder="City name">
 							</p>
 							<p class="row-in-form fill-wife">
-							<a class="link-to-shop" href="{{ route ('register') }}">Create an Account<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+							<a class="link-to-shop" href="{{ route ('register') }}">Edit Address<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 							<samp>   </samp>
 								<label class="checkbox-field">
 									<input name="different-add" id="different-add" value="forever" type="checkbox">
@@ -178,7 +178,7 @@
 								</label>
 							</p>
 						</form>
-					</div> -->
+					</div>
 
 						<div class="summary summary-checkout">
 							<div class="summary-item payment-method">
@@ -204,8 +204,12 @@
 									<div class="summary">
 										<div class="order-summary">
 											<h4 class="title-box">Checkout Summary</h4>
-											<p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $checkout->formatPrice($checkout->getTotal()) }}</b></p>
-											<p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
+											<p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $checkout->formatPrice($checkout->getSubtotal()) }}</b></p>
+											@if( $checkout->formatPrice($checkout->getdeliveryFee()) == 0 )
+												<p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
+											@else
+												<p class="summary-info"><span class="title">Delivery:</span><b class="index">${{ $checkout->formatPrice($checkout->getdeliveryFee()) }}</b></p>
+											@endif
 											<p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $checkout->formatPrice($checkout->getTotal()) }}</b></p>
 										</div>
 										<div class="update-clear">

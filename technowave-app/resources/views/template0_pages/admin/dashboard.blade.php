@@ -42,7 +42,7 @@
 
                 <!-- brand widget-->
                 <div class="widget mercado-widget filter-widget brand-widget">
-                    <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
+                    <a class="widget-title" href="{{ route('dashboard') }}">User Info</a>
                     <div class="widget-content">
                         <ul class="products">
 
@@ -50,7 +50,7 @@
                     </div>
                 </div><!-- brand widget-->
                 <div class="widget mercado-widget filter-widget brand-widget">
-                    <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
+                    <a class="widget-title" href="{{ route('dashboard') }}">Add Admin</a>
                     <div class="widget-content">
                         <ul class="products">
 

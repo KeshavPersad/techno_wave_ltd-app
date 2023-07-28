@@ -144,12 +144,17 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
         //Route for Edit/Update Brand
         Route::get('/updateBrand/{id}', [BrandController::class, 'updateBrand'])->name('update.brand');
 
+//........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+        //Route for Customer Order Page
+        Route::get('/customer-orderspage', [OrderController::class, 'customerOrders'])->name('customer.orders');
+
+        //Route for Customer Order Deatils Page
+        Route::get('/customer-order-detailspage/{id}', [OrderController::class, 'customerOrderDetails'])->name('customer.order.details');
+
 
         // Admin Routes End
 //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
     });
-
-
 
 
 
@@ -162,6 +167,15 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
 
         //Route for My Account
         Route::get('/myaccount', [UserController::class, 'index'])->name('myaccount');
+
+       //  //Route for Delete Account
+       //  Route::delete('/myaccount/{id}', [UserController::class, 'deleteAccount'])->name('delete.account');
+    
+       //  //Route for View Edit Account Page
+       //  Route::get('/editAccount/{id}', [UserController::class, 'editAccount'])->name('edit.account');
+        
+       //  //Route for Edit/Update Account
+       //  Route::get('/updateAccount/{id}', [UserController::class, 'updateAccount'])->name('update.account');
 
 //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for View Favorites

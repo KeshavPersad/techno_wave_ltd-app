@@ -23,6 +23,9 @@ return new class extends Migration{
             $table->string('phone_number')->unique();
             $table->string('utype')->default('USR')->comment('ADM for Admin & USR for Customer');
             $table->string('user_image', 200)->nullable();
+            $table->bigInteger('user_lot_number')->nullable();
+            $table->string('user_street')->nullable();
+            $table->string('user_city')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

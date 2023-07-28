@@ -43,8 +43,6 @@
 
                         @foreach($product_details as $data)
 
-                            @if($data->product_status == "1" )
-
                                 <form action="{{ route('cart') }}" method="POST" >
                                     @csrf
                                     @method('PUT')
@@ -70,8 +68,10 @@
                                     
                                             <div class="wrap-butons">
                                                 <input type="hidden" name="cart_quantity" value="1">
-                                                <!-- <a href="#" class="btn add-to-cart">Add To Cart</a> -->
-                                                <button class="btn add-to-cart_Shop" type="submit" ><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to Cart</button>
+
+                                                @if ($data->product_status == 1)
+                                                    <button class="btn add-to-cart_Shop" type="submit" ><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to Cart</button>
+                                                @endif
 
                                                 <input type="hidden" name="product_id" value="{{ $data->id }}">
                                             </div>
@@ -80,8 +80,6 @@
                                         </div>   
                                     </li>
                                 </form>
-                            @endif
-
                         @endforeach
 
 

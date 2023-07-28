@@ -67,6 +67,40 @@
                                             @enderror
 									</fieldset>
 
+									<fieldset class="wrap-title">
+										<h3 class="form-subtitle">Billing Information</h3>
+									</fieldset>
+
+									<fieldset class="wrap-input">
+										<label for="frm-reg-pass">Lot Number<a class="red-star">*</a></label>
+                                        <input id="user_lot_number" type="number" class="form-control @error('user_lot_number') is-invalid @enderror" name="user_lot_number" value="{{ old('user_lot_number') }}" required autocomplete="new-user_lot_number">
+                                            @error('user_lot_number')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+									</fieldset>
+
+									<fieldset class="wrap-input">
+										<label for="frm-reg-pass">Street<a class="red-star">*</a></label>
+                                        <input id="user_street" type="text" class="form-control @error('user_street') is-invalid @enderror" name="user_street" value="{{ old('user_street') }}" required autocomplete="new-user_street">
+                                            @error('user_street')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+									</fieldset>
+
+									<fieldset class="wrap-input">
+										<label for="frm-reg-pass">Town / City<a class="red-star">*</a></label>
+                                        <input id="user_city" type="text" class="form-control @error('user_city') is-invalid @enderror" name="user_city" value="{{ old('user_city') }}" required autocomplete="new-user_city">
+                                            @error('user_city')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+									</fieldset>
+
                                     <fieldset class="wrap-title">
 										<h3 class="form-subtitle">Login Information</h3>
 									</fieldset>

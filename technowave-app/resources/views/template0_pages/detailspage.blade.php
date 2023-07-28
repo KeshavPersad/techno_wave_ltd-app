@@ -68,7 +68,7 @@
 								@endif
 
                             </div>
-
+							@if ($data->product_status == 1)
 							<form action="{{ route('cart') }}" method="POST" >
 								@csrf
 								@method('PUT')
@@ -88,6 +88,7 @@
                                             <input type="hidden" name="product_id" value="{{ $data->id }}">
 								</div>
 							</form>
+							@endif
 							
 							<form action="{{ route('favorites') }}" method="POST" >
 									@csrf

@@ -12,7 +12,7 @@ class CheckoutHelper{
     private $subtotal = 0;
     private $total = 0;
 
-    private $deliveryFee = 0.05;
+    private $deliveryFee = 0;
 
     public function __construct(Collection $products){
 
@@ -57,18 +57,18 @@ class CheckoutHelper{
             $this->subtotal += $data->cartQuantityPrice();
 
         }
-        
-    }
 
-    public function calculateDeliveryFee(){
+        if ($this->subtotal < '6000'){
 
-        $this->deliveryFee * $this->subtotal;
+        $this->deliveryFee = $this->subtotal * 0.05;
+
+        }
 
     }
 
     public function calculateTotal(){
 
-        return $this->total = $this->subtotal;
+        return $this->total = $this->subtotal + $this->deliveryFee;
 
     }
 

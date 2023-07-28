@@ -108,27 +108,4 @@ class CategoryController extends Controller{
 
     }
 
-    // public function viewCategory( $category_title){
-
-    //     if (Category::where('category_title',$category_title)->exists ()){
-
-    //         $category = Category::where('category_title',$category_title)->first();
-    //         $products = Product::where('category_id', $category->id)->where('category_status', '1')->get();
-
-    //         return view('template0.listpage', [
-
-    //             'category' => $category,
-    //             'products' => $products,
-
-    //         ]);      
-
-    //     }
-    //     else{
-
-    //         return redirect('/listpage')->with('status', "No Products with that Category");
-
-    //     }
-        
-    // }
-
 }

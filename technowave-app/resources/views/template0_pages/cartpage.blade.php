@@ -61,7 +61,7 @@
                                                 <i class="fa fa-truck" aria-hidden="true"></i>
                                                 <div class="right-content">
                                                     <b class="title">Free Delivery</b>
-                                                    <span class="subtitle">Nationwide</span>
+                                                    <span class="subtitle">On Orders Over $6000.00</span>
                                                     <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
                                                 </div>
                                             </a>
@@ -147,13 +147,9 @@
                                                         </div>
                                                 </form>
                                             </div>
-
                                         </div>
-            
                                     </li>
-
                                 @endforeach
-        
                             </ul>
                         </div>
                     </div>
@@ -164,12 +160,17 @@
                             <div class="order-summary">
                                 <h4 class="title-box">Cart Summary</h4>
                                 <p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $checkout->formatPrice($checkout->getSubtotal()) }}</b></p>
-                                <p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
+                                    @if( $checkout->formatPrice($checkout->getdeliveryFee()) == 0 )
+										<p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
+									@else
+                                    <p class="summary-info"><span class="title">Delivery:</span><b class="index">${{$checkout->formatPrice($checkout->getdeliveryFee()) }}</b></p>
+									@endif
+                                
                                 <p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $checkout->formatPrice($checkout->getTotal()) }}</b></p>
                             </div>
                             
                             <div class="update-clear">
-                                <a class="btn btn-clear" href="{{ route('checkout') }}">Proceed to Checkout</a>          
+                                <a class="btn btn-clear" href="{{ route('checkout', ['id' => $data->id]) }}">Proceed to Checkout</a>          
                                 <a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                             </div>
                         </div>
@@ -186,7 +187,7 @@
                                                     <i class="fa fa-truck" aria-hidden="true"></i>
                                                     <div class="right-content">
                                                         <b class="title">Free Delivery</b>
-                                                        <span class="subtitle">Nationwide</span>
+                                                        <span class="subtitle">On Orders Over $6000.00</span>
                                                         <p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
                                                     </div>
                                                 </a>

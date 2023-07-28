@@ -1,7 +1,6 @@
 <x-layouts.layout-template0-home>
-<div>
+<title>Techno Wave Ltd. || {{''}}My Account</title>	
 
-<h1 align="center">My Account</h1>
-
-</div>
+<h>My Account</h>
+	
 </x-layouts.layout-template0-home>
