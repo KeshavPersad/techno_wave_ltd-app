@@ -224,7 +224,7 @@
 					
 								@else
 										<li class="menu-item" ><a title="Register or Login" href="{{ route('login') }}"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
-										<li class="menu-item" ><a title="Register or Login" href="{{ route('register') }}">Register</a></li>
+										<li class="menu-item" ><a title="Register or Login" href="{{ route('register') }}"><i class="fa-solid fa-file-pen"></i> Register</a></li>
 
 
 

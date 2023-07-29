@@ -18,6 +18,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductListController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDashboardController;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
@@ -143,6 +144,16 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
                 
         //Route for Edit/Update Brand
         Route::get('/updateBrand/{id}', [BrandController::class, 'updateBrand'])->name('update.brand');
+
+//........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+        //Route for All List Users Page
+        Route::get('/registeredUsersList', [UserController::class, 'registeredUsersList'])->name('registered.userslist');
+       
+        //Route for All Users Page
+        Route::get('/registeredUsers', [UserController::class, 'registeredUsers'])->name('registered.users');
+       
+        //Route for Delete User 
+        Route::delete('/registeredUsers/delete/{id}', [UserController::class, 'deleteUser'])->name('delete.user');
 
 //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for Customer Order Page

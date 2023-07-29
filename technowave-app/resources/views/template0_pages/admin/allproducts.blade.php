@@ -95,7 +95,6 @@
                                         </div>
                                     </div>
                                 </li>
-                            </form>
 
                         @endforeach
 
@@ -115,51 +114,30 @@
             </div>
         </div><!--end main products area-->
 
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
+                    <!-- sidebar -->
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
 
-            <!-- brand widget-->
-            <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                <div class="widget-content">
-                    <ul class="products">
+                        <div class="widget mercado-widget filter-widget brand-widget">
+                            <a class="widget-title" href="{{ route('registered.userslist') }}"><i class="fa-solid fa-user"></i> User Information</a>
+                        </div>
 
-                    </ul>
-                </div>
-            </div><!-- brand widget-->
-            <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                <div class="widget-content">
-                    <ul class="products">
+                        <div class="widget mercado-widget filter-widget brand-widget">
+                            <a class="widget-title" href="{{ route('dashboard') }}"><i class="fa-solid fa-user"></i> Add Admin</a>
+                        </div>
 
-                    </ul>
-                </div>
-            </div><!-- brand widget-->
-            <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                <div class="widget-content">
-                    <ul class="products">
+                        <div class="widget mercado-widget filter-widget brand-widget">
+                            <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
+                        </div>
 
-                    </ul>
-                </div>
-            </div><!-- brand widget-->
-            <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                <div class="widget-content">
-                    <ul class="products">
+                        <div class="widget mercado-widget filter-widget brand-widget">
+                            <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
+                        </div>
 
-                    </ul>
-                </div>
-            </div><!-- brand widget-->
-            <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                <div class="widget-content">
-                    <ul class="products">
+                        <div class="widget mercado-widget filter-widget brand-widget">
+                            <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
+                        </div>
 
-                    </ul>
-                </div>
-            </div><!-- brand widget-->
-
-        </div><!-- end sitebar -->
+                    </div><!--end sidebar-->
 
     </div><!--end row-->
 

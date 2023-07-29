@@ -73,4 +73,74 @@ class UserController extends Controller{
         
     // }
 
+    public function registeredUsers(Request $request){
+
+        $user_details = User::all();
+        $user_details = $this->filterUser($request);
+
+        return view('template0_pages.admin.registeredUsers', [
+
+            'user_details'=> $user_details,
+
+        ]);
+
+    }
+
+    public function registeredUsersList(Request $request){
+
+        $user_details = User::all();
+        $user_details = $this->filterUser($request);
+
+        return view('template0_pages.admin.registeredUsersList', [
+
+            'user_details'=> $user_details,
+
+        ]);
+
+    }
+
+    public function deleteUser(Request $request){
+
+        $user = User::where('id', $request->id)->delete();      
+
+        return redirect('/registeredUsers')->with('status', 'User Deleted Successfully');
+        
+    }
+
+
+    public function filterUser(Request $request){
+
+        $params = $request->query();
+        $user_details = User::where('id', '>' , 0);
+    
+        foreach($params as $key => $value){
+
+            if(empty($value)){
+                continue;
+            }
+
+            switch($key){
+
+                case 'search':
+                    $user_details->where('first_name', 'LIKE' , '%' .$value. '%')
+                    ->orWhere('last_name', 'LIKE' , '%' .$value. '%')
+                    ->orWhere('email', 'LIKE' , '%' .$value. '%')
+                    ->orWhere('id', 'LIKE' , '%' .$value. '%');
+                    break;
+
+                case 'sort':
+                    //localhost:8000/store?sort=title
+                    $keyValues = $this->orderBy($value);
+                    $user_details->orderBy($keyValues[0], $keyValues[1]);
+                    break;
+
+                default:
+
+                    break;
+
+            }
+        }
+
+        return $user_details->get();
+    }
 }

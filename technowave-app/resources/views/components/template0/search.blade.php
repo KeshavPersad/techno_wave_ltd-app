@@ -6,23 +6,21 @@
 
 
 																	<form action="{{ route('store.list') }}" method="GET" id="form-search-top" name="form-search-top">
-																		<input type="text" name="search" value="" placeholder="Search here...">
+																		<input type="text" name="search" value="" placeholder="Search Products here...">
 																		<button form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 
 																		<div class="wrap-list-cate">
-																			<input type="hidden" name="product-cate" value="0" id="product-cate">
-																			<a href="#" class="link-control">All Category</a>
-																			<ul class="list-cate">
-																				<li class="level-0">All Category</li>
-																					<li class="level-1">-Laptops</li>
-																					<li class="level-1">-Desktops</li>
-																					<li class="level-1">-Gaming PCs</li>
-																					<li class="level-1">-Monitors</li>
-																					<li class="level-1">-Speackers</li>
-																					<li class="level-1">-Mouse and Keyboards</li>
-																					<li class="level-1">-Tech Accessories</li>
-																					<li class="level-1">-PC Parts</li>
-																			</ul>
+																			<select class="outline_select" style="width:125px;" type="hidden" name="category" id="category">
+																					<option value="0">All Category</option>
+																					<option value="1">-Laptops</option>
+																					<option value="2">-Desktops</option>
+																					<option value="3">-Gaming PCs</option>
+																					<option value="4">-Monitors</option>
+																					<option value="5">-Speackers</option>
+																					<option value="6">-Mouse and Keyboards</option>
+																					<option value="7">-Tech Accessories</option>
+																					<option value="8">-PC Parts</option>
+																			</select>
 																		</div>
 																	</form>
 

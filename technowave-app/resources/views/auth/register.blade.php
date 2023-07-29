@@ -59,7 +59,7 @@
 
                                     <fieldset class="wrap-input">
 										<label for="frm-reg-email">Phone Number<a class="red-star">*</a></label>
-                                        <input id="phone_number" type="phone_number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number">
+                                        <input id="phone_number" type="phone_number" placeholder="7 digits only" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phone_number">
                                             @error('phone_number')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

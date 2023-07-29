@@ -2468,15 +2468,15 @@ li.menu-item .nav-label.sale-label::before{
     text-align: left;
 }
 .widget .widget-title{
-    font-size: 14px;
+    font-size: 15px;
     color: #222222;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: 600;
+    /* text-transform: uppercase; */
     margin: 0;
     width: 100%;
     text-align: left;
     border-bottom: 1px solid #e6e6e6;
-    padding-bottom: 19px;
+    padding-bottom: 10px;
     margin-bottom: 18px;
     float: left;
 }
@@ -7290,4 +7290,5 @@ background-color: #888888;
     outline: black;
 
 }
+
 
