@@ -15,6 +15,8 @@
 
         <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 
+        <x-template0.categorysearch/>
+
                     <div class="wrap-butons">                  
                         <a class="btn add-to-cart_Shop" href="{{ route('add.category') }}" ><i class="fa-solid fa-folder-plus"></i> Add New Category</a>
                     </div> 
@@ -49,7 +51,11 @@
 
                                                 </br>
                                                 </br>
-                                                <a class="price-field produtc-price"><p class="price">Status: {{$data->category_status}}</p></a>
+                                                @if($data->category_status == 1)
+                                                    <a class="price-field produtc-price"><p class="price">Status: Active</p></a>
+                                                @else
+                                                    <a class="price-field produtc-price"><p class="price">Status: Inactive</p></a>
+                                                @endif
 
                                                 <div class="detail-info">
                                                     <form action="{{ route('delete.category', ['id' => $data->id])  }}" method="POST" >
@@ -106,51 +112,30 @@
             </div> -->
         </div><!--end main products area-->
 
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
+                   <!-- sidebar -->
+                   <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
 
-           <!-- brand widget-->
-           <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                <div class="widget-content">
-                    <ul class="products">
+                        <div class="widget mercado-widget filter-widget brand-widget">
+                            <a class="widget-title" href="{{ route('registered.userslist') }}"><i class="fa-solid fa-user"></i> User Information</a>
+                        </div>
 
-                    </ul>
-                </div>
-            </div><!-- brand widget-->
-            <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                <div class="widget-content">
-                    <ul class="products">
+                        <div class="widget mercado-widget filter-widget brand-widget">
+                            <a class="widget-title" href="{{ route('dashboard') }}"><i class="fa-solid fa-user"></i> Add Admin</a>
+                        </div>
 
-                    </ul>
-                </div>
-            </div><!-- brand widget-->
-            <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                <div class="widget-content">
-                    <ul class="products">
+                        <div class="widget mercado-widget filter-widget brand-widget">
+                            <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
+                        </div>
 
-                    </ul>
-                </div>
-            </div><!-- brand widget-->
-            <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                <div class="widget-content">
-                    <ul class="products">
+                        <div class="widget mercado-widget filter-widget brand-widget">
+                            <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
+                        </div>
 
-                    </ul>
-                </div>
-            </div><!-- brand widget-->
-            <div class="widget mercado-widget filter-widget brand-widget">
-                <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                <div class="widget-content">
-                    <ul class="products">
+                        <div class="widget mercado-widget filter-widget brand-widget">
+                            <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
+                        </div>
 
-                    </ul>
-                </div>
-            </div><!-- brand widget-->
-
-        </div><!--end sitebar-->
+                    </div><!--end sidebar-->
 
     </div><!--end row-->
 

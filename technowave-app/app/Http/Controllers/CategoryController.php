@@ -10,10 +10,11 @@ use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller{
 
-    public function index(){
+    public function index(Request $request){
 
         $category_details = Category::all();
         // dd($category_details);
+        $category_details = $this->filterCategory($request);
 
         return view('template0_pages.admin.category', [
                         
@@ -26,6 +27,41 @@ class CategoryController extends Controller{
 
         return view('template0_pages.admin.addcategory');
 
+    }
+
+    public function filterCategory(Request $request){
+
+        $params = $request->query();
+        $category_details = Category::where('id', '>' , 0);
+    
+        foreach($params as $key => $value){
+
+            if(empty($value)){
+                continue;
+            }
+
+            switch($key){
+
+                case 'search':
+                    $category_details->where('category_title', 'LIKE' , '%' .$value. '%')
+                    ->orWhere('category_description', 'LIKE' , '%' .$value. '%')
+                    ->orWhere('id', 'LIKE' , '%' .$value. '%');
+                    break;
+
+                case 'sort':
+                    //localhost:8000/store?sort=title
+                    $keyValues = $this->orderBy($value);
+                    $category_details->orderBy($keyValues[0], $keyValues[1]);
+                    break;
+
+                default:
+
+                    break;
+
+            }
+        }
+
+        return $category_details->get();
     }
  
     public function insertCategory(Request $request){
