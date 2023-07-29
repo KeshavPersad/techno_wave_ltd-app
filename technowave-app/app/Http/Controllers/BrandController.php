@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\File;
 
 class BrandController extends Controller{
 
-    public function index(){
+    public function index(Request $request){
 
         $brand_details = Brand::all();
         // dd($brand_details);
+
+        $brand_details = $this->filterBrand($request);
 
         return view('template0_pages.admin.brand', [
                         
@@ -24,6 +26,41 @@ class BrandController extends Controller{
 
         return view('template0_pages.admin.addbrand');
 
+    }
+
+    public function filterBrand(Request $request){
+
+        $params = $request->query();
+        $brand_details = Brand::where('id', '>' , 0);
+    
+        foreach($params as $key => $value){
+
+            if(empty($value)){
+                continue;
+            }
+
+            switch($key){
+
+                case 'search':
+                    $brand_details->where('brand_title', 'LIKE' , '%' .$value. '%')
+                    ->orWhere('brand_description', 'LIKE' , '%' .$value. '%')
+                    ->orWhere('id', 'LIKE' , '%' .$value. '%');
+                    break;
+
+                case 'sort':
+                    //localhost:8000/store?sort=title
+                    $keyValues = $this->orderBy($value);
+                    $brand_details->orderBy($keyValues[0], $keyValues[1]);
+                    break;
+
+                default:
+
+                    break;
+
+            }
+        }
+
+        return $brand_details->get();
     }
  
     public function insertBrand(Request $request){
