@@ -4610,7 +4610,7 @@ article.single-post blockquote p:last-child::after{
     width: 60%;
 }
 .width-4-percent{
-    width: 800%;
+    width: 80%;
 }
 .width-5-percent{
     width: 100%;
@@ -4632,7 +4632,7 @@ article.single-post blockquote p:last-child::after{
     color: #e6e6e6;
 }
 .star-rating span{
-    display: inline-block;
+    display: inline-block; 
     float: left;
     overflow-x: hidden; 
     position: absolute;
@@ -7302,5 +7302,6 @@ background-color: #888888;
     outline: black;
 
 }
+
 
 

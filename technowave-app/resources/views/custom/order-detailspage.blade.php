@@ -63,10 +63,11 @@
                                     <p class="summary-info"><span class="title">Order ID:</span><b class="index">#{{$order->id}}</b></p>
                                     <p class="summary-info"><span class="title">Order Date:</span><b class="index">{{ $data->created_at }}</b></p>
                                     <p class="summary-info"><span class="title">Payment Method:</span><b class="index">{{$order->payment}}</b></p>
-                                    <p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $order->subtotal / 105 * 100  }}</b></p>
                                     @if ($order->subtotal < 6000)
+                                        <p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $order->subtotal / 105 * 100  }}</b></p>
                                         <p class="summary-info"><span class="title">Delivery:</span><b class="index">${{ $order->subtotal / 105 * 5 }}</b></p>
                                     @else
+                                        <p class="summary-info"><span class="title">Subtotal:</span><b class="index">${{ $order->subtotal }}</b></p>
                                         <p class="summary-info"><span class="title">Delivery:</span><b class="index">Free Delivery</b></p>
                                     @endif
                                     <p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $order->total }}</b></p>

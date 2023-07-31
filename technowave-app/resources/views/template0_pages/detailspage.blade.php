@@ -40,18 +40,17 @@
 								
 							</div>
 						</div>
-
+						
 						<div class="detail-info">
 
-							<div class="product-rating">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <a href="#" class="count-review">(05 review)</a>
-                            </div>
+						@php $rate_num = number_format($rating_value) @endphp
 
+							<div class="star-rating">
+							<span class="width-{{$rate_num}}-percent"><strong class="rating"></strong></span>
+							</div>
+
+							<a href="#get-info" class="count-review">({{ $review_details->count() }} reviews)</a>
+							</br>
                             <h2 class="product-name">{{ $data->product_title}}</h2>
                             <div class="short-desc">
                                 <ul>
@@ -105,7 +104,7 @@
 									</div>
 									</div>
 
-									<div class="wrap-butons">
+									<div class="wrap-butons" id="get-info">
 										<button  type="submit" class="btn add-to-cart_Shop"><i class="fa fa-heart" aria-hidden="true"></i> Add to Favorites</button>
 
 										<input type="hidden" name="product_id" value="{{ $data->id }}">
@@ -137,30 +136,30 @@
 
 										
 										<div id="comments">
-										@if(empty($review_details))
-											<h2 class="woocommerce-Reviews-title">00 review for <span>This Product has No Review or Ratings</span></h2>
+										@if($review_details->count() == 0 )
+											<h2 class="woocommerce-Reviews-title"><span>This Product currently has No Reviews</span></h2>
 
 										@else
 											
-											@foreach($review_details as $review_details)
-												<h2 class="woocommerce-Reviews-title"> <span>{{ $review_details->product_title }}</span></h2>
+											@foreach($review_details as $review)
+												<h2 class="woocommerce-Reviews-title"> <span>{{ $review->product_title }}</span></h2>
 												<ol class="commentlist">
 													<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
 														<div id="comment-20" class="comment_container"> 
-															<img alt="" src="{{ asset('storage/' . $review_details->product_image1) }}" height="80" width="80">
+															<img alt="" src="{{ asset('storage/' . $review->product_image1) }}" height="80" width="80">
 															<div class="comment-text">
 
-															<div class="star-rating">
-																<span class="width-{{$review_details->starts_rated}}-percent"><strong class="rating"></strong></span>
-															</div>
+																<div class="star-rating">
+																	<span class="width-{{$review->stars_rated}}-percent"><strong class="rating"></strong></span>
+																</div>
 
 																<p class="meta"> 
-																	<strong class="woocommerce-review__author">{{ $review_details->user_first_name }} {{ $review_details->user_last_name }}</strong> 
+																	<strong class="woocommerce-review__author">{{ $review->user_first_name }} {{ $review->user_last_name }}</strong> 
 																	<span class="woocommerce-review__dash">–</span>
-																	<time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >{{$review_details->created_at}}</time>
+																	<time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >{{$review->created_at}}</time>
 																</p>
 																<div class="description">
-																	<p>{{$review_details->user_review}}</p>
+																	<p>{{$review->user_review}}</p>
 																</div>
 															</div>
 														</div>
@@ -171,91 +170,126 @@
 										</div>
 									</div>
 
-								<!-- Add Review -->
-								<div class="tab-content-item " id="add-review">
-									<div class="wrap-review-form">
-											<div id="review_form_wrapper">
-												<div id="review_form">
+								@if(empty($user->id))
+									<!-- Add Review -->
+									<div class="tab-content-item " id="add-review">
+										<div class="wrap-review-form">
+												<div id="review_form_wrapper">
+													<div id="review_form">
 
-													<div id="respond" class="comment-respond"> 
+														<div id="respond" class="comment-respond"> 
 
-														<form action="{{ route('add.review') }}" method="POST" id="commentform" class="comment-form" novalidate="">
-															@csrf
-															
-															<p class="comment-notes">
-																<span id="email-notes">Your Email and Phone # will not be published.</span> Required fields are marked <a class="red-star">*</a>
-															</p>
+															<div class="lefter">
+																<div class="wrap-iten-in-cart">
+																	<h4 class="">You must be Logged-In to review a Product</h4>
+																	<ul class="products-cart">
 
-															<p class="hidden">
-																<input id="user_id" name="user_id" type="text" value="{{ $user->id }}">
-															</p>
+																		<li class="pr-cart-item">
+																			<a class="link-to-shop" href="{{ route ('login') }}">Login <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+																		</li>
 
-															<p class="hidden">
-																<input id="product_id" name="product_id" type="text" value="{{ $data->id }}">
-															</p>
+																	</ul>
+																	<h4 class="">If you dont have an Account use the Link below</h4>
+																	<ul class="products-cart">
 
-															<p class="hidden">
-																<input id="product_title" name="product_title" type="text" value="{{ $data->product_title }}">
-															</p>
-
-															<p class="hidden">
-																<input id="product_image1" name="product_image1" type="text" value="{{ $data->product_image1 }}">
-															</p>
-
-															<p class="comment-form-author">
-																<label for="user_first_name">Fisrt Name <a class="red-star">*</a></label> 
-																<input id="user_first_name" name="user_first_name" type="text" value="{{ $user->first_name}}">
-															</p>
-
-															<p class="comment-form-email">
-																<label for="user_last_name">Last Name <a class="red-star">*</a></label> 
-																<input id="user_last_name" name="user_last_name" type="text" value="{{ $user->last_name}}">
-															</p>
-
-															<p class="comment-form-author">
-																<label for="user_phone_number">Phone # <a class="red-star">*</a></label> 
-																<input id="user_phone_number" name="user_phone_number" type="text" value="{{ $user->phone_number}}" >
-															</p>
-
-															<p class="comment-form-email">
-																<label for="user_email">Email <a class="red-star">*</a></label> 
-																<input id="user_email" name="user_email" type="email" value="{{ $user->email}}" >
-															</p>
-
-
-															<div class="comment-form-rating">
-																<span>Your Rating</span>
-																<p class="stars">
-																	
-																	<label for="rated-1"></label>
-																	<input type="radio" id="rated-1" name="starts_rated" value="1">
-																	<label for="rated-2"></label>
-																	<input type="radio" id="rated-2" name="starts_rated" value="2">
-																	<label for="rated-3"></label>
-																	<input type="radio" id="rated-3" name="starts_rated" value="3">
-																	<label for="rated-4"></label>
-																	<input type="radio" id="rated-4" name="starts_rated" value="4">
-																	<label for="rated-5"></label>
-																	<input type="radio" id="rated-5" name="starts_rated" value="5" checked="checked">
-																	
-																</p>
+																		<li class="pr-cart-item">
+																			<a class="link-to-shop" href="{{ route ('register') }}">Register an Account <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+																		</li>
+												
+																	</ul>
+																</div>
 															</div>
-
-															<p class="comment-form-comment">
-																<label for="user_review">Your Review <a class="red-star">*</a></label>
-																<textarea id="user_review" name="user_review" cols="105" rows="8"></textarea>
-															</p>
-															<p class="form-submit">
-																<input name="submit" type="submit" id="submit" class="submit" value="Submit">
-															</p>
-														</form>
-
-													</div><!-- .comment-respond-->
-												</div><!-- #review_form -->
-											</div><!-- #review_form_wrapper -->
-
+														</div><!-- .comment-respond-->
+													</div><!-- #review_form -->
+												</div><!-- #review_form_wrapper -->
+										</div>
 									</div>
-								</div>
+								@else
+									<!-- Add Review -->
+									<div class="tab-content-item " id="add-review">
+										<div class="wrap-review-form">
+												<div id="review_form_wrapper">
+													<div id="review_form">
+
+														<div id="respond" class="comment-respond"> 
+
+															<form action="{{ route('add.review') }}" method="POST" id="commentform" class="comment-form" novalidate="">
+																@csrf
+																
+																<p class="comment-notes">
+																	<span id="email-notes">Your Email and Phone # will not be published.</span> Required fields are marked <a class="red-star">*</a>
+																</p>
+																
+																<div class="comment-form-rating">
+																	<span>Your Rating</span>
+																	<p class="stars">
+																		
+																		<label for="rated-1"></label>
+																		<input type="radio" id="rated-1" name="stars_rated" value="1">
+																		<label for="rated-2"></label>
+																		<input type="radio" id="rated-2" name="stars_rated" value="2">
+																		<label for="rated-3"></label>
+																		<input type="radio" id="rated-3" name="stars_rated" value="3">
+																		<label for="rated-4"></label>
+																		<input type="radio" id="rated-4" name="stars_rated" value="4">
+																		<label for="rated-5"></label>
+																		<input type="radio" id="rated-5" name="stars_rated" value="5" checked="checked">
+																		
+																	</p>
+																</div>
+
+																<p class="hidden">
+																	<input id="user_id" name="user_id" type="text" value="{{ $user->id }}">
+																</p>
+
+																<p class="hidden">
+																	<input id="product_id" name="product_id" type="text" value="{{ $data->id }}">
+																</p>
+
+																<p class="hidden">
+																	<input id="product_title" name="product_title" type="text" value="{{ $data->product_title }}">
+																</p>
+
+																<p class="hidden">
+																	<input id="product_image1" name="product_image1" type="text" value="{{ $data->product_image1 }}">
+																</p>
+
+																<p class="comment-form-author">
+																	<label for="user_first_name">Fisrt Name <a class="red-star">*</a></label> 
+																	<input id="user_first_name" name="user_first_name" type="text" value="{{ $user->first_name}}">
+																</p>
+
+																<p class="comment-form-email">
+																	<label for="user_last_name">Last Name <a class="red-star">*</a></label> 
+																	<input id="user_last_name" name="user_last_name" type="text" value="{{ $user->last_name}}">
+																</p>
+
+																<p class="comment-form-author">
+																	<label for="user_phone_number">Phone # <a class="red-star">*</a></label> 
+																	<input id="user_phone_number" name="user_phone_number" type="text" value="{{ $user->phone_number}}" >
+																</p>
+
+																<p class="comment-form-email">
+																	<label for="user_email">Email <a class="red-star">*</a></label> 
+																	<input id="user_email" name="user_email" type="email" value="{{ $user->email}}" >
+																</p>
+
+
+																<p class="comment-form-comment">
+																	<label for="user_review">Your Review <a class="red-star">*</a></label>
+																	<textarea id="user_review" name="user_review" cols="105" rows="8"></textarea>
+																</p>
+																<p class="form-submit">
+																	<input name="submit" type="submit" id="submit" class="submit" value="Submit">
+																</p>
+															</form>
+
+														</div><!-- .comment-respond-->
+													</div><!-- #review_form -->
+												</div><!-- #review_form_wrapper -->
+										</div>
+									</div>
+								@endif
 
 							</div>
 						</div>

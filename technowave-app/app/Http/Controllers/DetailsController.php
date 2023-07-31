@@ -18,13 +18,26 @@ class DetailsController extends Controller
         $user = Auth::user();
         // dd($product_details);
         $review_details = Review::where('product_id', $id)->get();
+        $reating_sum =  Review::where('product_id', $id)->sum('stars_rated');
+        
+        if($review_details->count() > 0){
 
+            $rating_value = $reating_sum/$review_details->count();
+
+        }
+        else{
+
+            $rating_value = 0;
+
+        }
+        
         return view('template0_pages.detailspage', [
             'data' => $product_details,
             'recommendedProducts' => $recommendedProducts,
             'bestSellingProducts' => $bestSellingProducts,
             'user' => $user,
             'review_details' => $review_details,
+            'rating_value' => $rating_value,
         ]);
 
     }

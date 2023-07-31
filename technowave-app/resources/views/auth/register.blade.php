@@ -19,13 +19,16 @@
 						<div class="wrap-login-item ">
 							<div class="register-form form-item ">
 
+
 								<form class="form-stl" name="frm-login" method="POST" action="{{ route('register') }}">
                                     @csrf
 
 									<fieldset class="wrap-title">
 										<h3 class="form-title">Create an Account</h3>
 										<h4 class="form-subtitle">Personal infomation</h4>
-									</fieldset>		
+									</fieldset>	
+										
+
 
 									<fieldset class="wrap-input">
 										<label for="frm-reg-lname">First Name<a class="red-star">*</a></label>

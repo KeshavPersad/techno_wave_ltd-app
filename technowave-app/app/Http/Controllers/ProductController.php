@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
@@ -17,7 +18,8 @@ class ProductController extends Controller{
     public function index(Request $request){
 
         $product_details = Product::all();
-        // dd($product_details);
+        //  dd($product_details);
+
         $category = Product::select('category_id')->distinct()->get();
         $brand = Product::select('brand_id')->distinct()->get();
 

@@ -21,7 +21,7 @@ class Review extends Model{
         'user_last_name',
         'user_phone_number',
         'user_email',
-        'starts_rated',
+        'stars_rated',
         'user_review',
     ];
     

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('user_last_name');
             $table->string('user_phone_number');
             $table->string('user_email');
-            $table->string('starts_rated');
+            $table->string('stars_rated');
             $table->string('user_review');
             $table->timestamps();
         });

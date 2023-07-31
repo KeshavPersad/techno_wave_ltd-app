@@ -57,10 +57,19 @@
 										<a class="link-function left-position" href="{{ route('password.request') }}" title="Forgotten password?">Forgotten password?</a>
 									</fieldset>
 
+									<fieldset class="wrap-input">
                                         <button type="submit" class="btn btn-submit" name="submit">
                                             {{ __('Login') }}
                                         </button>
+									</fieldset>
+
+									<fieldset class="wrap-input">
+										<a class="righter" href="{{ route('register') }}" title="Register an Account">Register an Account <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+									</fieldset>
+
 								</form>
+								
+
 							</div>												
 						</div>
 					</div><!--end main products area-->		

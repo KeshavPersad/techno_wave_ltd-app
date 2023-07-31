@@ -54,6 +54,8 @@
                                                     <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                                 </a>
                                             </div>
+
+
                                             <div class="product-info">
                                                 <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
 
