@@ -8,13 +8,14 @@
 				<ul>
 					<li class="item-link"><a href="{{ route('home') }}" class="link">Home</a></li>
 					<li class="item-link"><a href="{{ route('store') }}" class="link">Store Page</a></li>
-					<li class="item-link"><span>Details</span></li>
+					<li class="item-link"><span>Product Details</span></li>
 				</ul>
 			</div>
 			<div class="row">
 
 				<div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 					<div class="wrap-product-detail">
+
 						<div class="detail-media">
 							<div class="product-gallery">
 								
@@ -39,7 +40,9 @@
 								
 							</div>
 						</div>
+
 						<div class="detail-info">
+
 							<div class="product-rating">
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
@@ -48,6 +51,7 @@
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <a href="#" class="count-review">(05 review)</a>
                             </div>
+
                             <h2 class="product-name">{{ $data->product_title}}</h2>
                             <div class="short-desc">
                                 <ul>
@@ -111,114 +115,152 @@
 						</div>
 						<div class="advance-info">
 							<div class="tab-control normal">
-								<a href="#description" class="tab-control-item active">Description</a>
 								<a href="#add_infomation" class="tab-control-item">Addtional Infomation</a>
-								<a href="#review" class="tab-control-item">Reviews</a>
+								<a href="#review" class="tab-control-item">Product Reviews</a>
+								<a href="#add-review" class="tab-control-item">Add a Review</a>
 							</div>
+
 							<div class="tab-contents">
-								<div class="tab-content-item active" id="description">
-									<p>{{$data->product_description}}</p>
-								</div>
+
+								<!-- Product Add Infomation -->
 								<div class="tab-content-item " id="add_infomation">
+									<p>{{$data->product_description}}</p>
+									</br>
+									</br>
+
 									<p>{{$data->product_add_info}}</p>
 									</br>
-									<table class="shop_attributes">
-										<tbody>
-											<tr>
-												<th>Weight</th><td class="product_weight">{{$data->product_weight}}</td>
-											</tr>
-											<tr>
-												<th>Dimensions</th><td class="product_dimensions">{{$data->product_dimensions}}</td>
-											</tr>
-											<tr>
-												<th>Color</th><td><p>{{$data->product_color}}</p></td>
-											</tr>
-										</tbody>
-									</table>
 								</div>
-								<div class="tab-content-item " id="review">
-									
-									<div class="wrap-review-form">
+
+								<!-- Reviews -->
+									<div class="tab-content-item " id="review">
+
 										
 										<div id="comments">
-											<h2 class="woocommerce-Reviews-title">01 review for <span>{{ $data->product_title}}</span></h2>
-											<ol class="commentlist">
-												<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
-													<div id="comment-20" class="comment_container"> 
-														<img alt="" src="{{ asset('storage/' . $data->product_image1) }}" height="80" width="80">
-														<div class="comment-text">
+										@if(empty($review_details))
+											<h2 class="woocommerce-Reviews-title">00 review for <span>This Product has No Review or Ratings</span></h2>
+
+										@else
+											
+											@foreach($review_details as $review_details)
+												<h2 class="woocommerce-Reviews-title"> <span>{{ $review_details->product_title }}</span></h2>
+												<ol class="commentlist">
+													<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
+														<div id="comment-20" class="comment_container"> 
+															<img alt="" src="{{ asset('storage/' . $review_details->product_image1) }}" height="80" width="80">
+															<div class="comment-text">
+
 															<div class="star-rating">
-																<span class="width-80-percent">Rated <strong class="rating">5</strong> out of 5</span>
+																<span class="width-{{$review_details->starts_rated}}-percent"><strong class="rating"></strong></span>
 															</div>
-															<p class="meta"> 
-																<strong class="woocommerce-review__author">admin</strong> 
-																<span class="woocommerce-review__dash">–</span>
-																<time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >Tue, Aug 15,  2017</time>
-															</p>
-															<div class="description">
-																<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+
+																<p class="meta"> 
+																	<strong class="woocommerce-review__author">{{ $review_details->user_first_name }} {{ $review_details->user_last_name }}</strong> 
+																	<span class="woocommerce-review__dash">–</span>
+																	<time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >{{$review_details->created_at}}</time>
+																</p>
+																<div class="description">
+																	<p>{{$review_details->user_review}}</p>
+																</div>
 															</div>
 														</div>
-													</div>
-												</li>
-											</ol>
-										</div><!-- #comments -->
+													</li>
+												</ol>
+											@endforeach
+										@endif
+										</div>
+									</div>
 
-										<div id="review_form_wrapper">
-											<div id="review_form">
-												<div id="respond" class="comment-respond"> 
+								<!-- Add Review -->
+								<div class="tab-content-item " id="add-review">
+									<div class="wrap-review-form">
+											<div id="review_form_wrapper">
+												<div id="review_form">
 
-													<form action="#" method="post" id="commentform" class="comment-form" novalidate="">
-														<p class="comment-notes">
-															<span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
-														</p>
-														<div class="comment-form-rating">
-															<span>Your rating</span>
-															<p class="stars">
-																
-																<label for="rated-1"></label>
-																<input type="radio" id="rated-1" name="rating" value="1">
-																<label for="rated-2"></label>
-																<input type="radio" id="rated-2" name="rating" value="2">
-																<label for="rated-3"></label>
-																<input type="radio" id="rated-3" name="rating" value="3">
-																<label for="rated-4"></label>
-																<input type="radio" id="rated-4" name="rating" value="4">
-																<label for="rated-5"></label>
-																<input type="radio" id="rated-5" name="rating" value="5" checked="checked">
+													<div id="respond" class="comment-respond"> 
+
+														<form action="{{ route('add.review') }}" method="POST" id="commentform" class="comment-form" novalidate="">
+															@csrf
+															
+															<p class="comment-notes">
+																<span id="email-notes">Your Email and Phone # will not be published.</span> Required fields are marked <a class="red-star">*</a>
 															</p>
-														</div>
-														<p class="comment-form-author">
-															<label for="author">Name <span class="required">*</span></label> 
-															<input id="author" name="author" type="text" value="">
-														</p>
-														<p class="comment-form-email">
-															<label for="email">Email <span class="required">*</span></label> 
-															<input id="email" name="email" type="email" value="" >
-														</p>
-														<p class="comment-form-comment">
-															<label for="comment">Your review <span class="required">*</span>
-															</label>
-															<textarea id="comment" name="comment" cols="45" rows="8"></textarea>
-														</p>
-														<p class="form-submit">
-															<input name="submit" type="submit" id="submit" class="submit" value="Submit">
-														</p>
-													</form>
 
-												</div><!-- .comment-respond-->
-											</div><!-- #review_form -->
-										</div><!-- #review_form_wrapper -->
+															<p class="hidden">
+																<input id="user_id" name="user_id" type="text" value="{{ $user->id }}">
+															</p>
+
+															<p class="hidden">
+																<input id="product_id" name="product_id" type="text" value="{{ $data->id }}">
+															</p>
+
+															<p class="hidden">
+																<input id="product_title" name="product_title" type="text" value="{{ $data->product_title }}">
+															</p>
+
+															<p class="hidden">
+																<input id="product_image1" name="product_image1" type="text" value="{{ $data->product_image1 }}">
+															</p>
+
+															<p class="comment-form-author">
+																<label for="user_first_name">Fisrt Name <a class="red-star">*</a></label> 
+																<input id="user_first_name" name="user_first_name" type="text" value="{{ $user->first_name}}">
+															</p>
+
+															<p class="comment-form-email">
+																<label for="user_last_name">Last Name <a class="red-star">*</a></label> 
+																<input id="user_last_name" name="user_last_name" type="text" value="{{ $user->last_name}}">
+															</p>
+
+															<p class="comment-form-author">
+																<label for="user_phone_number">Phone # <a class="red-star">*</a></label> 
+																<input id="user_phone_number" name="user_phone_number" type="text" value="{{ $user->phone_number}}" >
+															</p>
+
+															<p class="comment-form-email">
+																<label for="user_email">Email <a class="red-star">*</a></label> 
+																<input id="user_email" name="user_email" type="email" value="{{ $user->email}}" >
+															</p>
+
+
+															<div class="comment-form-rating">
+																<span>Your Rating</span>
+																<p class="stars">
+																	
+																	<label for="rated-1"></label>
+																	<input type="radio" id="rated-1" name="starts_rated" value="1">
+																	<label for="rated-2"></label>
+																	<input type="radio" id="rated-2" name="starts_rated" value="2">
+																	<label for="rated-3"></label>
+																	<input type="radio" id="rated-3" name="starts_rated" value="3">
+																	<label for="rated-4"></label>
+																	<input type="radio" id="rated-4" name="starts_rated" value="4">
+																	<label for="rated-5"></label>
+																	<input type="radio" id="rated-5" name="starts_rated" value="5" checked="checked">
+																	
+																</p>
+															</div>
+
+															<p class="comment-form-comment">
+																<label for="user_review">Your Review <a class="red-star">*</a></label>
+																<textarea id="user_review" name="user_review" cols="105" rows="8"></textarea>
+															</p>
+															<p class="form-submit">
+																<input name="submit" type="submit" id="submit" class="submit" value="Submit">
+															</p>
+														</form>
+
+													</div><!-- .comment-respond-->
+												</div><!-- #review_form -->
+											</div><!-- #review_form_wrapper -->
 
 									</div>
 								</div>
+
 							</div>
 						</div>
 					</div>
 				</div><!--end main products area-->
-
-
-				
 
 				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
 					<div class="widget widget-our-services ">
@@ -265,8 +307,6 @@
 						<h2 class="widget-title">Popular Products</h2>
 						<div class="widget-content">
 							<ul class="products">
-
-
   
 							@foreach ($bestSellingProducts as $data)
 
@@ -285,14 +325,10 @@
 								</li>
 
 							@endforeach
-								
-
-
-
+							
 							</ul>
 						</div>
 					</div>
-
 				</div><!--end sitebar-->
 
 				<div class="single-advance-box col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -301,8 +337,6 @@
 						<div class="wrap-products">
 							<div class="products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"3"},"1200":{"items":"5"}}' >
 								
-
-
 									@foreach ($recommendedProducts as $data)
 
 											<div class="product product-style-2 equal-elem ">
@@ -320,82 +354,13 @@
 												</div>
 											</div>
 									@endforeach
-
-									@foreach ($recommendedProducts as $data)
-
-											<div class="product product-style-2 equal-elem ">
-												<div class="product-thumnail">
-													<a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-														<figure><img src="{{ asset('storage/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-													</a>
-													<div class="wrap-btn">
-														<a href="{{ route ('store.details', ['id' => $data->id]) }}" class="function-link">Quick View</a>
-													</div>
-												</div>
-												<div class="product-info">
-													<a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
-													<div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
-												</div>
-											</div>
-									@endforeach
-
-									@foreach ($recommendedProducts as $data)
-
-											<div class="product product-style-2 equal-elem ">
-												<div class="product-thumnail">
-													<a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-														<figure><img src="{{ asset('storage/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
-													</a>
-													<div class="wrap-btn">
-														<a href="{{ route ('store.details', ['id' => $data->id]) }}" class="function-link">Quick View</a>
-													</div>
-												</div>
-												<div class="product-info">
-													<a href="{{ route ('store.details', ['id' => $data->id]) }}" class="product-name"><span>{{ $data->product_title }}</span></a>
-													<div class="wrap-price"><span class="product-price">${{ $data->product_price }}</span></div>
-												</div>
-											</div>
-									@endforeach
-
-
-
 							</div>
 						</div><!--End wrap-products-->
 					</div>
 				</div>
-
 			</div><!--end row-->
-
 		</div><!--end container-->
-
-@section('scripts')
-<script>
-	$(document).ready(function (){
-
-		$('.increase').click(function (e) {
-			e.preventDefault();
-
-			var inc_value = $('.qty-input').val();
-			var value = parseInt(inc_value, 10);
-			value = isNaN(value) ? 0 : value;
-
-			if(value < 10 ){
-
-				value++; 
-				$('.qty-input').val(value);
-
-			}
-
-		}); 
-
-	});
-</script>
-@endsection
-
 	</main>
 	<!--main area-->
 	
-<a class="btn btn-reduce reduce" href="#"></a>
-<input type="text" name="cart_quantity" class="qty-input" value="1" data-max="120" pattern="[0-9]*" >
-<a class="btn btn-increase increase" href="#"></a>
 </x-layouts.layout-template0-home>

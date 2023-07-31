@@ -16,6 +16,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductListController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserDashboardController;
 use App\Models\User;
@@ -238,6 +239,9 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
         //Route for Order Deatils Page
         Route::get('/order-historypage/{id}', [OrderController::class, 'show'])->name('orders.show');
 
+//........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+        //Route for Add Review Page
+        Route::post('/add-review', [ReviewController::class, 'addReview'])->name('add.review');
 
  //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for Thank You Page

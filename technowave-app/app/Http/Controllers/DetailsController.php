@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DetailsController extends Controller
@@ -13,12 +15,16 @@ class DetailsController extends Controller
         $product_details = Product::findorFail($id);
         $recommendedProducts = $this->recommendedProducts($id);
         $bestSellingProducts = $this->bestSellingProducts();
-        // dd($recommendedProducts);
+        $user = Auth::user();
+        // dd($product_details);
+        $review_details = Review::where('product_id', $id)->get();
 
         return view('template0_pages.detailspage', [
             'data' => $product_details,
             'recommendedProducts' => $recommendedProducts,
             'bestSellingProducts' => $bestSellingProducts,
+            'user' => $user,
+            'review_details' => $review_details,
         ]);
 
     }

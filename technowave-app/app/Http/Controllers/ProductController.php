@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\CheckoutHelper;
+
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Review;
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -18,20 +20,15 @@ class ProductController extends Controller{
         // dd($product_details);
         $category = Product::select('category_id')->distinct()->get();
         $brand = Product::select('brand_id')->distinct()->get();
-        $category_details = Category::all();
-        $brand_details = Brand::all();
+
         $bestSellingProducts = $this->bestSellingProducts();
-      
         $product_details = $this->filterProducts($request);
 
         return view('template0_pages.storepage', [
                         
             'product_details' => $product_details,
-            'category_details' => $category_details,
-            'brand_details' => $brand_details,
             'category' => $category,
             'brand' => $brand,
-            
             'bestSellingProducts' => $bestSellingProducts,
 
         ]);
@@ -46,17 +43,14 @@ class ProductController extends Controller{
         $product_details = $this->filterProducts($request);
         $category = Product::select('category_id')->distinct()->get();
         $brand = Product::select('brand_id')->distinct()->get();
-        $category_details = Category::all();
-        $brand_details = Brand::all();
+        
+        
 
         return view('template0_pages.listpage', [
                         
             'product_details' => $product_details,
-            'category_details' => $category_details,
-            'brand_details' => $brand_details,
             'category' => $category,
             'brand' => $brand,
-            
             'bestSellingProducts' => $bestSellingProducts,
 
         ]);

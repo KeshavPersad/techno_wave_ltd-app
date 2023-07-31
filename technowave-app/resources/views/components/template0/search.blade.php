@@ -15,11 +15,12 @@
 																					<option value="1">-Laptops</option>
 																					<option value="2">-Desktops</option>
 																					<option value="3">-Gaming PCs</option>
-																					<option value="4">-Monitors</option>
-																					<option value="5">-Speackers</option>
-																					<option value="6">-Mouse and Keyboards</option>
-																					<option value="7">-Tech Accessories</option>
-																					<option value="8">-PC Parts</option>
+																					<option value="4">-Tablets</option>
+																					<option value="5">-Monitors</option>
+																					<option value="6">-Speackers</option>
+																					<option value="7">-Mouse and Keyboards</option>
+																					<option value="8">-Tech Accessories</option>
+																					<option value="9">-PC Parts</option>
 																			</select>
 																		</div>
 																	</form>
