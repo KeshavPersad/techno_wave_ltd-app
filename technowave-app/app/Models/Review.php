@@ -14,6 +14,7 @@ class Review extends Model{
     protected $fillable = [
 
         'user_id',
+        'user_image_review',
         'product_id',
         'product_title',
         'product_image1',

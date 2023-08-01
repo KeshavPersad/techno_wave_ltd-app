@@ -108,18 +108,6 @@ class ProductController extends Controller{
 
     }
 
-    public function productDetailsAdmin($id){
-
-        $product_details = Product::findorFail($id);
-
-        // dd($product_details);
-
-        return view('template0_pages.admin.adminproductdetails', [
-            'data' => $product_details,
-
-        ]);
-
-    }
 
     public function filterProducts(Request $request){
 

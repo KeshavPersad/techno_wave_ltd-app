@@ -14,6 +14,7 @@ class ReviewController extends Controller{
 
         $stars_rated = $request->input('stars_rated');
         $user_id = $request->input('user_id');
+        $user_image_review = $request->input('user_image_review');
         $product_id = $request->input('product_id');
         $product_title = $request->input('product_title');
         $product_image1 = $request->input('product_image1');
@@ -54,6 +55,7 @@ class ReviewController extends Controller{
                             'user_email'=> $user_email,
                             'stars_rated'=> $stars_rated,
                             'user_review'=> $user_review,
+                            'user_image_review'=> $user_image_review,
         
                         ]);
                 }

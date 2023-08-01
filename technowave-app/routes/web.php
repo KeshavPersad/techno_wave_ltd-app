@@ -90,7 +90,7 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
         Route::get('/allproductslist', [ProductController::class, 'allProductListAdmin'])->name('allproductslist');
 
         // Route for View Product Details
-        Route::get('/productdetails/{id}', [ProductController::class, 'productDetailsAdmin'])->name('adminproduct.details');
+        Route::get('/productdetails/{id}', [DetailsController::class, 'productDetailsAdmin'])->name('adminproduct.details');
         
         //Route for View Add Product Page
         Route::get('/addproduct', [ProductController::class, 'addProduct'])->name('add.product');

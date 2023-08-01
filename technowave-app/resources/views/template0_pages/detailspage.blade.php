@@ -12,7 +12,7 @@
 				</ul>
 			</div>
 			<div class="row">
-
+				
 				<div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 					<div class="wrap-product-detail">
 
@@ -44,20 +44,21 @@
 						<div class="detail-info">
 
 						@php $rate_num = number_format($rating_value) @endphp
-
-							<div class="star-rating">
+						<div class="star-rating">
 							<span class="width-{{$rate_num}}-percent"><strong class="rating"></strong></span>
 							</div>
 
-							<a href="#get-info" class="count-review">({{ $review_details->count() }} reviews)</a>
-							</br>
+							<a href="#get-info" class="count-review">({{ $review_details->count() }} ratings)</a>
+
                             <h2 class="product-name">{{ $data->product_title}}</h2>
+							
                             <div class="short-desc">
                                 <ul>
                                     <p>{{$data->product_description}}</p>
 
                                 </ul>
                             </div>
+
                             <div class="wrap-social">
                             	<a class="link-socail" href="#"><img src="assets/images/social-list.png" alt=""></a>
                             </div>
@@ -140,13 +141,23 @@
 											<h2 class="woocommerce-Reviews-title"><span>This Product currently has No Reviews</span></h2>
 
 										@else
+											@php $rate_num = number_format($rating_value) @endphp
+
+											<h2 class="woocommerce-Reviews-title">{{ $review_details->count() }} ratings for - <span>{{ $data->product_title }}</span></h2>
+											
+											<div class="star-rating">
+											<span class="width-{{$rate_num}}-percent"><strong class="rating"></strong></span>
+											</div>
+											</br>
+											</br>
+											</br>
 											
 											@foreach($review_details as $review)
-												<h2 class="woocommerce-Reviews-title"> <span>{{ $review->product_title }}</span></h2>
+												
 												<ol class="commentlist">
 													<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
 														<div id="comment-20" class="comment_container"> 
-															<img alt="" src="{{ asset('storage/' . $review->product_image1) }}" height="80" width="80">
+															<img alt="" src="{{ asset('storage/' . $review->user_image_review) }}" height="80" width="80">
 															<div class="comment-text">
 
 																<div class="star-rating">
@@ -204,6 +215,7 @@
 												</div><!-- #review_form_wrapper -->
 										</div>
 									</div>
+
 								@else
 									<!-- Add Review -->
 									<div class="tab-content-item " id="add-review">
@@ -240,6 +252,10 @@
 
 																<p class="hidden">
 																	<input id="user_id" name="user_id" type="text" value="{{ $user->id }}">
+																</p>
+
+																<p class="hidden">
+																	<input id="user_image_review" name="user_image_review" type="text" value="{{ $user->user_image }}">
 																</p>
 
 																<p class="hidden">
@@ -289,6 +305,8 @@
 												</div><!-- #review_form_wrapper -->
 										</div>
 									</div>
+								
+
 								@endif
 
 							</div>

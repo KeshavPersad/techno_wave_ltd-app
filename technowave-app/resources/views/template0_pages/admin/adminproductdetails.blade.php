@@ -41,14 +41,14 @@
 							</div>
 						</div>
 						<div class="detail-info">
-							<div class="product-rating">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <a href="#" class="count-review">(05 review)</a>
-                            </div>
+						@php $rate_num = number_format($rating_value) @endphp
+
+							<div class="star-rating">
+							<span class="width-{{$rate_num}}-percent"><strong class="rating"></strong></span>
+							</div>
+
+							<a href="#get-info" class="count-review">({{ $review_details->count() }} ratings)</a>
+							</br>
                             <h2 class="product-name">{{ $data->product_title}}</h2>
                             <div class="short-desc">
                                 <ul>
@@ -72,7 +72,7 @@
 								@csrf
 								@method('PUT')
 								
-								<div class="wrap-butons">
+								<div class="wrap-butons" id="get-info">
                                             <button class="btn add-to-cart_Shop" type="submit" ><i class="fa-solid fa-pen-to-square"></i> Edit Prodcut</button>
                                             <input type="hidden" name="product_id" value="{{ $data->id }}">
 								</div>
@@ -83,105 +83,73 @@
 						</div>
 						<div class="advance-info">
 							<div class="tab-control normal">
-								<a href="#description" class="tab-control-item active">Description</a>
 								<a href="#add_infomation" class="tab-control-item">Addtional Infomation</a>
-								<a href="#review" class="tab-control-item">Reviews</a>
+								<a href="#reviews" class="tab-control-item">View Product Reviews</a>
 							</div>
 							<div class="tab-contents">
+
 								<div class="tab-content-item active" id="description">
 									<p>{{$data->product_description}}</p>
 								</div>
+
+								<!-- Product Add Infomation -->
 								<div class="tab-content-item " id="add_infomation">
-									<table class="shop_attributes">
-										<tbody>
-											<tr>
-												<th>Weight</th><td class="product_weight">{{$data->product_weight}}</td>
-											</tr>
-											<tr>
-												<th>Dimensions</th><td class="product_dimensions">{{$data->product_dimensions}}</td>
-											</tr>
-											<tr>
-												<th>Color</th><td><p>{{$data->product_color}}</p></td>
-											</tr>
-										</tbody>
-									</table>
+									<p>{{$data->product_description}}</p>
+									</br>
+									</br>
+
+									<p>{{$data->product_add_info}}</p>
+									</br>
 								</div>
-								<div class="tab-content-item " id="review">
-									
-									<div class="wrap-review-form">
+
+
+									<!-- Reviews -->
+									<div class="tab-content-item " id="reviews">
+
 										
 										<div id="comments">
-											<h2 class="woocommerce-Reviews-title">01 review for <span>{{ $data->product_title}}</span></h2>
-											<ol class="commentlist">
-												<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
-													<div id="comment-20" class="comment_container"> 
-														<img alt="" src="{{ asset('storage/' . $data->product_image1) }}" height="80" width="80">
-														<div class="comment-text">
-															<div class="star-rating">
-																<span class="width-80-percent">Rated <strong class="rating">5</strong> out of 5</span>
-															</div>
-															<p class="meta"> 
-																<strong class="woocommerce-review__author">admin</strong> 
-																<span class="woocommerce-review__dash">–</span>
-																<time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >Tue, Aug 15,  2017</time>
-															</p>
-															<div class="description">
-																<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+										@if($review_details->count() == 0 )
+											<h2 class="woocommerce-Reviews-title"><span>This Product currently has No Reviews</span></h2>
+
+										@else
+										@php $rate_num = number_format($rating_value) @endphp
+
+										<h2 class="woocommerce-Reviews-title">{{ $review_details->count() }} ratings for - <span>{{ $data->product_title }}</span></h2>
+
+										<div class="star-rating">
+										<span class="width-{{$rate_num}}-percent"><strong class="rating"></strong></span>
+										</div>
+										</br>
+										</br>
+										</br>
+											
+											@foreach($review_details as $review)
+												<ol class="commentlist">
+													<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
+														<div id="comment-20" class="comment_container"> 
+															<img alt="" src="{{ asset('storage/' . $review->user_image_review) }}" height="80" width="80">
+															<div class="comment-text">
+
+																<div class="star-rating">
+																	<span class="width-{{$review->stars_rated}}-percent"><strong class="rating"></strong></span>
+																</div>
+
+																<p class="meta"> 
+																	<strong class="woocommerce-review__author">{{ $review->user_first_name }} {{ $review->user_last_name }}</strong> 
+																	<span class="woocommerce-review__dash">–</span>
+																	<time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >{{$review->created_at}}</time>
+																</p>
+																<div class="description">
+																	<p>{{$review->user_review}}</p>
+																</div>
 															</div>
 														</div>
-													</div>
-												</li>
-											</ol>
-										</div><!-- #comments -->
-
-										<div id="review_form_wrapper">
-											<div id="review_form">
-												<div id="respond" class="comment-respond"> 
-
-													<form action="#" method="post" id="commentform" class="comment-form" novalidate="">
-														<p class="comment-notes">
-															<span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
-														</p>
-														<div class="comment-form-rating">
-															<span>Your rating</span>
-															<p class="stars">
-																
-																<label for="rated-1"></label>
-																<input type="radio" id="rated-1" name="rating" value="1">
-																<label for="rated-2"></label>
-																<input type="radio" id="rated-2" name="rating" value="2">
-																<label for="rated-3"></label>
-																<input type="radio" id="rated-3" name="rating" value="3">
-																<label for="rated-4"></label>
-																<input type="radio" id="rated-4" name="rating" value="4">
-																<label for="rated-5"></label>
-																<input type="radio" id="rated-5" name="rating" value="5" checked="checked">
-															</p>
-														</div>
-														<p class="comment-form-author">
-															<label for="author">Name <span class="required">*</span></label> 
-															<input id="author" name="author" type="text" value="">
-														</p>
-														<p class="comment-form-email">
-															<label for="email">Email <span class="required">*</span></label> 
-															<input id="email" name="email" type="email" value="" >
-														</p>
-														<p class="comment-form-comment">
-															<label for="comment">Your review <span class="required">*</span>
-															</label>
-															<textarea id="comment" name="comment" cols="45" rows="8"></textarea>
-														</p>
-														<p class="form-submit">
-															<input name="submit" type="submit" id="submit" class="submit" value="Submit">
-														</p>
-													</form>
-
-												</div><!-- .comment-respond-->
-											</div><!-- #review_form -->
-										</div><!-- #review_form_wrapper -->
-
+													</li>
+												</ol>
+											@endforeach
+										@endif
+										</div>
 									</div>
-								</div>
 							</div>
 						</div>
 					</div>

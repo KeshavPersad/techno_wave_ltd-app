@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
+            $table->string('user_image_review');
             $table->string('product_id');
             $table->string('product_title');
             $table->string('product_image1');
