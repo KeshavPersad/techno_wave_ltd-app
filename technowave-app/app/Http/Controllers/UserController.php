@@ -3,16 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller{
     public function index(){
 
-        // $user_details = User::findorFail($id);
+        $user_details = Auth::user();
 
         return view('template0_pages.user.myaccount', [
 
-            // 'user_details' => $user_details,
+            'user_details' => $user_details,
 
         ]);
 
@@ -20,58 +22,76 @@ class UserController extends Controller{
 
     public function adminAccount(){
 
-        // $user_details = User::findorFail($id);
+        $user_details = Auth::user();
         // dd($user_details);
 
         return view('template0_pages.admin.admin-myaccount', [
 
-            // 'user_details' => $user_details,
+        'user_details' => $user_details,
 
         ]);
 
     }
 
 
-    // public function editAccount($id){
+    public function editAccount($id){
 
-    //     $user_details = User::findorFail($id);
-    //     // dd($user_details);
+        $user_details = User::findorFail($id);
+        // dd($user_details);
 
-    //     return view('template0_pages.admin.edituser', [
+        return view('template0_pages.user.editmyaccount', [
 
-    //         'user_details' => $user_details,
+            'user_details' => $user_details,
 
-    //     ]);
+        ]);
 
-    // }
+    }
 
-    // public function updateAccount(Request $request, $id){
+    public function updateAccount(Request $request, $id){
 
-    //     $user = User::findorFail($id);
-    //     // dd($user);
+        $user = User::findorFail($id);
+        // dd($user);
 
-    //     $user->first_name = $request->input('first_name');
-    //     $user->last_name = $request->input('last_name');
-    //     $user->email = $request->input('email');
-    //     $user->password = $request->input('password');
-    //     $user->phone_number = $request->input('phone_number');
-    //     $user->user_image = $request->input('user_image');
-    //     $user->user_lot_number = $request->input('user_lot_number');
-    //     $user->user_street = $request->input('user_street');
-    //     $user->user_city = $request->input('user_city');
-    //     $user->update();
+        if ($request->hasFile('user_image')){
 
-    //     return redirect('/myaccount')->with('status' ,"Account Updated Successfully");
+            $path = 'images/user/' . $user->user_image;
 
-    // }
+            if(File::exists($path)){
 
-    // public function deleteAccount(Request $request){
+                File::delete($path);
 
-    //     $user = User::where('id', $request->id)->delete();      
+            }
+            $file = $request->file('user_image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('images/user/',$filename);
+            $user->user_image = $filename;
+        }
 
-    //     return redirect('/myaccount')->with('status', 'Account Deleted Successfully');
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->phone_number = $request->input('phone_number');
+        $user->user_image = $request->input('user_image');
+        $user->user_lot_number = $request->input('user_lot_number');
+        $user->user_street = $request->input('user_street');
+        $user->user_city = $request->input('user_city');
+        $user->update();
+
+        return redirect('/myaccount')->with('status' ,"Account Updated Successfully");
+
+    }
+
+    public function deleteAccount(Request $request){
+
+        $user = User::where('id', $request->id)->delete();      
+
+        return redirect('/myaccount')->with('status', 'Account Deleted Successfully');
         
-    // }
+    }
+
+
 
     public function registeredUsers(Request $request){
 

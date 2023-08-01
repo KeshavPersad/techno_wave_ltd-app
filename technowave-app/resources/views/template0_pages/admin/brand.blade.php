@@ -76,10 +76,7 @@
                                                         @method('GET')
 
                                                         <div class="hidden">
-                                                        <span>Quantity:</span>
-                                                        <div class="quantity-input">
                                                             <input type="text" name="cart_quantity" value="1" data-max="1" pattern="[0-9]*" >
-                                                        </div>
                                                         </div>
 
                                                         <div class="wrap-butons">

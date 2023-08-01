@@ -7,6 +7,8 @@ use App\Helpers\StripeHelper;
 use App\Mail\OrderSuccessMail;
 use App\Models\Order;
 use App\Models\Order_product;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -79,6 +81,9 @@ class CheckoutSuccessController extends Controller
 
         // merge all data
         $data["user_id"] = Auth::id();
+        $data["user_lot_number"] = User::where('id', Auth::user())->get('user_lot_number');
+        $data["user_street"] = User::where('id', Auth::user())->get('user_street');
+        $data["user_city"] = User::where('id', Auth::user())->get('user_city');
 
         // Insert order
         $order = Order::create([
@@ -88,8 +93,13 @@ class CheckoutSuccessController extends Controller
             'total' => $data['total'],
             'payment' => $data['payment'],
             'payment_id' => $data['payment_id'],
+            'user_lot_number' => $data['user_lot_number'],
+            'user_street' => $data['user_street'],
+            'user_city' => $data['user_city'],
 
         ]);
+
+        //dd($order);
 
         // Create array containing order_product models
         $order_id = $order->order_id;

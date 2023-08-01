@@ -8,7 +8,7 @@
             <div class="wrap-breadcrumb">
                 <ul>
                     <li class="item-link"><a href="{{ route ('home')}}" class="link">Home</a></li>
-                    <li class="item-link"><span>Favorites</span></li>
+                    <li class="item-link"><span>Wish List</span></li>
                 </ul>
             </div>
             <div class=" main-content-area">
@@ -16,7 +16,7 @@
                     @if ($favorites->isEmpty())
                         <div class="lefter">
                             <div class="wrap-iten-in-cart">
-                                <h1 class="box-title_isEmpty">Favorites is Empty</h1>
+                                <h1 class="box-title_isEmpty">Your Wish List is Empty</h1>
                                 <ul class="products-cart">
                                     <li class="pr-cart-item">
                                         <a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
@@ -27,7 +27,7 @@
                     @else
                         <div class="lefter">
                             <div class="wrap-iten-in-cart">
-                                <h3 class="box-title">Favorite Products</h3>
+                                <h3 class="box-title">Wish List || Products</h3>
                                 <ul class="products-cart">
                                     @foreach($favorites_details as $data)
                                         <li class="pr-cart-item">
@@ -51,7 +51,7 @@
                                                             @method('Delete')
 
                                                             <div class="wrap-butons">
-                                                                <button  type="submit" class="btn add-to-cart_Shop"><i class="fa-solid fa-trash-can"></i> Remove from Favorites</button>
+                                                                <button  type="submit" class="btn add-to-cart_Shop"><i class="fa-solid fa-trash-can"></i> Remove from Wish List</button>
 
                                                                 <input type="hidden" name="product_id" value="{{ $data->id }}">
                                                                 <input type="hidden" name="cart_id" value="{{ $data->pivot->id }}">

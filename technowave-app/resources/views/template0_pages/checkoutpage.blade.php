@@ -137,47 +137,50 @@
 
 				<div class="wrap-breadcrumb">
 					<ul>
-						<li class="item-link"><a href="#" class="link">home</a></li>
+						<li class="item-link"><a href="{{ route('home') }}" class="link">home</a></li>
 						<li class="item-link"><span>Checkout</span></li>
 					</ul>
 				</div>
+
 				<div class=" main-content-area">
 					<div class="wrap-address-billing">
-						<h3 class="box-title">Billing Address</h3>
+						<h3 class="box-title">Billing Information</h3>
+
 						<form action="#" method="get" name="frm-billing">
 							<p class="row-in-form">
-								<label for="fname">first name<span>*</span></label>
-								<input id="fname" type="text" name="fname" value="" placeholder="Your name">
+								<label for="first_name">First Name<a class="red-star">*</a></label>
+								<input id="first_name" type="text" name="first_name" value="{{ $user->first_name }}" placeholder="Your name" readonly>
 							</p>
 							<p class="row-in-form">
-								<label for="lname">last name<span>*</span></label>
-								<input id="lname" type="text" name="lname" value="" placeholder="Your last name">
+								<label for="last_name">Last Name<a class="red-star">*</a></label>
+								<input id="last_name" type="text" name="last_name" value="{{ $user->last_name }}" placeholder="Your last name" readonly>
 							</p>
 							<p class="row-in-form">
-								<label for="email">Email Addreess:</label>
-								<input id="email" type="email" name="email" value="" placeholder="Type your email">
+								<label for="email">Email Addreess<a class="red-star">*</a></label>
+								<input id="email" type="email" name="email" value="{{ $user->email }}" placeholder="Type your email" readonly>
 							</p>
 							<p class="row-in-form">
-								<label for="phone">Phone number<span>*</span></label>
-								<input id="phone" type="number" name="phone" value="" placeholder="(868) XXX-XXXX">
+								<label for="phone_number">Phone #<a class="red-star">*</a></label>
+								<input id="phone_number" type="text" name="phone_number" value="{{ $user->phone_number }}" placeholder="(868) XXX-XXXX" readonly>
+							</p>
+
+							<p class="row-in-form">
+								<label for="user_lot_number">Lot #<a class="red-star">*</a></label>
+								<input id="user_lot_number" type="text" name="user_lot_number" value="{{ $user->user_lot_number }}" placeholder="Lot #" readonly>
 							</p>
 							<p class="row-in-form">
-								<label for="add">Address:<span>*</span></label>
-								<input id="add" type="text" name="add" value="" placeholder="Street Name and Lot #">
+								<label for="user_street">Street<a class="red-star">*</a></label>
+								<input id="user_street" type="text" name="user_street" value="{{ $user->user_street }}" placeholder="Street Name" readonly>
 							</p>
 							<p class="row-in-form">
-								<label for="city">Town / City<span>*</span></label>
-								<input id="city" type="text" name="city" value="" placeholder="City name">
+								<label for="user_city">Town / City<a class="red-star">*</a></label>
+								<input id="user_city" type="text" name="user_city" value="{{ $user->user_city }}" placeholder="City name" readonly>
 							</p>
 							<p class="row-in-form fill-wife">
-							<a class="link-to-shop" href="{{ route ('register') }}">Edit Address<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-							<samp>   </samp>
-								<label class="checkbox-field">
-									<input name="different-add" id="different-add" value="forever" type="checkbox">
-									<span>Ship to a different address?</span>
-								</label>
+							<a class="link-to-shop" href="{{ route ('register') }}">Change Billing Address <i class="fa fa-arrow-circle-right" aria-hidden="true"> </i></a>
 							</p>
 						</form>
+
 					</div>
 
 						<div class="summary summary-checkout">

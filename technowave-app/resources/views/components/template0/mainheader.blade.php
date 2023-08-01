@@ -105,7 +105,7 @@
 																		<a href="{{ route('dashboard') }}" class="link-term mercado-item-title">Dashboard</a>
 																	</li>
 																	<li class="menu-item">
-																		<a href="{{ route('allproducts') }}" class="link-term mercado-item-title">Prodcuts</a>
+																		<a href="{{ route('allproducts') }}" class="link-term mercado-item-title">Products</a>
 																	</li>
 																	<li class="menu-item">
 																		<a href="{{ route('categories') }}" class="link-term mercado-item-title">Categories</a>
@@ -165,8 +165,8 @@
 																	<a href="{{ route('favorites') }}" class="link-direction">
 																		<i class="fa fa-heart" aria-hidden="true"></i>
 																		<div class="left-info">
-																			<span class="index">Favorite</span>
-																			<span class="title">Prodcuts</span>
+																			<span class="index">0</span>
+																			<span class="title">Wish List</span>
 																		</div>
 																	</a>
 																</div>
@@ -174,7 +174,7 @@
 																	<a href="{{ route('cart') }}" class="link-direction">
 																		<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 																		<div class="left-info">
-																			<span class="index">Your</span>
+																			<span class="index">4</span>
 																			<span class="title">CART</span>
 																		</div>
 																	</a>
@@ -247,8 +247,8 @@
 														<a href="{{ route('favorites') }}" class="link-direction">
 															<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 															<div class="left-info">
-																<span class="index">Favorite</span>
-																<span class="title">Prodcuts</span>
+																<span class="index">0</span>
+																<span class="title">Wish List</span>
 															</div>
 														</a>
 													</div>
@@ -256,7 +256,7 @@
 														<a href="{{ route('cart') }}" class="link-direction">
 															<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 															<div class="left-info">
-																<span class="index">Your</span>
+																<span class="index">4</span>
 																<span class="title">CART</span>
 															</div>
 														</a>

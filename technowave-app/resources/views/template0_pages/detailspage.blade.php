@@ -271,7 +271,7 @@
 																</p>
 
 																<p class="comment-form-author">
-																	<label for="user_first_name">Fisrt Name <a class="red-star">*</a></label> 
+																	<label for="user_first_name">First Name <a class="red-star">*</a></label> 
 																	<input id="user_first_name" name="user_first_name" type="text" value="{{ $user->first_name}}">
 																</p>
 

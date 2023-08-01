@@ -180,14 +180,14 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
         //Route for My Account
         Route::get('/myaccount', [UserController::class, 'index'])->name('myaccount');
 
-       //  //Route for Delete Account
-       //  Route::delete('/myaccount/{id}', [UserController::class, 'deleteAccount'])->name('delete.account');
+        //Route for Delete Account
+        Route::delete('/deleteAccount/{id}', [UserController::class, 'deleteAccount'])->name('delete.account');
     
-       //  //Route for View Edit Account Page
-       //  Route::get('/editAccount/{id}', [UserController::class, 'editAccount'])->name('edit.account');
+        //Route for View Edit Account Page
+        Route::get('/editAccount/{id}', [UserController::class, 'editAccount'])->name('edit.account');
         
-       //  //Route for Edit/Update Account
-       //  Route::get('/updateAccount/{id}', [UserController::class, 'updateAccount'])->name('update.account');
+        //Route for Edit/Update Account
+        Route::get('/updateAccount/{id}', [UserController::class, 'updateAccount'])->name('update.account');
 
 //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for View Favorites
