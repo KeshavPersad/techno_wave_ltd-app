@@ -82,7 +82,16 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
        Route::view('/admin-myaccount', 'template0_pages/admin/admin-myaccount')->name('admin-myaccount');
 
         //Route for Admin Account
-       Route::get('/adminAccount', [UserController::class, 'adminAccount'])->name('admin.account');
+        Route::get('/adminAccount', [UserController::class, 'adminAccount'])->name('admin.account');
+
+        //Route for Delete Account
+        Route::delete('/deleteadminAccount/{id}', [UserController::class, 'deleteAccount'])->name('delete.admin.account');
+    
+        //Route for View Edit Account Page
+        Route::get('/editadminAccount/{id}', [UserController::class, 'editadminAccount'])->name('edit.admin.account');
+        
+        //Route for Edit/Update Account
+        Route::get('/updateadminAccount/{id}', [UserController::class, 'updateAccount'])->name('update.admin.account');
 
  //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for View All Products

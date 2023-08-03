@@ -99,7 +99,8 @@
                 @else
                     <div class="lefter">
                         <div class="wrap-iten-in-cart">
-                            <h3 class="box-title">Cart Products</h3>
+                            <h3 class="box-title">Cart Products<a class="count-review"> ({{$cart_count}})</a></h3>
+                           
                             <ul class="products-cart">
 
                                 @foreach($cart_details as $data)

@@ -35,13 +35,13 @@
                                     <a class="widget-title" href="{{ route('myaccount') }}"><i class="fa-solid fa-user"></i> Personal Information</a>
                                 </div>
                                 <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('orders') }}"><i class="fa-solid fa-user"></i> Order History</a>
+                                    <a class="widget-title" href="{{ route('orders') }}"><i class="fa-solid fa-box-open"></i> Order History</a>
                                 </div>
                                 <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('favorites') }}"><i class="fa-solid fa-user"></i> Reviewed Products</a>
+                                    <a class="widget-title" href="{{ route('favorites') }}"><i class="fa-solid fa-file"></i> Reviewed Products</a>
                                 </div>
                                 <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('favorites') }}"><i class="fa-solid fa-user"></i> Wish List</a>
+                                    <a class="widget-title" href="{{ route('favorites') }}"><i class="fa-solid fa-heart"></i> Wish List</a>
                                 </div>
                             </div>
                         </div>

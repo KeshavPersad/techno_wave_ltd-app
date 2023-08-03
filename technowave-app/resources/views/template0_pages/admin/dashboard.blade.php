@@ -38,36 +38,56 @@
 
             </div><!--end main products area-->
 
-            <!-- sidebar -->
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
-                
-                <div class="widget mercado-widget filter-widget brand-widget">
-                    <a class="widget-title" href="{{ route('registered.userslist') }}"><i class="fa-solid fa-user"></i> User Information</a>
-                </div>
+                <!-- side bar start -->
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="account-settings">
+                                <div class="user-profile">
+                                    <div class="user-avatar">
+                                        <img src="{{ asset('storage/' . $user_details->user_image) }}" alt="Maxwell Admin" width="175" height="175" >
+                                    </div>
+                                    <h5 class="user-name" >{{ $user_details->first_name}} {{ $user_details->last_name}}</h5>
+                                    <h6 class="user-email" >{{ $user_details->email}}</h6>
+                                    
+                                    <div class="widget mercado-widget filter-widget brand-widget">
+                                    <a class="widget-title"></a>
+                                </div>
+                                </div>
 
-                <div class="widget mercado-widget filter-widget brand-widget">
-                    <a class="widget-title" href="{{ route('dashboard') }}"><i class="fa-solid fa-user"></i> Add Admin</a>
-                </div>
+                                <div class="widget mercado-widget filter-widget brand-widget">
+                                    <a class="widget-title" href="{{ route('registered.userslist') }}"><i class="fa-solid fa-user"></i> Registered Users</a>
+                                </div>
 
-                <div class="widget mercado-widget filter-widget brand-widget">
-                    <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                </div>
+                                <div class="widget mercado-widget filter-widget brand-widget">
+                                    <a class="widget-title" href="{{ route('customer.orders') }}"><i class="fa-solid fa-box-open"></i> Customer Order</a>
+                                </div>
 
-                <div class="widget mercado-widget filter-widget brand-widget">
-                    <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                </div>
+                                <div class="widget mercado-widget filter-widget brand-widget">
+                                    <a class="widget-title" href="{{ route('customer.orders') }}"><i class="fa-solid fa-chart-line"></i> Sale Statistics</a>
+                                </div>
 
-                <div class="widget mercado-widget filter-widget brand-widget">
-                    <a class="widget-title" href="{{ route('dashboard') }}">Filter By Brand</a>
-                </div>
+                                <div class="widget mercado-widget filter-widget brand-widget">
+                                    <a class="widget-title" href="{{ route('dashboard') }}"><i class="fa-solid fa-user-plus"></i> Add Admin</a>
+                                </div>
 
-            </div><!--end sidebar-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- side bar end -->
+
 
         </div><!--end row-->
 
     </div><!--end container-->
 
+    </br>
+    </br>          
+    </br>
+
 </main>
 <!--main area-->
+
 
 </x-layouts.layout-template0-home>

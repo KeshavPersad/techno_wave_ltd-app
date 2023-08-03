@@ -9,7 +9,7 @@
 																		<input type="text" name="search" value="" placeholder="Search Products here...">
 																		<button form="form-search-top" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 
-																		<div class="wrap-list-cate">
+																		<div class="wrap-list-cate" align="left">
 																			<select class="outline_select" style="width:125px;" type="hidden" name="category" id="category">
 																					<option value="0">All Category</option>
 																					<option value="1">-Laptops</option>

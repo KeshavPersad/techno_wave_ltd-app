@@ -113,10 +113,6 @@
 																	<li class="menu-item">
 																		<a href="{{ route('brands') }}" class="link-term mercado-item-title">Brands</a>
 																	</li>
-																	<li class="menu-item">
-																		<a href="{{ route('cart') }}" class="link-term mercado-item-title">Add Admin</a>
-																	</li>	
-																	<li>
 
 																</ul>
 															</div>
@@ -256,7 +252,7 @@
 														<a href="{{ route('cart') }}" class="link-direction">
 															<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 															<div class="left-info">
-																<span class="index">4</span>
+																<span class="index">0</span>
 																<span class="title">CART</span>
 															</div>
 														</a>

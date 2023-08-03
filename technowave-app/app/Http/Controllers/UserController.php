@@ -47,6 +47,19 @@ class UserController extends Controller{
 
     }
 
+    public function editadminAccount($id){
+
+        $user_details = User::findorFail($id);
+        // dd($user_details);
+
+        return view('template0_pages.admin.editadmin-myaccount', [
+
+            'user_details' => $user_details,
+
+        ]);
+
+    }
+
     public function updateAccount(Request $request, $id){
 
         $user = User::findorFail($id);
@@ -97,10 +110,12 @@ class UserController extends Controller{
 
         $user_details = User::all();
         $user_details = $this->filterUser($request);
+        $user = Auth::user();
 
         return view('template0_pages.admin.registeredUsers', [
 
             'user_details'=> $user_details,
+            'user' => $user,
 
         ]);
 
@@ -110,10 +125,13 @@ class UserController extends Controller{
 
         $user_details = User::all();
         $user_details = $this->filterUser($request);
+        $user = Auth::user();
 
         return view('template0_pages.admin.registeredUsersList', [
 
             'user_details'=> $user_details,
+            'user' => $user,
+
 
         ]);
 

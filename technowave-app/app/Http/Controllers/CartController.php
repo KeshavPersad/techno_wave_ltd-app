@@ -15,6 +15,9 @@ class CartController extends Controller{
         $cart_details = Auth::user()->products;
         // dd($cart_details);
 
+        $cart_count = $cart_details->count();
+        //dd($cart_count);
+
         $user = Auth::user();
         $checkout = new CheckoutHelper($cart_details);
         
@@ -27,6 +30,7 @@ class CartController extends Controller{
             'checkout' => $checkout,
             'bestSellingProducts' => $bestSellingProducts,
             'user' => $user,
+            'cart_count' => $cart_count,
 
         ]);
 

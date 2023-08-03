@@ -9,7 +9,7 @@
 							<i class="fa fa-truck" aria-hidden="true"></i>
 							<div class="wrap-left-info">
 								<h4 class="fc-name">Free Delivery</h4>
-								<p class="fc-desc">Free On Oder Over $1999</p>
+								<p class="fc-desc">On Oder Over $6000.00</p>
 							</div>
 
 						</li>
@@ -17,7 +17,7 @@
 							<i class="fa fa-recycle" aria-hidden="true"></i>
 							<div class="wrap-left-info">
 								<h4 class="fc-name">Guarantee</h4>
-								<p class="fc-desc">30 Days Money Back</p>
+								<p class="fc-desc">10 Days Money Back</p>
 							</div>
 
 						</li>
@@ -50,18 +50,42 @@
 
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 							<div class="wrap-footer-item">
-								<h3 class="item-header">Contact Details</h3>
+								<h3 class="item-header">Location</h3>
 								<div class="item-content">
 									<div class="wrap-contact-detail">
 										<ul>
 											<li>
 												<i class="fa fa-map-marker" aria-hidden="true"></i>
 												<p class="contact-txt">#28 Karamth Street, Princes Town, Republic of Trinidad and Tobago, West Indies </p>
-											</li>
+											</li>										
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+							<div class="wrap-footer-item">
+								<h3 class="item-header">Contact Info</h3>
+								<div class="item-content">
+									<div class="wrap-contact-detail">
+										<ul>
 											<li>
 												<i class="fa fa-phone" aria-hidden="true"></i>
 												<p class="contact-txt">+1(868) 364-2362 || +1(868) 456-7899</p>
-											</li>
+											</li>										
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+							<div class="wrap-footer-item">
+								<h3 class="item-header">Email</h3>
+								<div class="item-content">
+									<div class="wrap-contact-detail">
+										<ul>
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
 												<p class="contact-txt">technowave.ltd@gmail.com</p>
@@ -71,7 +95,7 @@
 								</div>
 							</div>
 						</div>
-
+<!-- 
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 
 							<div class="wrap-footer-item">
@@ -96,9 +120,9 @@
 								</div>
 							</div>
 
-						</div>
+						</div> -->
 
-						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12 box-twin-content ">
+						<!-- <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12 box-twin-content ">
 							<div class="row">
 								<div class="wrap-footer-item twin-item">
 									<h3 class="item-header">My Account</h3>
@@ -129,7 +153,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 					</div>
 

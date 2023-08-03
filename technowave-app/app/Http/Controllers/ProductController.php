@@ -67,6 +67,7 @@ class ProductController extends Controller{
         $brand_details = Brand::all();
         $category = Product::select('category_id')->distinct()->get();
         $brand = Product::select('brand_id')->distinct()->get();
+        $user_details = Auth::user();
 
         $product_details = $this->filterProducts($request);
 
@@ -79,6 +80,7 @@ class ProductController extends Controller{
             'brand_details' => $brand_details,
             'category' => $category,
             'brand' => $brand,
+            'user_details' => $user_details,
 
         ]);
 
@@ -92,6 +94,7 @@ class ProductController extends Controller{
         $brand_details = Brand::all();
         $category = Product::select('category_id')->distinct()->get();
         $brand = Product::select('brand_id')->distinct()->get();
+        $user_details = Auth::user();
 
         $product_details = $this->filterProducts($request);
 
@@ -101,6 +104,7 @@ class ProductController extends Controller{
             'category_details' => $category_details,
             'brand_details' => $brand_details,
             'category' => $category,
+            'user_details' => $user_details,
             
             'brand' => $brand,
 

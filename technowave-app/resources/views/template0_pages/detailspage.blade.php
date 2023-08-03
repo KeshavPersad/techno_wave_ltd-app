@@ -106,7 +106,7 @@
 									</div>
 
 									<div class="wrap-butons" id="get-info">
-										<button  type="submit" class="btn add-to-cart_Shop"><i class="fa fa-heart" aria-hidden="true"></i> Add to Favorites</button>
+										<button  type="submit" class="btn add-to-cart_Shop"><i class="fa fa-heart" aria-hidden="true"></i> Add to Wish List</button>
 
 										<input type="hidden" name="product_id" value="{{ $data->id }}">
 									</div>

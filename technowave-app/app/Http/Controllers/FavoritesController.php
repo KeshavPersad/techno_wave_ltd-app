@@ -19,11 +19,14 @@ class FavoritesController extends Controller{
         $favorites->calculateTotal();
         $bestSellingProducts = $this->bestSellingProducts();
 
+        $wish_list_count = $favorites_details->count();
+
         return view('template0_pages.favoritespage', [
             
             'favorites_details' => $favorites_details,
             'favorites' => $favorites,
             'bestSellingProducts' => $bestSellingProducts,
+            'wish_list_count' => $wish_list_count,
 
         ]);
 

@@ -8,6 +8,7 @@
             <div class="wrap-breadcrumb">
                 <ul>
                     <li class="item-link"><a href="{{ route ('home')}}" class="link">Home</a></li>
+                    <li class="item-link"><a href="{{ route ('myaccount')}}" class="link">My Account</a></li>
                     <li class="item-link"><span>Wish List</span></li>
                 </ul>
             </div>
@@ -27,7 +28,7 @@
                     @else
                         <div class="lefter">
                             <div class="wrap-iten-in-cart">
-                                <h3 class="box-title">Wish List || Products</h3>
+                                <h3 class="box-title">Wish List || Products ({{$wish_list_count}})</h3>
                                 <ul class="products-cart">
                                     @foreach($favorites_details as $data)
                                         <li class="pr-cart-item">

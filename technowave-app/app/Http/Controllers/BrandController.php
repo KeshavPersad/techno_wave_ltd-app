@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class BrandController extends Controller{
@@ -13,11 +14,13 @@ class BrandController extends Controller{
         $brand_details = Brand::all();
         // dd($brand_details);
 
+        $user_details = Auth::user();
         $brand_details = $this->filterBrand($request);
 
         return view('template0_pages.admin.brand', [
                         
             'brand_details' => $brand_details,
+            'user_details' => $user_details,
 
         ]);
     }

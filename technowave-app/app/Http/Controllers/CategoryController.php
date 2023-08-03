@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 // use Faker\Core\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller{
@@ -15,10 +16,12 @@ class CategoryController extends Controller{
         $category_details = Category::all();
         // dd($category_details);
         $category_details = $this->filterCategory($request);
+        $user_details = Auth::user();
 
         return view('template0_pages.admin.category', [
                         
             'category_details' => $category_details,
+            'user_details' => $user_details,
 
         ]);
     }

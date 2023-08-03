@@ -6,7 +6,7 @@
     <div class="container">
         <div class="wrap-breadcrumb">
             <ul>
-                <li class="item-link"><a href="{{ route('home') }}" class="link">Home</a></li>
+                <li class="item-link"><a href="{{ route('dashboard') }}" class="link">Dashboard</a></li>
                 <li class="item-link"><a href="{{ route('myaccount') }}" class="link">My Account</a></li>
                 <li class="item-link"><span>Edit || My Acccount</span></li>
             </ul>
@@ -33,16 +33,7 @@
                                 </div>
 
                                 <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('myaccount') }}"><i class="fa-solid fa-user"></i> Personal Information</a>
-                                </div>
-                                <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('orders') }}"><i class="fa-solid fa-box-open"></i> Order History</a>
-                                </div>
-                                <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('favorites') }}"><i class="fa-solid fa-file"></i> Reviewed Products</a>
-                                </div>
-                                <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('favorites') }}"><i class="fa-solid fa-heart"></i> Wish List</a>
+                                    <a class="widget-title" href="{{ route('admin.account') }}"><i class="fa-solid fa-user"></i> Personal Information</a>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +50,7 @@
                     <div class="card h-100">
                         <div class="card-body">
 
-                            <form class="form-stl" method="PUT" action="{{ route('update.account', ['id' => $user_details->id]) }}">
+                            <form class="form-stl" method="PUT" action="{{ route('update.admin.account', ['id' => $user_details->id]) }}">
                             @csrf
                             @method('PUT')
 
@@ -132,7 +123,7 @@
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="text-right">
 
-                                            <form action="{{ route('delete.account', ['id' => $user_details->id])  }}" method="POST" >
+                                            <form action="{{ route('delete.admin.account', ['id' => $user_details->id])  }}" method="POST" >
                                                 @csrf
                                                 @method('Delete')
                                                 
