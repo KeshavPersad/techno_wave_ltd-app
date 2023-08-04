@@ -73,7 +73,7 @@
                                                         </div>
 
                                                         <div class="wrap-butons">
-                                                            <button  type="submit" class="btn add-to-cart_Shop"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to Cart</button>
+                                                            <button  type="submit" class="btn add-to-cart_Shop"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
 
                                                             <input type="hidden" name="product_id" value="{{ $data->id }}">
                                                         </div>

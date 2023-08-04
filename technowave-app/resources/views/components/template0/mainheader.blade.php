@@ -161,16 +161,16 @@
 																	<a href="{{ route('favorites') }}" class="link-direction">
 																		<i class="fa fa-heart" aria-hidden="true"></i>
 																		<div class="left-info">
-																			<span class="index">0</span>
+																			<span class="index">0 Products</span>
 																			<span class="title">Wish List</span>
 																		</div>
 																	</a>
 																</div>
 																<div class="wrap-icon-section minicart">
 																	<a href="{{ route('cart') }}" class="link-direction">
-																		<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+																		<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
 																		<div class="left-info">
-																			<span class="index">4</span>
+																			<span class="index"> 4</span>
 																			<span class="title">CART</span>
 																		</div>
 																	</a>

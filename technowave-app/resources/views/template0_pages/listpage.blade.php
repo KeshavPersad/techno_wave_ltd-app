@@ -78,7 +78,7 @@
                                                         <input type="hidden" name="cart_quantity" value="1">
 
                                                         @if ($data->product_status == 1)
-                                                            <button class="btn add-to-cart_Shop" type="submit" ><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to Cart</button>
+                                                            <button class="btn add-to-cart_Shop" type="submit" ><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
                                                         @endif
 
                                                         <input type="hidden" name="product_id" value="{{ $data->id }}">

@@ -187,18 +187,16 @@
 							<div class="summary-item payment-method">
 								
 									<h4 class="title-box">Payment Method</h4>
-									<label class="payment-method">
-										<input name="payment-method" id="payment-method-bank" value="bank" type="radio">
-										<span>Direct Bank Transder</span>
-									</label>
-									<label class="payment-method">
-										<input name="payment-method" id="payment-method-visa" value="visa" type="radio">
-										<span>VISA</span>
-									</label>
-									<label class="payment-method">
-										<input name="payment-method" id="payment-method-paypal" value="paypal" type="radio">
-										<span>Paypal</span>
-									</label>
+
+										<label class="payment-method">
+											<input  name="payment_method" id="payment_method" value="$payment_method = 1" type="radio">
+											<span>VISA</span>
+										</label>
+
+										<label class="payment-method">
+											<input  name="payment_method" id="payment_method" value="$payment_method = 0" type="radio">
+											<span>Paypal</span>
+										</label>
 
 									<br>
 									<br>
@@ -215,10 +213,20 @@
 											@endif
 											<p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $checkout->formatPrice($checkout->getTotal()) }}</b></p>
 										</div>
-										<div class="update-clear">
-											<x-core.stripe-ui/>
-                               				<a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                           				</div>
+
+
+
+											<div class="update-clear">
+												<x-core.stripe-ui/>
+												<a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+											</div>
+
+											<div class="update-clear">
+												<x-core.stripe-ui/>
+												<a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+											</div>
+
+
 									</div>	
 
 							</div>

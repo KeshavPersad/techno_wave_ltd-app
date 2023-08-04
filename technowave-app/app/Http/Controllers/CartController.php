@@ -44,7 +44,7 @@ class CartController extends Controller{
 
         );
 
-        return redirect('/cartpage')->with('status', "Product Added to Cart");
+        return redirect('/storepage')->with('status', "Product Added to Cart");
         
     }
 
