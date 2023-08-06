@@ -21,7 +21,7 @@
                             <div class="account-settings">
                                 <div class="user-profile">
                                     <div class="user-avatar">
-                                        <img src="{{ asset('storage/' . $user_details->user_image) }}" alt="Maxwell Admin" width="175" height="175" >
+                                        <img src="{{ asset('storage/images/user/' . $user_details->user_image) }}" alt=" Admin" width="175" height="175" >
                                     </div>
                                     <h5 class="user-name" >{{ $user_details->first_name}} {{ $user_details->last_name}}</h5>
                                     <h6 class="user-email" >{{ $user_details->email}}</h6>
@@ -74,6 +74,12 @@
                                     <div class="form-group">
                                         <label for="phone_number">Phone #</label>
                                         <input type="text" class="form-control" value="{{ $user_details->phone_number }}" id="phone_number" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <img src="{{ asset('storage/images/user/' . $user_details->user_image) }}" alt="No Image Added" width="175" height="175" >
                                     </div>
                                 </div>
 

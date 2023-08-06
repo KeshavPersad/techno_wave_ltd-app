@@ -38,7 +38,7 @@
                                         <li class="pr-cart-item">
                                             <div class="product-image">
                                                 <a title="{{ $data->brand_title }}">
-                                                <figure><img src="{{ asset('storage/' . $data->brand_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                                <figure><img src="{{ asset('storage/images/brand/' . $data->brand_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                             </a>
                                             </div>
                                             <div class="product-name">

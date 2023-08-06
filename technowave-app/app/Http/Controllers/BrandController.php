@@ -27,7 +27,11 @@ class BrandController extends Controller{
 
     public function addBrand(){
 
-        return view('template0_pages.admin.addbrand');
+        $user_details = Auth::user();   
+        return view('template0_pages.admin.addbrand', [
+
+            'user_details' => $user_details,
+        ]);
 
     }
 
@@ -70,19 +74,21 @@ class BrandController extends Controller{
 
         $brand = new Brand();
 
+        $brand->brand_image1 = $request->input('brand_image1');
+
         if ($request->hasFile('brand_image1')){
 
             $file = $request->file('brand_image1');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('images/brand/',$filename);
+            $file->move('storage/images/brand/',$filename);
             $brand->brand_image1 = $filename;
 
         }
         $brand->brand_title = $request->input('brand_title');
         $brand->brand_description = $request->input('brand_description');
         $brand->brand_status = $request->input('brand_status') == TRUE ? '1': '0';
-        $brand->brand_image1 = $request->input('brand_image1');
+        
         $brand->save();
 
         // dd($brand);
@@ -101,12 +107,14 @@ class BrandController extends Controller{
 
     public function editBrand($id){
 
+        $user_details = Auth::user();
         $brand_details = Brand::findorFail($id);
         // dd($brand_details);
 
         return view('template0_pages.admin.editbrand', [
 
             'data' => $brand_details,
+            'user_details' => $user_details,
 
         ]);
 

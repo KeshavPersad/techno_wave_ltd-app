@@ -22,7 +22,7 @@
                             <div class="account-settings">
                                 <div class="user-profile">
                                     <div class="user-avatar">
-                                        <img src="{{ asset('storage/' . $user_details->user_image) }}" alt="Maxwell Admin" width="175" height="175" >
+                                        <img src="{{ asset('storage/images/user/' . $user_details->user_image) }}" alt="Maxwell Admin" width="175" height="175" >
                                     </div>
                                     <h5 class="user-name" >{{ $user_details->first_name}} {{ $user_details->last_name}}</h5>
                                     <h6 class="user-email" >{{ $user_details->email}}</h6>
@@ -43,6 +43,16 @@
                                 </div>
                                 <div class="widget mercado-widget filter-widget brand-widget">
                                     <a class="widget-title" href="{{ route('favorites') }}"><i class="fa-solid fa-heart"></i> Wish List</a>
+                                </div>
+
+                                <div class="user-profile">
+                                <a class="widget-title"><i class="fa-solid fa-location-dot"></i> Billing Address</a>
+                                    <h5 class="user-name" >{{ $user_details->user_lot_number}}, {{ $user_details->user_street}},</h5>
+                                    <h5 class="user-email" >{{ $user_details->user_city}}</h5>
+                                    
+                                    <div class="widget mercado-widget filter-widget brand-widget">
+                                    <a class="widget-title"></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +103,9 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="user_image">Display Image<a class="red-star">*</a></label>
+                                            <img src="{{ asset('storage/images/user/' . $user_details->user_image) }}" alt="No Image Added" width="175" height="175" > 
+                                            </br>
+                                            <label for="user_image">Change Display Image<a class="red-star">*</a></label>
                                             <input type="file" name="user_image" class="form-control" value="{{ $user_details->user_image }}" id="user_image">
                                         </div>
                                     </div>
@@ -162,9 +174,6 @@
 </br>
 </br>
 </br>
-
-
-
 </main>
 <!--main area-->    
 	

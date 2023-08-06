@@ -17,6 +17,7 @@ class Product extends Model{
         'product_title', 
         'product_description',
         'product_add_info',
+        'product_purchase_price', 
         'product_price', 
         'product_quantity',
         'product_image1',

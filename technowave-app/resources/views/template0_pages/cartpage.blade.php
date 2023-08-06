@@ -42,8 +42,7 @@
                             </div>
                             
                             <div class="update-clear">
-                                <a class="btn btn-clear" href="{{ route('cart') }}">Proceed to Checkout</a>
-                                <a class="btn btn-clear" href="{{ route('cart') }}">Clear Cart</a>           
+                                <a class="btn btn-clear" href="{{ route('cart') }}">Proceed to Checkout</a>      
                                 <a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                             </div>
                         </div> 
@@ -107,7 +106,7 @@
 
                                     <li class="pr-cart-item">
                                         <div class="product-image">
-                                            <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt=""></figure>
+                                            <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt=""></figure>
                                         </div>
                                         <div class="product-name">
                                             <a class="link-to-product" href="{{ route ('store.details', ['id' => $data->id]) }}">{{ $data->product_title }}</a>
@@ -242,7 +241,7 @@
                         <div class="product product-style-2 equal-elem ">
                             <div class="product-thumnail">
                                 <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                    <figure><img src="{{ asset('storage/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                    <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                 </a>
 
                                 <div class="wrap-btn">

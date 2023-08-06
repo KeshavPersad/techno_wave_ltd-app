@@ -21,7 +21,7 @@
                     
             <div class="wrap-shop-control">
 
-                <h1 class="shop-title">All Prodcuts</h1>
+                <h1 class="shop-title">All Products</h1>
 
                 <div class="wrap-right">
 
@@ -44,7 +44,7 @@
                                     <div class="product product-style-3 equal-elem ">
                                         <div class="product-thumnail">
                                             <a href="{{ route ('adminproduct.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                                <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                                <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                             </a>
                                         </div>
                                         <div class="product-info">

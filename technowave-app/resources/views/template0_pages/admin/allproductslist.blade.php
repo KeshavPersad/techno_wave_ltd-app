@@ -44,7 +44,7 @@
                                         <li class="pr-cart-item">
                                             <div class="product-image">
                                                 <a href="{{ route ('adminproduct.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                                <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                                <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                             </a>
                                             </div>
                                             <div class="product-name">

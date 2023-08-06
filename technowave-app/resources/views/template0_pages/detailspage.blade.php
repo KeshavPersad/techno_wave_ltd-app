@@ -20,20 +20,20 @@
 							<div class="product-gallery">
 								
 									<ul class="slides">
-										<li data-thumb="{{ asset('storage/' . $data->product_image1) }}">
-											<img src="{{ asset('storage/' . $data->product_image1) }}" alt="product thumbnail" />
+										<li data-thumb="{{ asset('storage/images/product/' . $data->product_image1) }}">
+											<img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt="product thumbnail" />
 										</li>
 
-										<li data-thumb="{{asset('storage/' . $data->product_image2) }}">
-											<img src="{{asset('storage/' . $data->product_image2) }}" alt="product thumbnail" />
+										<li data-thumb="{{asset('storage/images/product/' . $data->product_image2) }}">
+											<img src="{{asset('storage/images/product/' . $data->product_image2) }}" alt="product thumbnail" />
 										</li>
 
-										<li data-thumb="{{ asset('storage/' . $data->product_image3) }}">
-											<img src="{{ asset('storage/' . $data->product_image3) }}" alt="product thumbnail" />
+										<li data-thumb="{{ asset('storage/images/product/' . $data->product_image3) }}">
+											<img src="{{ asset('storage/images/product/' . $data->product_image3) }}" alt="product thumbnail" />
 										</li>
 
-										<li data-thumb="{{ asset('storage/' . $data->product_image4) }}">
-											<img src="{{ asset('storage/' . $data->product_image4) }}" alt="product thumbnail" />
+										<li data-thumb="{{ asset('storage/images/product/' . $data->product_image4) }}">
+											<img src="{{ asset('storage/images/product/' . $data->product_image4) }}" alt="product thumbnail" />
 										</li>
 
 									</ul>	
@@ -157,7 +157,7 @@
 												<ol class="commentlist">
 													<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
 														<div id="comment-20" class="comment_container"> 
-															<img alt="" src="{{ asset('storage/' . $review->user_image_review) }}" height="80" width="80">
+															<img alt="" src="{{ asset('storage/images/user/' . $review->user_image_review) }}" height="80" width="80">
 															<div class="comment-text">
 
 																<div class="star-rating">
@@ -366,7 +366,7 @@
 									<div class="product product-widget-style">
 										<div class="thumbnnail">
 											<a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-												<figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt=""></figure>
+												<figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt=""></figure>
 											</a>
 										</div>
 										<div class="product-info">
@@ -394,7 +394,7 @@
 											<div class="product product-style-2 equal-elem ">
 												<div class="product-thumnail">
 													<a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-														<figure><img src="{{ asset('storage/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+														<figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
 													</a>
 													<div class="wrap-btn">
 														<a href="{{ route ('store.details', ['id' => $data->id]) }}" class="function-link">Quick View</a>

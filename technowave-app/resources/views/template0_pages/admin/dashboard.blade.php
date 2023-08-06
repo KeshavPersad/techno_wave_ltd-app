@@ -45,7 +45,7 @@
                             <div class="account-settings">
                                 <div class="user-profile">
                                     <div class="user-avatar">
-                                        <img src="{{ asset('storage/' . $user_details->user_image) }}" alt="Maxwell Admin" width="175" height="175" >
+                                        <img src="{{ asset('storage/images/user/' . $user_details->user_image) }}" alt="Maxwell Admin" width="175" height="175" >
                                     </div>
                                     <h5 class="user-name" >{{ $user_details->first_name}} {{ $user_details->last_name}}</h5>
                                     <h6 class="user-email" >{{ $user_details->email}}</h6>

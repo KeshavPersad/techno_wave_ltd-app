@@ -20,20 +20,20 @@
 							<div class="product-gallery">
 								
 									<ul class="slides">
-										<li data-thumb="{{ asset('storage/' . $data->product_image1) }}">
-											<img src="{{ asset('storage/' . $data->product_image1) }}" alt="product thumbnail" />
+										<li data-thumb="{{ asset('storage/images/product/' . $data->product_image1) }}">
+											<img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt="product thumbnail" />
 										</li>
 
-										<li data-thumb="{{asset('storage/' . $data->product_image2) }}">
-											<img src="{{asset('storage/' . $data->product_image2) }}" alt="product thumbnail" />
+										<li data-thumb="{{asset('storage/images/product/' . $data->product_image2) }}">
+											<img src="{{asset('storage/images/product/' . $data->product_image2) }}" alt="product thumbnail" />
 										</li>
 
-										<li data-thumb="{{ asset('storage/' . $data->product_image3) }}">
-											<img src="{{ asset('storage/' . $data->product_image3) }}" alt="product thumbnail" />
+										<li data-thumb="{{ asset('storage/images/product/' . $data->product_image3) }}">
+											<img src="{{ asset('storage/images/product/' . $data->product_image3) }}" alt="product thumbnail" />
 										</li>
 
-										<li data-thumb="{{ asset('storage/' . $data->product_image4) }}">
-											<img src="{{ asset('storage/' . $data->product_image4) }}" alt="product thumbnail" />
+										<li data-thumb="{{ asset('storage/images/product/' . $data->product_image4) }}">
+											<img src="{{ asset('storage/images/product/' . $data->product_image4) }}" alt="product thumbnail" />
 										</li>
 
 									</ul>	
@@ -64,17 +64,18 @@
 								@if($data->product_status == 1)
                                 	<p class="availability"><a class="status">In Stock</a></p>
 								@else
-									<p class="availability"><a class="status">Out of Stock</a></p>
+									<p class="availability"><a class="status-out">Out of Stock</a></p>
 								@endif
                             </div>
 
 							<form action="{{ route('edit.product', ['id' => $data->id]) }}" method="POST" >
 								@csrf
-								@method('PUT')
+								@method('GET')
 								
 								<div class="wrap-butons" id="get-info">
-                                            <button class="btn add-to-cart_Shop" type="submit" ><i class="fa-solid fa-pen-to-square"></i> Edit Prodcut</button>
-                                            <input type="hidden" name="product_id" value="{{ $data->id }}">
+									<input type="hidden" name="product_id" value="{{ $data->id }}">
+                                            <button class="btn add-to-cart_Shop" type="submit" ><i class="fa-solid fa-pen-to-square"></i> Edit Product</button>
+                                            
 								</div>
                                 
 							</form>
@@ -127,7 +128,7 @@
 												<ol class="commentlist">
 													<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
 														<div id="comment-20" class="comment_container"> 
-															<img alt="" src="{{ asset('storage/' . $review->user_image_review) }}" height="80" width="80">
+															<img alt="" src="{{ asset('storage/images/user/' . $review->user_image_review) }}" height="80" width="80">
 															<div class="comment-text">
 
 																<div class="star-rating">

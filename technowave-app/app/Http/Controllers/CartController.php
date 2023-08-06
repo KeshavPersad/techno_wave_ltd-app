@@ -44,7 +44,7 @@ class CartController extends Controller{
 
         );
 
-        return redirect('/storepage')->with('status', "Product Added to Cart");
+        return redirect()->back()->with('status', "Product Added to Cart");
         
     }
 
@@ -64,7 +64,7 @@ class CartController extends Controller{
 
         $product = Cart::where('id', $request->id)->where('user_id', Auth::id())->delete();      
 
-        return redirect('/cartpage')->with('status', "Product Deleted from Cart");
+        return redirect('/cartpage')->with('status', "Product Removed Successfully");
         
     }
 

@@ -79,7 +79,7 @@
                                     <div class="product product-style-2 equal-elem ">
                                         <div class="product-thumnail">
                                             <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                                <figure><img src="{{ asset('storage/' . $data->product_image1) }}" width="800" height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                                <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" width="800" height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                             </a>
                                             <div class="wrap-btn">
                                                 <a href="{{ route ('store.details', ['id' => $data->id]) }}" class="function-link">Quick View</a>
@@ -118,7 +118,7 @@
                                         <div class="product product-style-2 equal-elem ">
                                             <div class="product-thumnail">
                                                 <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                                    <figure><img src="{{ asset('storage/' . $data->product_image1) }}" width="800" height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                                    <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" width="800" height="800" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                                 </a>
                                                 <div class="group-flash">
                                                     <span class="flash-item new-label">New</span>

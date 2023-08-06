@@ -206,11 +206,13 @@ class ProductController extends Controller{
 
         $category_details = Category::all();
         $brand_details = Brand::all();
+        $user_details = Auth::user();
 
         return view('template0_pages.admin.addproduct', [
             
             'category_details' => $category_details,
             'brand_details' => $brand_details,
+            'user_details' => $user_details,
 
         ]);
 
@@ -219,7 +221,8 @@ class ProductController extends Controller{
     public function insertProduct(Request $request){
 
         $product = new Product();
-
+        
+        $product->product_image1 = $request->input('product_image1');
         if ($request->hasFile('product_image1')){
 
             $file = $request->file('product_image1');
@@ -229,6 +232,41 @@ class ProductController extends Controller{
             $product->product_image1 = $filename;
 
         }
+
+        $product->product_image2 = $request->input('product_image2');
+        if ($request->hasFile('product_image2')){
+
+            $file = $request->file('product_image2');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('storage/images/products/',$filename);
+            $product->product_image2 = $filename;
+
+        }
+
+        $product->product_image3 = $request->input('product_image3');
+        if ($request->hasFile('product_image3')){
+
+            $file = $request->file('product_image3');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('storage/images/products/',$filename);
+            $product->product_image3 = $filename;
+
+        }
+
+        $product->product_image4 = $request->input('product_image4');
+        if ($request->hasFile('product_image4')){
+
+            $file = $request->file('product_image4');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('storage/images/products/',$filename);
+            $product->product_image4 = $filename;
+
+        }
+
+
         $product->category_id = $request->input('category_id');
         $product->brand_id = $request->input('brand_id');
         $product->product_title = $request->input('product_title');
@@ -236,10 +274,6 @@ class ProductController extends Controller{
         $product->product_add_info = $request->input('product_add_info');
         $product->product_price = $request->input('product_price');
         $product->product_quantity = $request->input('product_quantity');
-        $product->product_image1 = $request->input('product_image1');
-        $product->product_image2 = $request->input('product_image2');
-        $product->product_image3 = $request->input('product_image3');
-        $product->product_image4 = $request->input('product_image4');
         $product->product_status = $request->input('product_status');
         $product->save();
 
@@ -261,6 +295,7 @@ class ProductController extends Controller{
 
         $product_details = Product::findorFail($id);
         // dd($product_details);
+        $user_details = Auth::user();
 
         $category_details = Category::all();
         $brand_details = Brand::all();
@@ -270,6 +305,7 @@ class ProductController extends Controller{
             'data' => $product_details,
             'category_details' => $category_details,
             'brand_details' => $brand_details,
+            'user_details' => $user_details,
 
         ]);
 

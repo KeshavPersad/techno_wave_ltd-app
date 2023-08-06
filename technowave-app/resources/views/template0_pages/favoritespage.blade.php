@@ -33,7 +33,7 @@
                                     @foreach($favorites_details as $data)
                                         <li class="pr-cart-item">
                                             <div class="product-image">
-                                                <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt=""></figure>
+                                                <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt=""></figure>
                                             </div>
 
                                             <div class="product-name">
@@ -143,7 +143,7 @@
                                                 <div class="product product-widget-style">
                                                     <div class="thumbnnail">
                                                         <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                                            <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt=""></figure>
+                                                            <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt=""></figure>
                                                         </a>
                                                     </div>
                                                     <div class="product-info">
@@ -175,7 +175,7 @@
                                 <div class="product product-style-2 equal-elem ">
                                     <div class="product-thumnail">
                                         <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                            <figure><img src="{{ asset('storage/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                            <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                         </a>
 
                                         <div class="wrap-btn">

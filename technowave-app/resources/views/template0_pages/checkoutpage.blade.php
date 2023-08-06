@@ -43,8 +43,7 @@
 									</div>
 									
 									<div class="update-clear">
-										<a class="btn btn-clear" href="{{ route('cart') }}">Proceed to Checkout</a>
-										<a class="btn btn-clear" href="{{ route('cart') }}">Clear Cart</a>           
+										<a class="btn btn-clear" href="{{ route('cart') }}">Proceed to Checkout</a>         
 										<a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 									</div>
 								</div> 
@@ -108,7 +107,7 @@
 										<div class="product product-style-2 equal-elem ">
 											<div class="product-thumnail">
 												<a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-													<figure><img src="{{ asset('storage/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+													<figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
 												</a>
 
 												<div class="wrap-btn">
@@ -189,7 +188,7 @@
 									<h4 class="title-box">Payment Method</h4>
 
 										<label class="payment-method">
-											<input  name="payment_method" id="payment_method" value="$payment_method = 1" type="radio">
+											<input name="payment_method" id="payment_method" value="$payment_method = 1" type="radio">
 											<span>VISA</span>
 										</label>
 
@@ -214,19 +213,10 @@
 											<p class="summary-info total-info "><span class="title">Total:</span><b class="index">${{ $checkout->formatPrice($checkout->getTotal()) }}</b></p>
 										</div>
 
-
-
 											<div class="update-clear">
 												<x-core.stripe-ui/>
 												<a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 											</div>
-
-											<div class="update-clear">
-												<x-core.stripe-ui/>
-												<a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-											</div>
-
-
 									</div>	
 
 							</div>
@@ -255,7 +245,7 @@
 										<div class="product product-style-2 equal-elem ">
 											<div class="product-thumnail">
 												<a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-													<figure><img src="{{ asset('storage/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+													<figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
 												</a>
 
 												<div class="wrap-btn">

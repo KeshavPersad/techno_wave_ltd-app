@@ -24,7 +24,7 @@
                             <div class="account-settings">
                                 <div class="user-profile">
                                     <div class="user-avatar">
-                                        <img src="{{ asset('storage/' . $user_details->user_image) }}" alt="Maxwell Admin" width="175" height="175" >
+                                        <img src="{{ asset('storage/images/user/' . $user_details->user_image) }}" alt="Maxwell Admin" width="175" height="175" >
                                     </div>
                                     <h5 class="user-name" >{{ $user_details->first_name}} {{ $user_details->last_name}}</h5>
                                     <h6 class="user-email" >{{ $user_details->email}}</h6>
@@ -54,7 +54,7 @@
                                     
                                     <div class="widget mercado-widget filter-widget brand-widget">
                                     <a class="widget-title"></a>
-                                </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -130,7 +130,7 @@
                             <div class="product product-style-2 equal-elem ">
                                 <div class="product-thumnail">
                                     <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                        <figure><img src="{{ asset('storage/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                        <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" width="214" height="214" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                     </a>
 
                                     <div class="wrap-btn">

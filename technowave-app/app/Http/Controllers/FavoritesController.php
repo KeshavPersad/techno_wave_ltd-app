@@ -40,7 +40,7 @@ class FavoritesController extends Controller{
 
         );
 
-        return redirect('/favoritespage')->with('status', "Product Added to Favorites");
+        return redirect()->back()->with('status', "Product Added to Wish List");
         
     }
 
@@ -52,7 +52,7 @@ class FavoritesController extends Controller{
  
         $product->save();
 
-        return redirect('/favoritespage')->with('status', "Product Updated");
+        return redirect('/wishlistpage')->with('status', "Product Updated");
         
     }
 
@@ -60,7 +60,7 @@ class FavoritesController extends Controller{
 
         $product = Favorite::where('id', $request->id)->where('user_id', Auth::id())->delete();      
 
-        return redirect('/favoritespage')->with('status', "Product Removed Successfully");
+        return redirect('/wishlistpage')->with('status', "Product Removed Successfully");
         
     }
 

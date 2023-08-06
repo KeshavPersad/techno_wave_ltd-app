@@ -161,8 +161,8 @@
 																	<a href="{{ route('favorites') }}" class="link-direction">
 																		<i class="fa fa-heart" aria-hidden="true"></i>
 																		<div class="left-info">
-																			<span class="index">0 Products</span>
-																			<span class="title">Wish List</span>
+																			<span class="index">Wish List</span>
+																			<span class="title">Items</span>
 																		</div>
 																	</a>
 																</div>
@@ -170,7 +170,7 @@
 																	<a href="{{ route('cart') }}" class="link-direction">
 																		<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
 																		<div class="left-info">
-																			<span class="index"> 4</span>
+																			<span class="index">Your</span>
 																			<span class="title">CART</span>
 																		</div>
 																	</a>
@@ -243,8 +243,8 @@
 														<a href="{{ route('favorites') }}" class="link-direction">
 															<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 															<div class="left-info">
-																<span class="index">0</span>
-																<span class="title">Wish List</span>
+																<span class="index">Wish List</span>
+																<span class="title">Items</span>
 															</div>
 														</a>
 													</div>
@@ -252,7 +252,7 @@
 														<a href="{{ route('cart') }}" class="link-direction">
 															<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 															<div class="left-info">
-																<span class="index">0</span>
+																<span class="index">Your</span>
 																<span class="title">CART</span>
 															</div>
 														</a>

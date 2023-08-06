@@ -20,6 +20,7 @@ return new class extends Migration{
             $table->string('product_title', 100);
             $table->text('product_description');
             $table->text('product_add_info');
+            $table->decimal('product_purchase_price', $precision = 7, $scale = 2)->default(0);
             $table->decimal('product_price', $precision = 7, $scale = 2)->default(0);
             $table->integer('product_quantity')->default(1);
             $table->string('product_image1', 200);

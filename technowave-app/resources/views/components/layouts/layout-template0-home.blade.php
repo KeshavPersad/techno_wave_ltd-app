@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/style.css') }}">
 	<!-- <link rel="stylesheet" type="text/css" href="{{ asset('template0/css/style_admin.css') }}"> -->
 	<script src="https://kit.fontawesome.com/1ee61738a6.js" crossorigin="anonymous"></script>
+	<script src="{{ asset('template0/js/functions.js') }}"></script>
 	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/color-01.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('template0/css/order-history.css') }}">
 	
@@ -78,4 +79,5 @@
 
 
 </body>
+
 </html>

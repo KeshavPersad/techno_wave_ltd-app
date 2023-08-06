@@ -28,7 +28,12 @@ class CategoryController extends Controller{
 
     public function addCategory(){
 
-        return view('template0_pages.admin.addcategory');
+        $user_details = Auth::user();
+        return view('template0_pages.admin.addcategory', [
+
+            'user_details' => $user_details,
+            
+        ]);
 
     }
 
@@ -72,12 +77,14 @@ class CategoryController extends Controller{
         $category = new Category();
         // dd($request);
 
+        $category->category_image1 = $request->input('category_image1');
+
         if($request->hasFile('category_image1')){
 
             $file = $request->file('category_image1');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('images/category/',$filename);
+            $file->move('storage/images/category/',$filename);
             // dd($file);
             $category->category_image1 = $filename;
 
@@ -86,7 +93,6 @@ class CategoryController extends Controller{
         $category->category_title = $request->input('category_title');
         $category->category_description = $request->input('category_description');
         $category->category_status = $request->input('category_status') == TRUE ? '1': '0';
-        $category->category_image1 = $request->input('category_image1');
         $category->save();
 
         // dd($category);
@@ -107,10 +113,12 @@ class CategoryController extends Controller{
 
         $category_details = Category::findorFail($id);
         // dd($category_details);
+        $user_details = Auth::user();
 
         return view('template0_pages.admin.editcategory', [
 
             'data' => $category_details,
+            'user_details' => $user_details,
 
         ]);
 

@@ -200,16 +200,16 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for View Favorites
-        Route::get('/favoritespage', [FavoritesController::class, 'index'])->name('favorites');
+        Route::get('/wishlistpage', [FavoritesController::class, 'index'])->name('favorites');
        
         //Route for Add item to Favorites
-        Route::put('/favoritespage', [FavoritesController::class, 'store'])->name('favorites.store');
+        Route::put('/wishlistpage', [FavoritesController::class, 'store'])->name('favorites.store');
 
         //Route for Update Favorites
-        Route::put('/favoritespage/{id}', [FavoritesController::class, 'update'])->name('favorites.update');
+        Route::put('/wishlistpage/{id}', [FavoritesController::class, 'update'])->name('favorites.update');
          
         //Route for Remove Product from Favorites
-        Route::delete('/favoritespage/{id}', [FavoritesController::class, 'destroy'])->name('favorites.destroy');
+        Route::delete('/wishlistpage/{id}', [FavoritesController::class, 'destroy'])->name('favorites.destroy');
 
 
  //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
