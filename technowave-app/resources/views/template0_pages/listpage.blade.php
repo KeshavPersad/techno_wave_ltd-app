@@ -52,7 +52,7 @@
                                             <li class="pr-cart-item">
                                                 <div class="product-image">
                                                     <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                                    <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                                    <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                                 </a>
                                                 </div>
                                                 <div class="product-name">
@@ -113,32 +113,39 @@
 
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 sitebar">
 
+                <!-- Price-->
                 <div class="widget mercado-widget filter-widget price-filter">
                         <h2 class="widget-title">Sort by Price</h2>
                         <div class="widget-content">
                             <ul class="list-category">
-                                <li class="category-item has-child-cate">
-                                            <a href="/listpage?sort=price" class="cate-link">- Price (Lowest-Highest)</a>
-                                        </li>
 
                                 <li class="category-item has-child-cate">
-                                            <a href="/listpage?sort=price-desc" class="cate-link">- Price (Highest-Lowest)</a>
+                                    <a href="/listpage?sort=price-desc" class="cate-link">- (Highest - Lowest)</a>
                                 </li>
-                                
+
+                                <li class="category-item has-child-cate">
+                                    <a href="/listpage?sort=price" class="cate-link">- (Lowest - Highest)</a>
+                                </li>
+
                             </ul>     
                         </div>
-                </div><!-- Price-->
+                </div>
+
+
                 <div class="widget mercado-widget filter-widget price-filter">
-						<h2 class="widget-title">Min-Price & Max-Price</h2>
-						<div class="widget-content">
-							<div id="slider-range"></div>
-							<p>
-								<label for="amount">Price:</label>
-								<input type="text" id="amount" readonly>
-								<button class="filter-submit">Filter</button>
-							</p>
-						</div>
-			    </div>
+                            <h2 class="widget-title">Price Range</h2>
+
+                            <form action="{{ route('store.list') }}" method="GET" id="form-search-top" name="form-search-top">
+                                <div class="widget-content">
+                                        <p>
+                                            <label for="amount">Price:</label>
+                                            $<input type="number" value="500" step="100" min=0 max="9900" name="min_price" onKeyDown="return false">
+                                            - $<input type="number" value="3000" step="100" min=100 max="10000" name="max_price" onKeyDown="return false">
+                                            <button class="filter-submit" typ30="submit">Filter</button>
+                                        </p>
+                                </div>
+                            </form>
+                </div>
                 <!-- Price -->
 
                 </br>
@@ -196,7 +203,7 @@
                                     <div class="product product-widget-style">
                                         <div class="thumbnnail">
                                             <a href="{{ route ('store.details', ['id' => $data->id]) }}" title="{{ $data->product_title }}">
-                                                <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt=""></figure>
+                                                <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt=""></figure>
                                             </a>
                                         </div>
                                         <div class="product-info">
