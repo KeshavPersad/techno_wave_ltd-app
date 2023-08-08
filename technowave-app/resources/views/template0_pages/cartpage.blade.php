@@ -111,29 +111,70 @@
                                         <div class="product-name">
                                             <a class="link-to-product" href="{{ route ('store.details', ['id' => $data->id]) }}">{{ $data->product_title }}</a>
 
-                                            </br>
-                                            </br>
                                         
                                             <p>{{$data->product_description}}</p>
 
-                                            </br>
-                                            </br>
                                             @if ($data->product_status == 1)
-                                            <a class="status produtc-price"><p class="status">In Stock</p></a>
+                                            
+                                                <a class="status produtc-price"><p class="status">In Stock</p></a>
+
+                                                <a class="price-field produtc-price"><p class="price">${{ $checkout->formatPrice($data->product_price) }}</p></a>
+
+                                                <form action="{{ route('cart.destroy', ['id' => $data->pivot->id]) }}" method="POST" >
+                                                        @csrf
+                                                        @method('PUT')
+
+                                                    <div class="quantity">
+                                                        <div class="quantity-input">
+                                                            <input type="number" name="cart_quantity" id="cart_quantity" class="" value="{{$data->pivot->cart_quantity}}" min="1" max="10">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="price-field sub-total"><p class="price">Subtotal: ${{ $checkout->formatPrice($data->cartQuantityPrice()) }}</p></div>
+
+                                                    <div class="quantity">
+                                                        <div class="price-field sub-total">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="quantity">
+                                                        <div class="price-field sub-total">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="quantity">
+                                                        <div class="price-field sub-total">
+
+                                                        </div>
+                                                    </div>
+
+                                                        <div class="quantity">
+                                                            <div class="price-field sub-total">
+                                                                <button class="fa-solid fa-rotate-right" aria-hidden="true" type="submit"></button>
+
+                                                                <input type="hidden" name="product_id" value="{{ $data->id }}">
+                                                                <input type="hidden" name="cart_id" value="{{ $data->pivot->id }}">
+                                                            </div>
+                                                        </div>
+
+                                                </form>
+                                            
                                             @else
-                                            <a class="status-out produtc-price"><p class="status-out">Out of Stock</p></a>
+                                                <a class="status-out produtc-price"><p class="status-out">Out of Stock</p></a>
+
+                                                <a class="price-field produtc-price"><p class="price">Unit Price: ${{ $checkout->formatPrice($data->product_price) }}</p></a>
+
+                                                <div class="quantity">
+                                                        <div class="quantity-input">
+                                                            <input type="number" name="product-quatity" value="0" min="1" max="10" readonly>									
+                                                        </div>
+                                                </div>
+
+                                                <div class="price-field sub-total"><p class="price">Subtotal: $0.00</p></div>
+
                                             @endif
 								
-                                            <a class="price-field produtc-price"><p class="price">Unit Price: ${{ $checkout->formatPrice($data->product_price) }}</p></a>
-
-                                            <div class="quantity">
-                                                    <div class="quantity-input">
-                                                        <input type="number" name="product-quatity" value="{{$data->pivot->cart_quantity}}" min="1" max="10">									
-                                                    </div>
-                                            </div>
-
-                                            <div class="price-field sub-total"><p class="price">Subtotal: ${{ $checkout->formatPrice($data->cartQuantityPrice()) }}</p></div>
-
+                                           
                                             <div class="detail-info">
                                                 <form action="{{ route('cart.destroy', ['id' => $data->pivot->id]) }}" method="POST" >
                                                         @csrf
@@ -170,6 +211,7 @@
                             </div>
                             
                             <div class="update-clear">
+
                                 <a class="btn btn-clear" href="{{ route('checkout', ['id' => $data->id]) }}">Proceed to Checkout</a>          
                                 <a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                             </div>

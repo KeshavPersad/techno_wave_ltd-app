@@ -4039,8 +4039,8 @@ article.single-post blockquote p:last-child::after{
     line-height: 20px;
     color: #214b77;
     text-align: center;
-    padding-right: 15px;
-    padding-left: 15px; 
+    padding-right: 5px;
+    padding-left: 20px; 
 }
 .wrap-iten-in-cart .products-cart .quantity .quantity-input .btn{
     display: inline-block;

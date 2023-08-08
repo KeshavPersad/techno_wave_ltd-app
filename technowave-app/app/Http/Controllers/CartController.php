@@ -62,7 +62,9 @@ class CartController extends Controller{
 
     public function destroy(Request $request){
 
-        $product = Cart::where('id', $request->id)->where('user_id', Auth::id())->delete();      
+        $product = Cart::where('id', $request->id)
+        ->where('user_id', Auth::id())
+        ->delete();      
 
         return redirect('/cartpage')->with('status', "Product Removed Successfully");
         

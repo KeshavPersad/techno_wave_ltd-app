@@ -81,7 +81,7 @@
 									<span>Quantity:</span>
 									<div class="quantity-input">
 										
-										<input type="number" name="cart_quantity" class=" " value="1" min="1" max="10">
+										<input type="number" name="cart_quantity" class="" value="1" min="1" max="10">
 
 									</div>
 								</div>
