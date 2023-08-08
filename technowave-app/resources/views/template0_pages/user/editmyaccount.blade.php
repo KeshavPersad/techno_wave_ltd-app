@@ -54,6 +54,11 @@
                                     <a class="widget-title"></a>
                                     </div>
                                 </div>
+
+                                <div class="widget mercado-widget filter-widget brand-widget">
+                                    <a class="widget-title" href="{{ route('password.request') }}"><i class="fa-solid fa-lock"></i> Reset Password</a>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>

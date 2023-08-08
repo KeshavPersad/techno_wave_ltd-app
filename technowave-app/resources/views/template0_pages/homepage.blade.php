@@ -32,11 +32,11 @@
                         <div class="item-slide">
                             <img src="{{ asset('template0/images/main-slider-1-2.jpg') }}" alt="" class="img-slide">
                             <div class="slide-info slide-2">
-                                <h2 class="f-title">Extra 25% Off</h2>
-                                <span class="f-subtitle">On online payments</span>
-                                <p class="discount-code">Use Code: #FA6868</p>
-                                <h4 class="s-title">Get Free</h4>
-                                <p class="s-subtitle">TRansparent Bra Straps</p>
+                                <h2 class="f-title">Earn Techno Points</h2>
+                                <span class="f-subtitle">For every point used you get $5.00 off</span>
+                                <p class="discount-code">Use Point on your next Purchase</p>
+                                <h4 class="s-title"></h4>
+                                <p class="s-subtitle">Transparent Bra Straps</p>
                             </div>
                         </div>
                         <div class="item-slide">

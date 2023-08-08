@@ -17,10 +17,10 @@
 				<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12 col-md-offset-3">							
 					<div class=" main-content-area">
 						<div class="wrap-login-item ">
-							<div class="register-form form-item ">
+							<div class="login-form form-item form-stl">
 
 
-								<form class="form-stl" name="frm-login" method="POST" action="{{ route('register') }}">
+								<form name="frm-login" method="POST" action="{{ route('register') }}">
                                     @csrf
 
 									<fieldset class="wrap-title">
@@ -123,9 +123,16 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
 									</fieldset>
 
-                                            <button type="submit" name="submit" class="btn btn-sign">
-                                                {{ __('Register') }}
-                                            </button>
+									<fieldset class="wrap-input">
+                                        <button type="submit" name="submit" class="btn btn-sign">
+                                            {{ __('Register') }}
+                                        </button>
+									</fieldset>
+
+									<fieldset class="wrap-input">
+										<a class="righter" href="{{ route('home') }}" title="Register an Account">Return to Home Page <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+									</fieldset>
+
 								</form>
 
 							</div>											
