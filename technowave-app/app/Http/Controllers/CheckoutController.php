@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\CheckoutHelper;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class CheckoutController extends Controller
-{
-    public function index(){
+class CheckoutController extends Controller{
+    
+    public function index(Request $request){
 
         $cart_details = Auth::user()->products;
         $user = Auth::user();
@@ -19,8 +20,6 @@ class CheckoutController extends Controller
         $checkout = new CheckoutHelper($cart_details);
         $checkout->calculateTotal();
         $bestSellingProducts = $this->bestSellingProducts();
-
-       
 
         return view('template0_pages.checkoutpage', [
             

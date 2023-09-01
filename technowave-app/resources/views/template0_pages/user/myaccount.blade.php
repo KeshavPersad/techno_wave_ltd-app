@@ -24,7 +24,7 @@
                                         <img src="{{ asset('storage/images/user/' . $user_details->user_image) }}" alt="No Image Added" width="175" height="175" >
                                     </div>
                                     <h5 class="user-name" >{{ $user_details->first_name}} {{ $user_details->last_name}}</h5>
-                                    <h6 class="user-email" >{{ $user_details->email}}</h6>
+                                    <h6 class="user-email" >{{ $user_details->email}} | +1(868) {{ $user_details->phone_number}}</h6>
                                     
                                     <div class="widget mercado-widget filter-widget brand-widget">
                                     <a class="widget-title"></a>
@@ -53,6 +53,7 @@
                                     <a class="widget-title"></a>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -67,11 +68,13 @@
                 <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
                     <div class="card h-100">
                         <div class="card-body">
-                            <div class="row gutters">
 
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h3 class="box-title">Personal Information</h3>
-                                </div>
+                        <div class="wrap-shop-control">
+                        <h1 class="shop-title">Personal Information</h1>
+                        </div>
+                            </br>
+                            </br>
+                            <div class="row gutters">
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="first_name">First Name</label>
@@ -107,9 +110,11 @@
 
                             <div class="row gutters">
 
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h3 class="box-title">Billing Information</h3>
+                                <div class="wrap-shop-control">
+                                <h1 class="shop-title">Billing Information</h1>
                                 </div>
+                                </br>
+                                </br>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="user_lot_number">Lot #</label>

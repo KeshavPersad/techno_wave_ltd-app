@@ -48,8 +48,9 @@
                                 </br>
                                 </br>
 
-								<form class="form-stl" method="POST" action="{{ route('insert.category') }}" enctype="multipart/form-data">
-                                    @csrf	
+								<form class="form-stl" method="POST" action="{{ route('update.category', ['id' => $data->id]) }}" enctype="multipart/form-data">
+                                    @csrf
+                                    @method ('GET')
 
 									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
@@ -121,7 +122,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
 
-                                        <img src="{{ asset('storage/' . $data->category_image1) }}" width="150" alt="category_image1">
+                                        <img src="{{ asset('storage/images/category/' . $data->category_image1) }}" width="150" alt="category_image1">
                                         </br>
 
                                         </div>
@@ -131,7 +132,7 @@
                                         <div class="form-group">
 
                                         <label for="category_image1">Change Image<a class="red-star">*</a></label>
-                                            <input type="file" class="form-control" name="category_image1" >
+                                            <input type="file" class="form-control" name="category_image1" value="{{ $data->category_image1 }}">
                                                 @error('category_image1')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

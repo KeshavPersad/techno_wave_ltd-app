@@ -77,6 +77,8 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
 
         // Admin Routes
 
+        Route::view('/registerAdmin', 'auth/registerAdmin')->name('add.admin');
+
         //Route For Admin Dashboard
        Route::get('/dasboard', [AdminController::class, 'index'])->name('dashboard');
        Route::view('/admin-myaccount', 'template0_pages/admin/admin-myaccount')->name('admin-myaccount');
@@ -92,6 +94,8 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
         
         //Route for Edit/Update Account
         Route::get('/updateadminAccount/{id}', [UserController::class, 'updateAccount'])->name('update.admin.account');
+
+        Route::get('/salesStatistics', [AdminController::class, 'salesStatistics'])->name('sales.statistics');
 
  //........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
         //Route for View All Products

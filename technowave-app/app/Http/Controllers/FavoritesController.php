@@ -60,7 +60,7 @@ class FavoritesController extends Controller{
 
         $product = Favorite::where('id', $request->id)->where('user_id', Auth::id())->delete();      
 
-        return redirect('/wishlistpage')->with('status', "Product Removed Successfully");
+        return redirect('/wishlistpage')->with('status', "Product Removed from Wish List Successfully");
         
     }
 

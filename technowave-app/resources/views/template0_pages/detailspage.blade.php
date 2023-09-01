@@ -21,7 +21,7 @@
 								
 									<ul class="slides">
 										<li data-thumb="{{ asset('storage/images/product/' . $data->product_image1) }}">
-											<img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt="product thumbnail" />
+											<img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt="product thumbnail"/>
 										</li>
 
 										<li data-thumb="{{asset('storage/images/product/' . $data->product_image2) }}">
@@ -59,14 +59,15 @@
                                 </ul>
                             </div>
 
-                            <div class="wrap-social">
-                            	<a class="link-socail" href="#"><img src="assets/images/social-list.png" alt=""></a>
+							<div class="wrap-social">
+                            	<a class="link-socail" href="#"><img src="{{ asset('template0/images/social-list.png') }}" alt=""></a>
                             </div>
+
                             <div class="wrap-price"><span class="product-price">${{$data->product_price}}</span></div>
                             <div class="stock-info in-stock">
 
 								@if ($data->product_status == 1)
-									<p class="availability"><a class="status">In Stock</a></p>
+									<p class="availability">Availability: <a class="status">In Stock</a></p>
 								@else
 									<p class="availability"><a class="status-out">Out of Stock</a></p>
 								@endif
@@ -87,8 +88,7 @@
 								</div>
 
 								<div class="wrap-butons">
-                                            <button class="btn add-to-cart_Shop" type="submit" ><i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to Cart</button>
-
+                                            <button class="btn add-to-cart" type="submit" ><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Add to Cart</button>
                                             <input type="hidden" name="product_id" value="{{ $data->id }}">
 								</div>
 							</form>
@@ -106,7 +106,7 @@
 									</div>
 
 									<div class="wrap-butons" id="get-info">
-										<button  type="submit" class="btn add-to-cart_Shop"><i class="fa fa-heart" aria-hidden="true"></i> Add to Wish List</button>
+										<button type="submit" class="btn add-to-cart"><i class="fa fa-heart" aria-hidden="true"></i> Add to Wish List</button>
 
 										<input type="hidden" name="product_id" value="{{ $data->id }}">
 									</div>
@@ -115,7 +115,7 @@
 						</div>
 						<div class="advance-info">
 							<div class="tab-control normal">
-								<a href="#add_infomation" class="tab-control-item">Addtional Infomation</a>
+								<a href="#add_infomation" class="tab-control-item active">Addtional Infomation</a>
 								<a href="#review" class="tab-control-item">Product Reviews</a>
 								<a href="#add-review" class="tab-control-item">Add a Review</a>
 							</div>
@@ -123,7 +123,7 @@
 							<div class="tab-contents">
 
 								<!-- Product Add Infomation -->
-								<div class="tab-content-item " id="add_infomation">
+								<div class="tab-content-item active" id="add_infomation">
 									<p>{{$data->product_description}}</p>
 									</br>
 									</br>

@@ -4454,8 +4454,9 @@ article.single-post blockquote p:last-child::after{
 }
 .wrap-product-detail .detail-info .wrap-butons .add-to-cart{
     display: block;
+    width: 100%;
     background-color: #f5f5f5;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 34px;
     font-weight: 600;
     color: #666666;
@@ -4463,7 +4464,9 @@ article.single-post blockquote p:last-child::after{
     border-radius: 0;
     padding: 4.5px 10px;
     text-align: center;
+
 }
+
 .wrap-product-detail .detail-info .wrap-butons .add-to-cart:hover{
     color: #fff;
 }
@@ -4487,6 +4490,7 @@ article.single-post blockquote p:last-child::after{
 }
 .wrap-product-detail .detail-info .wrap-btn .btn.btn-wishlist{
     float: left;
+    
 }
 .wrap-product-detail .detail-info .wrap-btn .btn.btn-wishlist::before{
     content: "\f004";

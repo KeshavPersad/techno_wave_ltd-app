@@ -24,24 +24,21 @@
                                     @csrf
 
 									<fieldset class="wrap-title">
-										<h3 class="form-title">Log Page</h3>										
+										<h3 class="form-title">Login Page</h3>										
 									</fieldset>
 
 									<fieldset class="wrap-input">
 										<label for="frm-login-uname">Email Address:</label>
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Enter your email address" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
 									</fieldset>
-
 									<fieldset class="wrap-input">
 										<label for="frm-login-pass">Password:</label>
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="************" name="password" required autocomplete="current-password">
-
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

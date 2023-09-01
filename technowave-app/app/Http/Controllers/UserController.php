@@ -49,7 +49,7 @@ class UserController extends Controller{
 
     public function editadminAccount($id){
 
-        $user_details = User::findorFail($id);
+        $user_details = Auth::user();
         // dd($user_details);
 
         return view('template0_pages.admin.editadmin-myaccount', [
@@ -61,13 +61,13 @@ class UserController extends Controller{
     }
 
     public function updateAccount(Request $request, $id){
-
         $user = User::findorFail($id);
         // dd($user);
-
+        $user->user_image = $request->input('user_image');
+        
         if ($request->hasFile('user_image')){
 
-            $path = 'images/user/' . $user->user_image;
+            $path = 'storage/images/user/' . $user->user_image1;
 
             if(File::exists($path)){
 
@@ -77,16 +77,15 @@ class UserController extends Controller{
             $file = $request->file('user_image');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('images/user/',$filename);
-            $user->user_image = $filename;
+            $file->move('storage/images/user/',$filename);
+            $user->user_image1 = $filename;
         }
-
+        
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
         $user->password = $request->input('password');
         $user->phone_number = $request->input('phone_number');
-        $user->user_image = $request->input('user_image');
         $user->user_lot_number = $request->input('user_lot_number');
         $user->user_street = $request->input('user_street');
         $user->user_city = $request->input('user_city');
@@ -144,7 +143,6 @@ class UserController extends Controller{
         return redirect('/registeredUsers')->with('status', 'User Deleted Successfully');
         
     }
-
 
     public function filterUser(Request $request){
 

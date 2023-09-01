@@ -22,10 +22,10 @@ class ProductController extends Controller{
 
         $category = Product::select('category_id')->distinct()->get();
         $brand = Product::select('brand_id')->distinct()->get();
-
-        $bestSellingProducts = $this->bestSellingProducts();
         $product_details = $this->filterProducts($request);
 
+        $bestSellingProducts = $this->bestSellingProducts();
+        
         return view('template0_pages.storepage', [
                         
             'product_details' => $product_details,
@@ -114,49 +114,36 @@ class ProductController extends Controller{
 
 
     public function filterProducts(Request $request){
-
         $params = $request->query();
         $product_details = Product::where('id', '>' , 0);
-    
         foreach($params as $key => $value){
-
             if(empty($value)){
                 continue;
             }
-
             switch($key){
-
                 case 'category':
                     $product_details->where('category_id', $value);
                     break;
-                
                 case 'brand':
                     $product_details->where('brand_id', $value);
                     break;
-
                 case 'search':
                     $product_details->where('product_title', 'LIKE' , '%' .$value. '%')
                     ->orWhere('product_description', 'LIKE' , '%' .$value. '%');
                     break;
-
                 case 'min_price':
                     $product_details->where('product_price', '>=' ,$value);
                     break;
-
                 case 'max_price':
                     $product_details->where('product_price', '<=' ,$value);
                     break;
-
                 case 'sort':
                     //localhost:8000/store?sort=title
                     $keyValues = $this->orderBy($value);
                     $product_details->orderBy($keyValues[0], $keyValues[1]);
                     break;
-
                 default:
-
                     break;
-
             }
         }
 
@@ -228,7 +215,7 @@ class ProductController extends Controller{
             $file = $request->file('product_image1');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('storage/images/products/',$filename);
+            $file->move('storage/images/product/',$filename);
             $product->product_image1 = $filename;
 
         }
@@ -261,7 +248,7 @@ class ProductController extends Controller{
             $file = $request->file('product_image4');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('storage/images/products/',$filename);
+            $file->move('storage/images/product/',$filename);
             $product->product_image4 = $filename;
 
         }
@@ -316,9 +303,10 @@ class ProductController extends Controller{
         $product = Product::findorFail($id);
         // dd($product);
 
+        $product->product_image1 = $request->input('product_image1');
         if ($request->hasFile('product_image1')){
 
-            $path = 'storage/images/products/' . $product->product_image1;
+            $path = 'storage/images/product/' . $product->product_image1;
 
             if(File::exists($path)){
 
@@ -328,9 +316,61 @@ class ProductController extends Controller{
             $file = $request->file('product_image1');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('storage/images/products/',$filename);
+            $file->move('storage/images/product/',$filename);
             $product->product_image1 = $filename;
         }
+
+        $product->product_image2 = $request->input('product_image2');
+        if ($request->hasFile('product_image2')){
+
+            $path = 'storage/images/product/' . $product->product_image2;
+
+            if(File::exists($path)){
+
+                File::delete($path);
+
+            }
+            $file = $request->file('product_image2');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('storage/images/product/',$filename);
+            $product->product_image2 = $filename;
+        }
+
+        $product->product_image3 = $request->input('product_image3');
+        if ($request->hasFile('product_image3')){
+
+            $path = 'storage/images/product/' . $product->product_image3;
+
+            if(File::exists($path)){
+
+                File::delete($path);
+
+            }
+            $file = $request->file('product_image3');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('storage/images/product/',$filename);
+            $product->product_image3 = $filename;
+        }
+
+        $product->product_image4 = $request->input('product_image4');
+        if ($request->hasFile('product_image4')){
+
+            $path = 'storage/images/product/' . $product->product_image4;
+
+            if(File::exists($path)){
+
+                File::delete($path);
+
+            }
+            $file = $request->file('product_image4');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('storage/images/product/',$filename);
+            $product->product_image4 = $filename;
+        }
+        
         $product->product_title = $request->input('product_title');
         $product->product_description = $request->input('product_description');
         $product->product_add_info = $request->input('product_add_info');

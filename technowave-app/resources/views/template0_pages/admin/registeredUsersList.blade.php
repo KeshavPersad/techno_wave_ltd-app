@@ -43,7 +43,7 @@
 
                                         <li class="pr-cart-item">
                                             <div class="product-image">
-                                                <figure><img src="{{ asset('storage/' . $data->user_image) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
+                                                <figure><img src="{{ asset('storage/images/user/' . $data->user_image) }}" alt="T-Shirt Raw Hem Organic Boro Constrast Denim"></figure>
                                             </a>
                                             </div>
                                             <div class="product-name">
@@ -127,11 +127,7 @@
                                 </div>
 
                                 <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('customer.orders') }}"><i class="fa-solid fa-chart-line"></i> Sale Statistics</a>
-                                </div>
-
-                                <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('dashboard') }}"><i class="fa-solid fa-user-plus"></i> Add Admin</a>
+                                    <a class="widget-title" href="{{ route('sales.statistics') }}"><i class="fa-solid fa-chart-line"></i> Sale Statistics</a>
                                 </div>
 
                             </div>

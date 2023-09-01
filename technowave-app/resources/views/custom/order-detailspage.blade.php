@@ -30,7 +30,7 @@
                                         <li class="pr-cart-item">   
 
                                                 <div class="product-image">
-                                                    <figure><img src="{{ asset('storage/' . $data->product_image1) }}" alt=""></figure>
+                                                    <figure><img src="{{ asset('storage/images/product/' . $data->product_image1) }}" alt=""></figure>
                                                 </div>
                                                 <div class="product-name">
                                                     <a class="link-to-product" href="{{ route ('store.details', ['id' => $data->id]) }}">{{ $data->product_title }}</a>

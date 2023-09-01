@@ -147,20 +147,20 @@
 
 						<form action="#" method="get" name="frm-billing">
 							<p class="row-in-form">
-								<label for="first_name">First Name<a class="red-star">*</a></label>
-								<input id="first_name" type="text" name="first_name" value="{{ $user->first_name }}" placeholder="Your name" readonly>
+								<label for="user_first_name">First Name<a class="red-star">*</a></label>
+								<input id="user_first_name" type="text" name="user_first_name" value="{{ $user->first_name }}" placeholder="Your name" readonly>
 							</p>
 							<p class="row-in-form">
-								<label for="last_name">Last Name<a class="red-star">*</a></label>
-								<input id="last_name" type="text" name="last_name" value="{{ $user->last_name }}" placeholder="Your last name" readonly>
+								<label for="user_last_name">Last Name<a class="red-star">*</a></label>
+								<input id="user_last_name" type="text" name="user_last_name" value="{{ $user->last_name }}" placeholder="Your last name" readonly>
 							</p>
 							<p class="row-in-form">
 								<label for="email">Email Addreess<a class="red-star">*</a></label>
 								<input id="email" type="email" name="email" value="{{ $user->email }}" placeholder="Type your email" readonly>
 							</p>
 							<p class="row-in-form">
-								<label for="phone_number">Phone #<a class="red-star">*</a></label>
-								<input id="phone_number" type="text" name="phone_number" value="{{ $user->phone_number }}" placeholder="(868) XXX-XXXX" readonly>
+								<label for="user_phone_number">Phone #<a class="red-star">*</a></label>
+								<input id="user_phone_number" type="text" name="user_phone_number" value="{{ $user->phone_number }}" placeholder="(868) XXX-XXXX" readonly>
 							</p>
 
 							<p class="row-in-form">
@@ -214,7 +214,9 @@
 										</div>
 
 											<div class="update-clear">
+
 												<x-core.stripe-ui/>
+												
 												<a class="link-to-shop" href="{{ route ('store') }}">Continue Shopping <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 											</div>
 									</div>	

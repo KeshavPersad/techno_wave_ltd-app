@@ -12,7 +12,7 @@ class OrderController extends Controller{
 
     public function index(Request $request){
 
-        $orders = Auth::user()->orders;
+        $orders = Auth::user()->orders; 
         $user_details = Auth::user();
         $bestSellingProducts = $this->bestSellingProducts();
         $order_details = $this->filterOrder($request);
@@ -61,8 +61,8 @@ class OrderController extends Controller{
             'order_products' => $order_products,
 
         ]);  
-
     }
+    
 
     public function customerOrders(Request $request){
 

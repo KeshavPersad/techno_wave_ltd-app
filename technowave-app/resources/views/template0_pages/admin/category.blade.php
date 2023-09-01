@@ -124,11 +124,7 @@
                                 </div>
 
                                 <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('customer.orders') }}"><i class="fa-solid fa-chart-line"></i> Sale Statistics</a>
-                                </div>
-
-                                <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('dashboard') }}"><i class="fa-solid fa-user-plus"></i> Add Admin</a>
+                                    <a class="widget-title" href="{{ route('sales.statistics') }}"><i class="fa-solid fa-chart-line"></i> Sale Statistics</a>
                                 </div>
 
                             </div>

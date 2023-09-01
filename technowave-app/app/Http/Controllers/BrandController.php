@@ -125,9 +125,11 @@ class BrandController extends Controller{
         $brand = Brand::findorFail($id);
         // dd($brand_details);
 
+        $brand->brand_image1 = $request->input('brand_image1');
+
         if ($request->hasFile('brand_image1')){
 
-            $path = 'images/brand/' . $brand->brand_image1;
+            $path = 'storage/images/brand/' . $brand->brand_image1;
 
             if(File::exists($path)){
 
@@ -137,13 +139,13 @@ class BrandController extends Controller{
             $file = $request->file('brand_image1');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('images/brand/',$filename);
+            $file->move('storage/images/brand/',$filename);
             $brand->brand_image1 = $filename;
         }
+        
         $brand->brand_title = $request->input('brand_title');
         $brand->brand_description = $request->input('brand_description');
         $brand->brand_status = $request->input('brand_status') == TRUE ? '1': '0';
-        $brand->brand_image1 = $request->input('brand_image1');
         $brand->update();
 
 

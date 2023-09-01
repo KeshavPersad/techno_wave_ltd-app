@@ -159,7 +159,7 @@
 
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                        <img src="{{ asset('storage/' . $data->product_image1) }}" width="150" alt="product_image1">
+                                        <img src="{{ asset('storage/images/product/' . $data->product_image1) }}" width="150" alt="product_image1">
                                         </br>
                                          <label for="product_image1">Update Image 1<a class="red-star">*</a></label>
                                         <input type="file" class="form-control" name="product_image1">
@@ -173,7 +173,7 @@
 
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                        <img src="{{ asset('storage/' . $data->product_image2) }}" width="150" alt="product_image2">
+                                        <img src="{{ asset('storage/images/product/' . $data->product_image2) }}" width="150" alt="product_image2">
                                         </br> 
                                         <label for="product_image2">Update Image 2<a class="red-star">*</a></label>
                                         <input type="file" class="form-control" name="product_image2">
@@ -187,7 +187,7 @@
 
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                        <img src="{{ asset('storage/' . $data->product_image3) }}" width="150" alt="product_image3">
+                                        <img src="{{ asset('storage/images/product/' . $data->product_image3) }}" width="150" alt="product_image3">
                                         </br> 
                                         <label for="product_image3">Update Image 3<a class="red-star">*</a></label>
                                         <input type="file" class="form-control" name="product_image3">
@@ -201,7 +201,7 @@
 
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                        <img src="{{ asset('storage/' . $data->product_image4) }}" width="150" alt="product_image4">
+                                        <img src="{{ asset('storage/images/product/' . $data->product_image4) }}" width="150" alt="product_image4">
                                         </br> 
                                         <label for="product_image4">Update Image 4<a class="red-star">*</a></label>
                                         <input type="file" class="form-control" name="product_image4">

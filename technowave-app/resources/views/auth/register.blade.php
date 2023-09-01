@@ -22,14 +22,11 @@
 
 								<form name="frm-login" method="POST" action="{{ route('register') }}">
                                     @csrf
-
 									<fieldset class="wrap-title">
 										<h3 class="form-title">Create an Account</h3>
 										<h4 class="form-subtitle">Personal infomation</h4>
 									</fieldset>	
 										
-
-
 									<fieldset class="wrap-input">
 										<label for="frm-reg-lname">First Name<a class="red-star">*</a></label>
 										<input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>

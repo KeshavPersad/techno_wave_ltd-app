@@ -5,6 +5,8 @@
 
 <main id="main" class="main-site left-sidebar">
 
+
+
     <div class="container">
 
         <div class="wrap-breadcrumb">
@@ -77,23 +79,27 @@
                                 border-top: 1px solid #eee;
                             }
                         </style>
-                        
+
+                            <div >
+
+                            <h1 class="shop-title">Sale Statistics</h1>
+
+                            </div>
+                            </br>
 
                             <div class="row">
-
                                 <div class="col-md-3 col-sm-6">    
                                     <div class="icon-stat">    
                                         <div class="row">
                                             <div class="col-xs-8 text-left">
-                                                <span class="icon-stat-label">Total Revenue</span>
-                                                <span class="icon-stat-value">$0</span>
+                                                <span class="">Total Revenue</span>
+                                                <span class="icon-stat-value">${{$total_revenue}}</span>
                                             </div>   
                                             <div class="col-xs-4 text-center">
                                                 
                                             </div>
                                         </div>    
                                         <div class="icon-stat-footer">
-                                        <i class="fa fa-clock-o"></i> Updated Now
                                         </div>    
                                     </div>    
                                 </div>    
@@ -102,15 +108,14 @@
                                     <div class="icon-stat">    
                                         <div class="row">
                                             <div class="col-xs-8 text-left">
-                                                <span class="icon-stat-label">Total Sales</span>
-                                                <span class="icon-stat-value">0</span>
+                                                <span class="">Total Sales</span>
+                                                <span class="icon-stat-value">{{$total_sales}}</span>
                                             </div>    
                                             <div class="col-xs-4 text-center">
                                                 
                                             </div>
                                         </div>    
                                         <div class="icon-stat-footer">
-                                        <i class="fa fa-clock-o"></i> Updated Now
                                         </div>   
                                     </div>
                                 </div>
@@ -119,15 +124,14 @@
                                     <div class="icon-stat">    
                                         <div class="row">
                                             <div class="col-xs-8 text-left">
-                                                <span class="icon-stat-label">Today Revenue</span>
-                                                <span class="icon-stat-value">$0</span>
+                                                <span class="">Today Revenue</span>
+                                                <span class="icon-stat-value">$0.00</span>
                                             </div>    
                                             <div class="col-xs-4 text-center">
                                                 
                                             </div>
                                         </div>    
                                         <div class="icon-stat-footer">
-                                        <i class="fa fa-clock-o"></i> Updated Now
                                         </div>
                                     </div>    
                                 </div>    
@@ -136,7 +140,7 @@
                                     <div class="icon-stat">    
                                         <div class="row">
                                             <div class="col-xs-8 text-left">
-                                                <span class="icon-stat-label">Today Sales</span>
+                                                <span class="">Today Sales</span>
                                                 <span class="icon-stat-value">0</span>
                                             </div>    
                                             <div class="col-xs-4 text-center">
@@ -144,11 +148,74 @@
                                             </div>
                                         </div>    
                                         <div class="icon-stat-footer">
-                                        <i class="fa fa-clock-o"></i> Updated Now
                                         </div>    
                                     </div>    
-                                </div> 
-                            </div>        
+                                </div>
+
+                            </div> 
+
+                                <div >
+
+                                <h1 class="shop-title">Inventory</h1>
+
+                                </div>
+                                </br>
+
+                            <div class="row">
+
+                                <div class="col-md-3 col-sm-6">    
+                                    <div class="icon-stat">    
+                                        <div class="row">
+                                            <div class="col-xs-8 text-left">
+                                                <span class="">Products</span>
+                                                <span class="icon-stat-value">{{$products}}</span>
+                                            </div>    
+                                            <div class="col-xs-4 text-center">
+                                                
+                                            </div>
+                                        </div>    
+                                        <div class="icon-stat-footer">
+                                        <a class="widget-title" href="{{ route('allproducts') }}"><i class="fa-solid fa-boxes-stacked"></i> View Products</a>
+                                        </div>    
+                                    </div>    
+                                </div>
+
+                                <div class="col-md-3 col-sm-6">    
+                                    <div class="icon-stat">    
+                                        <div class="row">
+                                            <div class="col-xs-8 text-left">
+                                                <span class="">Catrgories</span>
+                                                <span class="icon-stat-value">{{$categories}}</span>
+                                            </div>    
+                                            <div class="col-xs-4 text-center">
+                                                
+                                            </div>
+                                        </div>    
+                                        <div class="icon-stat-footer">
+                                        <a class="widget-title" href="{{ route('categories') }}"><i class="fa-solid fa-bars-progress"></i> View Categories</a>
+                                        </div>    
+                                    </div>    
+                                </div>
+                                <div class="col-md-3 col-sm-6">    
+                                    <div class="icon-stat">    
+                                        <div class="row">
+                                            <div class="col-xs-8 text-left">
+                                                <span class="">Brands</span>
+                                                <span class="icon-stat-value">{{$brands}}</span>
+                                            </div>    
+                                            <div class="col-xs-4 text-center">
+                                                
+                                            </div>
+                                        </div>    
+                                        <div class="icon-stat-footer">
+                                        <a class="widget-title" href="{{ route('brands') }}"><i class="fa-solid fa-layer-group"></i> View Brands</a>
+                                        </div>    
+                                    </div>    
+                                </div>
+
+                            </div> 
+                              
+                                   
                     </div>
             </div><!--end main products area-->
 
@@ -178,11 +245,7 @@
                                 </div>
 
                                 <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('customer.orders') }}"><i class="fa-solid fa-chart-line"></i> Sale Statistics</a>
-                                </div>
-
-                                <div class="widget mercado-widget filter-widget brand-widget">
-                                    <a class="widget-title" href="{{ route('dashboard') }}"><i class="fa-solid fa-user-plus"></i> Add Admin</a>
+                                    <a class="widget-title" href="{{ route('sales.statistics') }}"><i class="fa-solid fa-chart-line"></i> Sale Statistics</a>
                                 </div>
 
                             </div>

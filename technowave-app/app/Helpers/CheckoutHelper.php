@@ -57,13 +57,11 @@ class CheckoutHelper{
             $this->subtotal += $data->cartQuantityPrice();
 
         }
-
         if ($this->subtotal < '6000'){
 
         $this->deliveryFee = $this->subtotal * 0.05;
 
         }
-
     }
 
     public function calculateTotal(){

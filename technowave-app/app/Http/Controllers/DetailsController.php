@@ -13,8 +13,10 @@ class DetailsController extends Controller{
     public function index($id){
 
         $product_details = Product::findorFail($id);
+
         $recommendedProducts = $this->recommendedProducts($id);
         $bestSellingProducts = $this->bestSellingProducts();
+
         $user = Auth::user();
         $review_details = Review::where('product_id', $id)->get();
         $rating_sum =  Review::where('product_id', $id)->sum('stars_rated');
@@ -76,24 +78,18 @@ class DetailsController extends Controller{
     }
 
     public function recommendedProducts($product_id){
-
         return DB::select(
-
             "SELECT*
             FROM products
             WHERE id != $product_id
             AND id IN(
-
                 SELECT DISTINCT product_id FROM order_product WHERE order_id IN(
 
                     SELECT DISTINCT order_id FROM order_product WHERE product_id = $product_id
-
                     )
-
             )
             LIMIT 5"
         );
-
     }
 
     public function bestSellingProducts(){

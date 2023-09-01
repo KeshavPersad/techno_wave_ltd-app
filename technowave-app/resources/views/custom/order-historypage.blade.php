@@ -27,7 +27,7 @@
                                         <img src="{{ asset('storage/images/user/' . $user_details->user_image) }}" alt="Maxwell Admin" width="175" height="175" >
                                     </div>
                                     <h5 class="user-name" >{{ $user_details->first_name}} {{ $user_details->last_name}}</h5>
-                                    <h6 class="user-email" >{{ $user_details->email}}</h6>
+                                    <h6 class="user-email" >{{ $user_details->email}} | +1(868) {{ $user_details->phone_number}}</h6>
                                     
                                     <div class="widget mercado-widget filter-widget brand-widget">
                                     <a class="widget-title"></a>

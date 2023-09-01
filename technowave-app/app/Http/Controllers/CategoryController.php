@@ -129,9 +129,11 @@ class CategoryController extends Controller{
         $category = Category::findorFail($id);
         // dd($category_details);
 
+        $category->category_image1 = $request->input('category_image1');
+
         if ($request->hasFile('category_image1')){
 
-            $path = 'images/category/' . $category->category_image1;
+            $path = 'storage/images/category/' . $category->category_image1;
 
             if(File::exists($path)){
 
@@ -141,13 +143,12 @@ class CategoryController extends Controller{
             $file = $request->file('category_image1');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
-            $file->move('images/category/',$filename);
+            $file->move('storage/images/category/',$filename);
             $category->category_image1 = $filename;
         }
         $category->category_title = $request->input('category_title');
         $category->category_description = $request->input('category_description');
         $category->category_status = $request->input('category_status') == TRUE ? '1': '0';
-        $category->category_image1 = $request->input('category_image1');
         $category->update();
 
 

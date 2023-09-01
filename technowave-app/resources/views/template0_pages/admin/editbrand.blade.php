@@ -48,8 +48,9 @@
                                 </br>
                                 </br>
 
-								<form class="form-stl" method="POST" action="{{ route('insert.brand') }}" enctype="multipart/form-data">
+								<form class="form-stl" method="POST" action="{{ route('update.brand', ['id' => $data->id]) }}" enctype="multipart/form-data">
                                     @csrf	
+                                    @method ('GET')
 
 									<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
@@ -121,7 +122,7 @@
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
 
-                                        <img src="{{ asset('storage/' . $data->brand_image1) }}" width="150" alt="brand_image1">
+                                        <img src="{{ asset('storage/images/brand/' . $data->brand_image1) }}" width="150" alt="brand_image1">
                                         </br>
 
                                         </div>
